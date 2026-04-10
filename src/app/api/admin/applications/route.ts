@@ -14,6 +14,7 @@ export async function GET(request: Request) {
   }
   try {
     const { searchParams } = new URL(request.url);
+    const exportMode = searchParams.get('export') === '1';
     const page = Math.max(1, Number(searchParams.get('page') || 1));
     const pageSize = Math.min(
       MAX_PAGE_SIZE,
@@ -36,11 +37,12 @@ export async function GET(request: Request) {
     }
 
     const total = await prisma.application.count({ where });
+    const effectivePageSize = exportMode ? total : pageSize;
     const applications = await prisma.application.findMany({
       where,
       orderBy: { createdAt: 'desc' },
-      skip: (page - 1) * pageSize,
-      take: pageSize,
+      skip: exportMode ? 0 : (page - 1) * pageSize,
+      take: exportMode ? total : pageSize,
       select: {
         id: true,
         fullName: true,
@@ -78,9 +80,9 @@ export async function GET(request: Request) {
       ok: true,
       data: {
         total,
-        page,
-        pageSize,
-        pages: Math.max(1, Math.ceil(total / pageSize)),
+        page: exportMode ? 1 : page,
+        pageSize: effectivePageSize,
+        pages: exportMode ? 1 : Math.max(1, Math.ceil(total / pageSize)),
         totalPaid,
         statusCounts,
         applications,

@@ -11,7 +11,9 @@ import { ThemeToggle } from './ThemeToggle';
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isProgramsOpen, setIsProgramsOpen] = useState(false);
+  const [isAcademyOpen, setIsAcademyOpen] = useState(false);
   const programsCloseTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const academyCloseTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
   const { data } = useProgrammesData();
   const programs = data.programs;
@@ -30,6 +32,23 @@ export function Navigation() {
     }
     programsCloseTimeout.current = setTimeout(() => {
       setIsProgramsOpen(false);
+    }, 240);
+  };
+
+  const handleAcademyEnter = () => {
+    if (academyCloseTimeout.current) {
+      clearTimeout(academyCloseTimeout.current);
+      academyCloseTimeout.current = null;
+    }
+    setIsAcademyOpen(true);
+  };
+
+  const handleAcademyLeave = () => {
+    if (academyCloseTimeout.current) {
+      clearTimeout(academyCloseTimeout.current);
+    }
+    academyCloseTimeout.current = setTimeout(() => {
+      setIsAcademyOpen(false);
     }, 240);
   };
 
@@ -115,38 +134,41 @@ export function Navigation() {
               Admissions
             </Link>
 
-            <Link
-              href="/tuition"
-              className={`text-sm font-semibold transition-colors ${
-                isActivePath('/tuition')
-                  ? 'text-[var(--brand-ink)]'
-                  : 'text-slate-700 hover:text-[var(--brand-ink)]'
-              }`}
+            <div
+              className="relative"
+              onMouseEnter={handleAcademyEnter}
+              onMouseLeave={handleAcademyLeave}
             >
-              Tuition
-            </Link>
+              <button className="text-sm font-semibold text-slate-700 hover:text-[var(--brand-ink)] transition-colors flex items-center gap-1">
+                Academy
+                <ChevronDown className={`w-4 h-4 transition-transform ${isAcademyOpen ? 'rotate-180' : ''}`} />
+              </button>
 
-            <Link
-              href="/locations"
-              className={`text-sm font-semibold transition-colors ${
-                isActivePath('/locations')
-                  ? 'text-[var(--brand-ink)]'
-                  : 'text-slate-700 hover:text-[var(--brand-ink)]'
-              }`}
-            >
-              Locations
-            </Link>
-
-            <Link
-              href="/about"
-              className={`text-sm font-semibold transition-colors ${
-                isActivePath('/about')
-                  ? 'text-[var(--brand-ink)]'
-                  : 'text-slate-700 hover:text-[var(--brand-ink)]'
-              }`}
-            >
-              About
-            </Link>
+              {isAcademyOpen && (
+                <div onMouseEnter={handleAcademyEnter} onMouseLeave={handleAcademyLeave}>
+                  <Reveal
+                    delay={0}
+                    speed="fast"
+                    className="absolute top-full left-0 mt-3 w-56 bg-card rounded-2xl shadow-xl border border-border py-2 z-50"
+                  >
+                    {[
+                      { href: '/about', label: 'About' },
+                      { href: '/tuition', label: 'Tuition' },
+                      { href: '/locations', label: 'Locations' },
+                    ].map((item, index) => (
+                      <Reveal key={item.href} delay={index * 60} speed="fast" className="block">
+                        <Link
+                          href={item.href}
+                          className="block px-6 py-3 hover:bg-[var(--brand-sand)] transition-colors text-sm font-semibold text-foreground"
+                        >
+                          {item.label}
+                        </Link>
+                      </Reveal>
+                    ))}
+                  </Reveal>
+                </div>
+              )}
+            </div>
 
             <Link
               href="/contact"
@@ -227,41 +249,25 @@ export function Navigation() {
                 Admissions
               </Link>
 
-              <Link
-                href="/tuition"
-                onClick={() => setIsOpen(false)}
-                className={`block text-sm font-semibold ${
-                  isActivePath('/tuition')
-                    ? 'text-[var(--brand-ink)]'
-                    : 'text-slate-700'
-                }`}
-              >
-                Tuition
-              </Link>
-
-              <Link
-                href="/locations"
-                onClick={() => setIsOpen(false)}
-                className={`block text-sm font-semibold ${
-                  isActivePath('/locations')
-                    ? 'text-[var(--brand-ink)]'
-                    : 'text-slate-700'
-                }`}
-              >
-                Locations
-              </Link>
-
-              <Link
-                href="/about"
-                onClick={() => setIsOpen(false)}
-                className={`block text-sm font-semibold ${
-                  isActivePath('/about')
-                    ? 'text-[var(--brand-ink)]'
-                    : 'text-slate-700'
-                }`}
-              >
-                About
-              </Link>
+              <div>
+                <div className="text-sm font-semibold text-slate-700 mb-2">Academy</div>
+                <div className="pl-4 space-y-2">
+                  {[
+                    { href: '/about', label: 'About' },
+                    { href: '/tuition', label: 'Tuition' },
+                    { href: '/locations', label: 'Locations' },
+                  ].map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="block py-1 text-sm text-slate-600 hover:text-[var(--brand-ink)]"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
 
               <Link
                 href="/contact"

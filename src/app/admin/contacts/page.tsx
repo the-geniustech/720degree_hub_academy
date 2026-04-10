@@ -1,10 +1,11 @@
 'use client';
 
 import { useEffect, useMemo, useState, type CSSProperties } from 'react';
-import { Loader2, RefreshCw } from 'lucide-react';
+import { Loader2, RefreshCw, Download } from 'lucide-react';
 import { AdminGate } from '../components/AdminGate';
 import { useAdminAuth } from '../components/AdminAuthProvider';
 import { formatDate } from '../lib/format';
+import { exportRows, type ExportFormat } from '../lib/export';
 
 type ContactRow = {
   id: string;
@@ -30,6 +31,7 @@ export default function ContactsPage() {
   const { token, status } = useAdminAuth();
   const [data, setData] = useState<ContactsData | null>(null);
   const [loading, setLoading] = useState(false);
+  const [exporting, setExporting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [searchInput, setSearchInput] = useState('');
   const [search, setSearch] = useState('');
@@ -103,6 +105,42 @@ export default function ContactsPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status, token, page, pageSize, search, sourceFilter]);
 
+  const exportContacts = async (format: ExportFormat) => {
+    if (!token) return;
+    setExporting(true);
+    setError(null);
+    const params = new URLSearchParams();
+    params.set('export', '1');
+    if (search) params.set('search', search);
+    if (sourceFilter && sourceFilter !== 'all') params.set('source', sourceFilter);
+
+    try {
+      const response = await fetch(`/api/admin/contacts?${params.toString()}`, {
+        headers: { 'x-admin-token': token },
+      });
+      const result = await response.json();
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || 'Unable to export contacts');
+      }
+      const rows = (result.data?.contacts || []).map((contact: ContactRow) => ({
+        Name: contact.name,
+        Email: contact.email,
+        Phone: contact.phone || '',
+        Programme: contact.program || 'General',
+        Source: contact.source || 'contact',
+        Message: contact.message,
+        Received: formatDate(contact.createdAt),
+      }));
+      const safeSource = sourceFilter === 'all' ? 'all' : sourceFilter;
+      const filename = `contacts-${safeSource}-${new Date().toISOString().slice(0, 10)}`;
+      await exportRows({ rows, filename, format });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unable to export contacts');
+    } finally {
+      setExporting(false);
+    }
+  };
+
   return (
     <AdminGate>
       <div className="space-y-6 pt-8">
@@ -117,14 +155,34 @@ export default function ContactsPage() {
                 Track enquiries, programme interests, and outreach history.
               </p>
             </div>
-            <button
-              type="button"
-              onClick={() => void fetchContacts()}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 dark:border-white/10 dark:text-slate-200 dark:hover:bg-white/10"
-            >
-              <RefreshCw className="h-4 w-4" />
-              Refresh
-            </button>
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => void fetchContacts()}
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 dark:border-white/10 dark:text-slate-200 dark:hover:bg-white/10"
+              >
+                <RefreshCw className="h-4 w-4" />
+                Refresh
+              </button>
+              <button
+                type="button"
+                onClick={() => exportContacts('csv')}
+                disabled={exporting}
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 disabled:opacity-60 dark:border-white/10 dark:text-slate-200 dark:hover:bg-white/10"
+              >
+                <Download className="h-4 w-4" />
+                Export CSV
+              </button>
+              <button
+                type="button"
+                onClick={() => exportContacts('xlsx')}
+                disabled={exporting}
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 disabled:opacity-60 dark:border-white/10 dark:text-slate-200 dark:hover:bg-white/10"
+              >
+                <Download className="h-4 w-4" />
+                Export XLSX
+              </button>
+            </div>
           </div>
 
           <div className="mt-5 grid gap-3 lg:grid-cols-3">

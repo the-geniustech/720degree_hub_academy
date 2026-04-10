@@ -61,6 +61,27 @@ function getResendClient() {
   };
 }
 
+async function sendResendEmail(
+  client: Resend,
+  payload: {
+    from: string;
+    to: string[];
+    subject: string;
+    html: string;
+    text: string;
+  }
+) {
+  const result = await client.emails.send(payload);
+  if (result && typeof result === 'object' && 'error' in result && result.error) {
+    const errorMessage =
+      typeof result.error === 'object' && result.error && 'message' in result.error
+        ? String(result.error.message)
+        : 'Resend delivery failed';
+    throw new Error(errorMessage);
+  }
+  return result;
+}
+
 function buildReceiptEmail(options: {
   fullName: string;
   email: string;
@@ -436,7 +457,7 @@ export async function handleSuccessfulPayment(context: PaymentContext) {
         paymentPlan: student.paymentPlan,
       });
       try {
-        await client.emails.send({
+        await sendResendEmail(client, {
           from,
           to: [student.email],
           subject: receipt.subject,
@@ -464,7 +485,7 @@ export async function handleSuccessfulPayment(context: PaymentContext) {
         origin,
       });
       try {
-        await client.emails.send({
+        await sendResendEmail(client, {
           from,
           to: [student.email],
           subject: welcome.subject,

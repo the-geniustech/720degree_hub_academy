@@ -5,6 +5,8 @@ import { ArrowRight, Award, Users, Briefcase, Sparkles } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { motion } from 'motion/react';
 
+const communityUrl = process.env.NEXT_PUBLIC_COMMUNITY_URL || '/contact';
+
 export function Hero() {
   return (
     <section className="relative overflow-hidden mt-20 bg-[var(--brand-sand)] dark:bg-[#0b0f17]">
@@ -94,6 +96,15 @@ export function Hero() {
                 className="inline-flex items-center justify-center gap-2 bg-white text-[var(--brand-ink)] px-8 py-4 rounded-xl font-semibold hover:bg-black/5 transition-all border-2 border-black/10 hover:border-black/20 shadow-[0_12px_30px_rgba(11,16,32,0.08)] dark:bg-white/10 dark:text-white dark:border-white/15 dark:hover:bg-white/20 dark:hover:border-white/30 dark:shadow-[0_16px_40px_rgba(0,0,0,0.35)]"
               >
                 Explore Programs
+              </a>
+
+              <a
+                href={communityUrl}
+                target={communityUrl.startsWith('http') ? '_blank' : undefined}
+                rel={communityUrl.startsWith('http') ? 'noreferrer' : undefined}
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-black/10 bg-[var(--brand-sand)] px-8 py-4 font-semibold text-[var(--brand-ink)] shadow-[0_14px_34px_rgba(11,16,32,0.08)] transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_45px_rgba(11,16,32,0.14)] dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+              >
+                Join Our Community (Free)
               </a>
             </motion.div>
 

@@ -1,11 +1,12 @@
 'use client';
 
 import { useEffect, useMemo, useState, type CSSProperties } from 'react';
-import { Loader2, RefreshCw, Plus, Pencil, X, User } from 'lucide-react';
+import { Loader2, RefreshCw, Plus, Pencil, X, User, Download } from 'lucide-react';
 import { AdminGate } from '../components/AdminGate';
 import { useAdminAuth } from '../components/AdminAuthProvider';
 import { formatDate, formatNaira } from '../lib/format';
 import { studentStatusMap, studentStatuses } from '../lib/student-status';
+import { exportRows, type ExportFormat } from '../lib/export';
 
 type StudentRow = {
   id: string;
@@ -75,6 +76,7 @@ export default function StudentsPage() {
   const [options, setOptions] = useState<ProgrammeOptions | null>(null);
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [exporting, setExporting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [searchInput, setSearchInput] = useState('');
   const [search, setSearch] = useState('');
@@ -323,6 +325,53 @@ export default function StudentsPage() {
     }
   };
 
+  const exportStudents = async (format: ExportFormat) => {
+    if (!token) return;
+    setExporting(true);
+    setError(null);
+    const params = new URLSearchParams();
+    params.set('export', '1');
+    if (search) params.set('search', search);
+    if (statusFilter && statusFilter !== 'all') params.set('status', statusFilter);
+
+    try {
+      const response = await fetch(`/api/admin/students?${params.toString()}`, {
+        headers: { 'x-admin-token': token },
+      });
+      const result = await response.json();
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || 'Unable to export students');
+      }
+      const rows = (result.data?.students || []).map((student: StudentRow) => ({
+        'Full Name': student.fullName,
+        Email: student.email,
+        Phone: student.phone,
+        Programme: student.programTitle,
+        School: student.school,
+        Cohort: student.cohort,
+        Location: student.location,
+        'Payment Plan': student.paymentPlan,
+        Status: student.status,
+        'Amount Paid': student.amountPaid ?? 0,
+        'Balance Due': student.balanceDue ?? 0,
+        'Paid At': student.paidAt ? formatDate(student.paidAt) : '',
+        'Paystack Reference': student.paystackReference || '',
+        'Receipt Sent': student.receiptSentAt ? formatDate(student.receiptSentAt) : '',
+        'Welcome Sent': student.welcomeSentAt ? formatDate(student.welcomeSentAt) : '',
+        Notes: student.notes || '',
+        'Created At': formatDate(student.createdAt),
+        'Updated At': formatDate(student.updatedAt),
+      }));
+      const safeStatus = statusFilter === 'all' ? 'all' : statusFilter;
+      const filename = `students-${safeStatus}-${new Date().toISOString().slice(0, 10)}`;
+      await exportRows({ rows, filename, format });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unable to export students');
+    } finally {
+      setExporting(false);
+    }
+  };
+
   const statusCount = (key: string) => data?.statusCounts?.[key] ?? 0;
 
   return (
@@ -347,6 +396,24 @@ export default function StudentsPage() {
               >
                 <RefreshCw className="h-4 w-4" />
                 Refresh
+              </button>
+              <button
+                type="button"
+                onClick={() => exportStudents('csv')}
+                disabled={exporting}
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 disabled:opacity-60 dark:border-white/10 dark:text-slate-200 dark:hover:bg-white/10"
+              >
+                <Download className="h-4 w-4" />
+                Export CSV
+              </button>
+              <button
+                type="button"
+                onClick={() => exportStudents('xlsx')}
+                disabled={exporting}
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 disabled:opacity-60 dark:border-white/10 dark:text-slate-200 dark:hover:bg-white/10"
+              >
+                <Download className="h-4 w-4" />
+                Export XLSX
               </button>
               <button
                 type="button"
