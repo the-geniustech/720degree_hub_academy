@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { ArrowRight, ClipboardCheck, FileText, MailOpen, CreditCard, CheckCircle } from 'lucide-react';
+import Link from 'next/link';
 import { EnrollmentModal } from '../components/EnrollmentModal';
 import { Reveal } from '../components/Reveal';
 import { useProgrammesData } from '../components/ProgrammesProvider';
@@ -220,13 +221,21 @@ export function AdmissionsPage() {
             </p>
           </Reveal>
           <Reveal delay={220}>
-            <button
-              onClick={() => setShowEnrollModal(true)}
-              className="inline-flex items-center gap-2 bg-white text-[var(--brand-ink)] px-8 py-4 rounded-lg font-semibold hover:bg-black/5 transition shadow-[0_20px_50px_rgba(0,0,0,0.35)] dark:bg-white/10 dark:text-white dark:hover:bg-white/20 dark:border dark:border-white/20 dark:shadow-[0_24px_55px_rgba(0,0,0,0.45)]"
-            >
-              Start Application
-              <ArrowRight className="w-5 h-5" />
-            </button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <button
+                onClick={() => setShowEnrollModal(true)}
+                className="inline-flex items-center gap-2 bg-white text-[var(--brand-ink)] px-8 py-4 rounded-lg font-semibold hover:bg-black/5 transition shadow-[0_20px_50px_rgba(0,0,0,0.35)] dark:bg-white/10 dark:text-white dark:hover:bg-white/20 dark:border dark:border-white/20 dark:shadow-[0_24px_55px_rgba(0,0,0,0.45)]"
+              >
+                Start Application
+                <ArrowRight className="w-5 h-5" />
+              </button>
+              <Link
+                href="/resume-application"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-white/90 border border-white/40 hover:bg-white/10 transition"
+              >
+                Resume Application
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>

@@ -134,6 +134,17 @@ export function Navigation() {
               Admissions
             </Link>
 
+            <Link
+              href="/resume-application"
+              className={`text-sm font-semibold transition-colors ${
+                isActivePath('/resume-application')
+                  ? 'text-[var(--brand-ink)]'
+                  : 'text-slate-700 hover:text-[var(--brand-ink)]'
+              }`}
+            >
+              Resume Application
+            </Link>
+
             <div
               className="relative"
               onMouseEnter={handleAcademyEnter}
@@ -247,6 +258,18 @@ export function Navigation() {
                 }`}
               >
                 Admissions
+              </Link>
+
+              <Link
+                href="/resume-application"
+                onClick={() => setIsOpen(false)}
+                className={`block text-sm font-semibold ${
+                  isActivePath('/resume-application')
+                    ? 'text-[var(--brand-ink)]'
+                    : 'text-slate-700'
+                }`}
+              >
+                Resume Application
               </Link>
 
               <div>

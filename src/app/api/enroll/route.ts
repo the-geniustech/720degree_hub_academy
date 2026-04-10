@@ -44,12 +44,58 @@ export async function POST(request: Request) {
       hearAbout,
     } = data || {};
 
-    if (!fullName || !email || !phone || !program || !location || !cohort || !paymentPlan) {
+    const fullNameValue = String(fullName || '').trim();
+    const rawEmail = String(email || '').trim();
+    const rawPhone = String(phone || '').trim();
+    const normalizedEmail = rawEmail.toLowerCase();
+    const normalizedPhone = rawPhone.replace(/[^+\d]/g, '');
+
+    if (
+      !fullNameValue ||
+      !normalizedEmail ||
+      !normalizedPhone ||
+      !program ||
+      !location ||
+      !cohort ||
+      !paymentPlan
+    ) {
       return Response.json({ ok: false, error: 'Missing required fields' }, { status: 400 });
     }
 
     if (!['deposit', 'full', 'scholarship'].includes(paymentPlan)) {
       return Response.json({ ok: false, error: 'Invalid payment plan' }, { status: 400 });
+    }
+
+    const existingApplication = await prisma.application.findFirst({
+      where: {
+        OR: [
+          { email: normalizedEmail },
+          { email: rawEmail },
+          { phone: normalizedPhone },
+          { phone: rawPhone },
+        ],
+      },
+    });
+
+    const existingStudent = await prisma.student.findFirst({
+      where: {
+        OR: [
+          { email: normalizedEmail },
+          { email: rawEmail },
+          { phone: normalizedPhone },
+          { phone: rawPhone },
+        ],
+      },
+    });
+
+    if (existingApplication || existingStudent) {
+      return Response.json(
+        {
+          ok: false,
+          error: 'An application already exists with this email or phone number.',
+        },
+        { status: 409 }
+      );
     }
 
     const selectedProgram =
@@ -89,9 +135,9 @@ export async function POST(request: Request) {
     const reference = generateReference();
 
     const application = {
-      fullName,
-      email,
-      phone,
+      fullName: fullNameValue,
+      email: normalizedEmail,
+      phone: normalizedPhone,
       program: selectedProgram.slug,
       programTitle: selectedProgram.title,
       school: selectedProgram.school,
@@ -121,7 +167,7 @@ export async function POST(request: Request) {
       const callbackUrl =
         process.env.PAYSTACK_CALLBACK_URL || (origin ? `${origin}/payment/verify` : undefined);
       const payload: Record<string, unknown> = {
-        email,
+        email: normalizedEmail,
         amount: amountDue * 100,
         reference,
         metadata: {

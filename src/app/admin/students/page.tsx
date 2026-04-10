@@ -78,6 +78,12 @@ export default function StudentsPage() {
   const [saving, setSaving] = useState(false);
   const [exporting, setExporting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [resendError, setResendError] = useState<string | null>(null);
+  const [resendResult, setResendResult] = useState<{
+    message: string;
+    paymentUrl?: string;
+  } | null>(null);
+  const [resendLoading, setResendLoading] = useState(false);
   const [searchInput, setSearchInput] = useState('');
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
@@ -256,10 +262,17 @@ export default function StudentsPage() {
 
   const openDrawer = (studentId: string) => {
     setSelectedId(studentId);
+    setResendError(null);
+    setResendResult(null);
     setIsDrawerOpen(true);
   };
 
-  const closeDrawer = () => setIsDrawerOpen(false);
+  const closeDrawer = () => {
+    setIsDrawerOpen(false);
+    setResendError(null);
+    setResendResult(null);
+    setResendLoading(false);
+  };
 
   const saveStudent = async () => {
     if (!canEdit || !token) return;
@@ -369,6 +382,38 @@ export default function StudentsPage() {
       setError(err instanceof Error ? err.message : 'Unable to export students');
     } finally {
       setExporting(false);
+    }
+  };
+
+  const resendPaymentLink = async () => {
+    if (!token || !selectedStudent) return;
+    setResendLoading(true);
+    setResendError(null);
+    setResendResult(null);
+    try {
+      const response = await fetch(
+        `/api/admin/students/${selectedStudent.id}/resend-payment`,
+        {
+          method: "POST",
+          headers: {
+            "x-admin-token": token,
+          },
+        },
+      );
+      const result = await response.json();
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || "Unable to resend payment link");
+      }
+      setResendResult({
+        message: result.data?.message || "Payment link generated.",
+        paymentUrl: result.data?.payment?.authorization_url,
+      });
+    } catch (err) {
+      setResendError(
+        err instanceof Error ? err.message : "Unable to resend payment link",
+      );
+    } finally {
+      setResendLoading(false);
     }
   };
 
@@ -993,6 +1038,46 @@ export default function StudentsPage() {
                       </div>
                     </div>
                   </div>
+                </div>
+
+                <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-white/5">
+                  <div className="text-xs uppercase tracking-[0.25em] text-slate-400">Payment Actions</div>
+                  <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
+                    Resend a fresh Paystack payment link for this application.
+                  </p>
+                  <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+                    <button
+                      type="button"
+                      onClick={resendPaymentLink}
+                      disabled={!canEdit || resendLoading || !selectedStudent.applicationId}
+                      className="inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white disabled:opacity-60 dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)]"
+                    >
+                      {resendLoading ? "Sending..." : "Resend Payment Link"}
+                    </button>
+                    {resendResult?.paymentUrl ? (
+                      <a
+                        href={resendResult.paymentUrl}
+                        className="inline-flex items-center justify-center rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 dark:border-white/10 dark:text-slate-200 dark:hover:bg-white/10"
+                      >
+                        Open Payment Link
+                      </a>
+                    ) : null}
+                  </div>
+                  {!selectedStudent.applicationId ? (
+                    <div className="mt-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-700 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-200">
+                      This student is not linked to an application yet.
+                    </div>
+                  ) : null}
+                  {resendResult ? (
+                    <div className="mt-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-xs text-emerald-700 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-200">
+                      {resendResult.message}
+                    </div>
+                  ) : null}
+                  {resendError ? (
+                    <div className="mt-3 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-xs text-rose-600 dark:border-rose-500/30 dark:bg-rose-500/10 dark:text-rose-200">
+                      {resendError}
+                    </div>
+                  ) : null}
                 </div>
 
                 <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-white/5">

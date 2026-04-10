@@ -38,6 +38,8 @@ const initialForm = {
 };
 
 const communityUrl = process.env.NEXT_PUBLIC_COMMUNITY_URL || "/contact";
+const resumeApplicationUrl =
+  process.env.NEXT_PUBLIC_RESUME_APPLICATION_URL || "/resume-application";
 
 export function EnrollmentModal({
   isOpen,
@@ -48,6 +50,7 @@ export function EnrollmentModal({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [errorCode, setErrorCode] = useState<number | null>(null);
   const [paymentUrl, setPaymentUrl] = useState<string | null>(null);
   const { data } = useProgrammesData();
   const programs = data.programs;
@@ -81,6 +84,7 @@ export function EnrollmentModal({
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitError(null);
+    setErrorCode(null);
 
     try {
       const response = await fetch("/api/enroll", {
@@ -96,6 +100,7 @@ export function EnrollmentModal({
         ? await response.json()
         : { ok: false, error: "Unexpected server response" };
       if (!response.ok || !data.ok) {
+        setErrorCode(response.status);
         throw new Error(data.error || "Failed to submit enrollment");
       }
 
@@ -125,6 +130,7 @@ export function EnrollmentModal({
     setFormData(initialForm);
     setIsSubmitted(false);
     setSubmitError(null);
+    setErrorCode(null);
     setPaymentUrl(null);
     onClose();
   };
@@ -488,9 +494,27 @@ export function EnrollmentModal({
               </p>
 
               {submitError ? (
-                <p className="text-red-600 text-sm text-center">
-                  {submitError}
-                </p>
+                <div className="text-center">
+                  <p className="text-red-600 text-sm">{submitError}</p>
+                  {errorCode === 409 ? (
+                    <a
+                      href={resumeApplicationUrl}
+                      target={
+                        resumeApplicationUrl.startsWith("http")
+                          ? "_blank"
+                          : undefined
+                      }
+                      rel={
+                        resumeApplicationUrl.startsWith("http")
+                          ? "noreferrer"
+                          : undefined
+                      }
+                      className="mt-3 inline-flex items-center justify-center rounded-full border border-rose-200 px-4 py-2 text-xs font-semibold text-rose-700 transition hover:bg-rose-50"
+                    >
+                      Resume your application
+                    </a>
+                  ) : null}
+                </div>
               ) : null}
             </form>
           )}
