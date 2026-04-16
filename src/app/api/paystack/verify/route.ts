@@ -1,4 +1,5 @@
 import { handleSuccessfulPayment } from '../../../lib/student-onboarding';
+import { getPaystackServerConfig } from '../../../lib/paystack';
 
 export const runtime = 'nodejs';
 
@@ -10,14 +11,25 @@ export async function GET(request: Request) {
     return Response.json({ ok: false, error: 'Missing reference' }, { status: 400 });
   }
 
-  if (!process.env.PAYSTACK_SECRET_KEY) {
-    return Response.json({ ok: false, error: 'Paystack not configured' }, { status: 400 });
+  const paystackConfig = getPaystackServerConfig();
+  if (!paystackConfig.ok) {
+    console.error('Paystack verification configuration error:', paystackConfig.message);
+    return Response.json(
+      {
+        ok: false,
+        error:
+          process.env.NODE_ENV === 'production'
+            ? paystackConfig.publicMessage
+            : paystackConfig.message,
+      },
+      { status: 500 },
+    );
   }
 
   try {
     const response = await fetch(`https://api.paystack.co/transaction/verify/${reference}`, {
       headers: {
-        Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`,
+        Authorization: `Bearer ${paystackConfig.secretKey}`,
       },
     });
 

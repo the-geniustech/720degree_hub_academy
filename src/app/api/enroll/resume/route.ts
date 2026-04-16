@@ -1,5 +1,9 @@
 import crypto from "crypto";
 import { prisma } from "../../../lib/prisma";
+import {
+  getPaystackServerConfig,
+  initializePaystackTransaction,
+} from "../../../lib/paystack";
 
 export const runtime = "nodejs";
 
@@ -80,22 +84,28 @@ export async function POST(request: Request) {
       });
     }
 
-    if (!process.env.PAYSTACK_SECRET_KEY) {
+    const paystackConfig = getPaystackServerConfig();
+    if (!paystackConfig.ok) {
+      console.error("Resume enrollment Paystack configuration error:", paystackConfig.message);
       return Response.json(
-        { ok: false, error: "Payment service is not configured. Please contact admissions." },
-        { status: 400 }
+        {
+          ok: false,
+          error:
+            process.env.NODE_ENV === "production"
+              ? paystackConfig.publicMessage
+              : paystackConfig.message,
+        },
+        { status: 500 }
       );
     }
 
     const reference = generateReference();
-    const origin = request.headers.get("origin");
-    const callbackUrl =
-      process.env.PAYSTACK_CALLBACK_URL || (origin ? `${origin}/payment/verify` : undefined);
-
-    const payload: Record<string, unknown> = {
+    const paystackResult = await initializePaystackTransaction({
       email: application.email,
       amount: application.amountDue * 100,
       reference,
+      requestOrigin: request.headers.get("origin"),
+      config: paystackConfig,
       metadata: {
         applicationId: application.id,
         program: application.program,
@@ -104,35 +114,35 @@ export async function POST(request: Request) {
         paymentPlan: application.paymentPlan,
         resume: true,
       },
-    };
-
-    if (callbackUrl) {
-      payload.callback_url = callbackUrl;
-    }
-
-    const paystackResponse = await fetch("https://api.paystack.co/transaction/initialize", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
     });
 
-    const paystackData = await paystackResponse.json();
-    if (!paystackResponse.ok || !paystackData.status) {
+    if (!paystackResult.ok) {
+      console.error("Resume enrollment payment initialization error:", {
+        applicationId: application.id,
+        message: paystackResult.message,
+        status: paystackResult.status,
+        warnings: paystackResult.warnings,
+      });
+
       return Response.json(
         { ok: false, error: "Unable to initialise payment at this time." },
-        { status: 502 }
+        { status: paystackResult.configError ? 500 : 502 }
       );
+    }
+
+    if (paystackResult.warnings.length) {
+      console.warn("Resume enrollment payment warnings:", {
+        applicationId: application.id,
+        warnings: paystackResult.warnings,
+      });
     }
 
     await prisma.application.update({
       where: { id: application.id },
       data: {
         status: "awaiting_payment",
-        paystackReference: paystackData.data.reference,
-        paystackAccessCode: paystackData.data.access_code,
+        paystackReference: paystackResult.data.reference,
+        paystackAccessCode: paystackResult.data.access_code,
         updatedAt: new Date(),
       },
     });
@@ -143,8 +153,8 @@ export async function POST(request: Request) {
         status: "awaiting_payment",
         application: applicationSummary,
         payment: {
-          authorization_url: paystackData.data.authorization_url,
-          reference: paystackData.data.reference,
+          authorization_url: paystackResult.data.authorization_url,
+          reference: paystackResult.data.reference,
         },
       },
     });

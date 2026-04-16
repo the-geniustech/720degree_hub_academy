@@ -51,6 +51,7 @@ export function EnrollmentModal({
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [errorCode, setErrorCode] = useState<number | null>(null);
+  const [canResume, setCanResume] = useState(false);
   const [paymentUrl, setPaymentUrl] = useState<string | null>(null);
   const { data } = useProgrammesData();
   const programs = data.programs;
@@ -85,6 +86,7 @@ export function EnrollmentModal({
     setIsSubmitting(true);
     setSubmitError(null);
     setErrorCode(null);
+    setCanResume(false);
 
     try {
       const response = await fetch("/api/enroll", {
@@ -101,6 +103,7 @@ export function EnrollmentModal({
         : { ok: false, error: "Unexpected server response" };
       if (!response.ok || !data.ok) {
         setErrorCode(response.status);
+        setCanResume(Boolean(data.canResume) || response.status === 409);
         throw new Error(data.error || "Failed to submit enrollment");
       }
 
@@ -131,6 +134,7 @@ export function EnrollmentModal({
     setIsSubmitted(false);
     setSubmitError(null);
     setErrorCode(null);
+    setCanResume(false);
     setPaymentUrl(null);
     onClose();
   };
@@ -496,7 +500,7 @@ export function EnrollmentModal({
               {submitError ? (
                 <div className="text-center">
                   <p className="text-red-600 text-sm">{submitError}</p>
-                  {errorCode === 409 ? (
+                  {canResume ? (
                     <a
                       href={resumeApplicationUrl}
                       target={
