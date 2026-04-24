@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import { ProgramDetailPage } from '../../pages/ProgramDetailPage';
 import { prisma } from '../../lib/prisma';
-import { programs as staticPrograms } from '../../lib/programs';
 
 export const dynamic = 'force-dynamic';
 
@@ -30,16 +29,13 @@ function normalizeProgram(program: any) {
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  let program = null;
+  let program;
 
   try {
     program = await prisma.program.findFirst({ where: { slug } });
   } catch (error) {
     console.error('Programme lookup failed:', error);
-  }
-
-  if (!program) {
-    program = staticPrograms.find((item) => item.slug === slug) ?? null;
+    throw new Error('Unable to load programme from the backend.');
   }
 
   if (!program) {

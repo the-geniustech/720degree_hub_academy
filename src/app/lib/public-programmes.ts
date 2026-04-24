@@ -1,13 +1,7 @@
-import 'server-only';
+import "server-only";
 
-import { prisma } from './prisma';
-import type { CohortOption, LocationOption, ProgramDetail } from './programs';
-import {
-  cohorts as staticCohorts,
-  locations as staticLocations,
-  programs as staticPrograms,
-  schedule as staticSchedule,
-} from './programs';
+import { prisma } from "./prisma";
+import type { CohortOption, LocationOption, ProgramDetail } from "./programs";
 
 type ProgrammeSchedule = {
   days: string;
@@ -24,37 +18,68 @@ export type PublicProgrammesData = {
 
 export type PublicProgrammesResult = {
   ok: true;
-  source: 'db' | 'static';
+  source: "db";
   data: PublicProgrammesData;
 };
 
-const staticProgrammesData: PublicProgrammesData = {
-  programs: staticPrograms,
-  locations: staticLocations,
-  cohorts: staticCohorts,
-  schedule: staticSchedule,
-};
+const PROGRAM_SLUG_ORDER = [
+  "frontend-engineering",
+  "backend-engineering",
+  "product-design",
+  "product-management",
+  "data-analytics",
+  "data-science",
+] as const;
 
-const programOrder = new Map(staticPrograms.map((program, index) => [program.slug, index]));
-const locationOrder = new Map(staticLocations.map((location, index) => [location.id, index]));
-const cohortOrder = new Map(staticCohorts.map((cohort, index) => [cohort.id, index]));
+const LOCATION_CODE_ORDER = ["abeokuta", "lagos", "online"] as const;
+
+const COHORT_CODE_ORDER = ["january", "may", "september"] as const;
+
+const programOrder = new Map(
+  PROGRAM_SLUG_ORDER.map((slug, index) => [slug, index]),
+);
+const locationOrder = new Map(
+  LOCATION_CODE_ORDER.map((code, index) => [code, index]),
+);
+const cohortOrder = new Map(
+  COHORT_CODE_ORDER.map((code, index) => [code, index]),
+);
+
+export class PublicProgrammesDataError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "PublicProgrammesDataError";
+  }
+}
+
+export function isPublicProgrammesDataError(
+  error: unknown,
+): error is PublicProgrammesDataError {
+  return error instanceof PublicProgrammesDataError;
+}
 
 function normalizeStringList(value: unknown): string[] {
-  return Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string') : [];
+  return Array.isArray(value)
+    ? value.filter((item): item is string => typeof item === "string")
+    : [];
 }
 
-function normalizeSchool(value: string): ProgramDetail['school'] {
-  if (value === 'Engineering' || value === 'Product' || value === 'Data') {
+function normalizeSchool(value: string): ProgramDetail["school"] {
+  if (value === "Engineering" || value === "Product" || value === "Data") {
     return value;
   }
-  return 'Engineering';
+  return "Engineering";
 }
 
-function normalizeLocationMode(value: string): LocationOption['mode'] {
-  return value === 'online' ? 'online' : 'onsite';
+function normalizeLocationMode(value: string): LocationOption["mode"] {
+  return value === "online" ? "online" : "onsite";
 }
 
-function sortByReference<T>(items: T[], getKey: (item: T) => string, order: Map<string, number>) {
+function sortByReference<T>(
+  items: T[],
+  getKey: (item: T) => string,
+  order: Map<string, number>,
+) {
   return [...items].sort((left, right) => {
     const leftOrder = order.get(getKey(left)) ?? Number.MAX_SAFE_INTEGER;
     const rightOrder = order.get(getKey(right)) ?? Number.MAX_SAFE_INTEGER;
@@ -65,7 +90,9 @@ function sortByReference<T>(items: T[], getKey: (item: T) => string, order: Map<
   });
 }
 
-function normalizePrograms(programs: Awaited<ReturnType<typeof prisma.program.findMany>>): ProgramDetail[] {
+function normalizePrograms(
+  programs: Awaited<ReturnType<typeof prisma.program.findMany>>,
+): ProgramDetail[] {
   const normalized = programs.map((program) => ({
     ...program,
     school: normalizeSchool(program.school),
@@ -74,19 +101,21 @@ function normalizePrograms(programs: Awaited<ReturnType<typeof prisma.program.fi
     assessment: normalizeStringList(program.assessment),
     tools: normalizeStringList(program.tools),
     roles: normalizeStringList(program.roles),
-    projects: Array.isArray(program.projects) ? (program.projects as ProgramDetail['projects']) : [],
+    projects: Array.isArray(program.projects)
+      ? (program.projects as ProgramDetail["projects"])
+      : [],
     curriculum: Array.isArray(program.curriculum)
-      ? (program.curriculum as ProgramDetail['curriculum'])
+      ? (program.curriculum as ProgramDetail["curriculum"])
       : [],
   }));
   return sortByReference(normalized, (program) => program.slug, programOrder);
 }
 
 function normalizeLocations(
-  locations: Awaited<ReturnType<typeof prisma.location.findMany>>
+  locations: Awaited<ReturnType<typeof prisma.location.findMany>>,
 ): LocationOption[] {
   const normalized = locations.map((location) => ({
-    id: location.code as LocationOption['id'],
+    id: location.code as LocationOption["id"],
     label: location.label,
     mode: normalizeLocationMode(location.mode),
     description: location.description,
@@ -95,9 +124,11 @@ function normalizeLocations(
   return sortByReference(normalized, (location) => location.id, locationOrder);
 }
 
-function normalizeCohorts(cohorts: Awaited<ReturnType<typeof prisma.cohort.findMany>>): CohortOption[] {
+function normalizeCohorts(
+  cohorts: Awaited<ReturnType<typeof prisma.cohort.findMany>>,
+): CohortOption[] {
   const normalized = cohorts.map((cohort) => ({
-    id: cohort.code as CohortOption['id'],
+    id: cohort.code as CohortOption["id"],
     label: cohort.label,
     window: cohort.window,
     note: cohort.note,
@@ -105,39 +136,76 @@ function normalizeCohorts(cohorts: Awaited<ReturnType<typeof prisma.cohort.findM
   return sortByReference(normalized, (cohort) => cohort.id, cohortOrder);
 }
 
-export async function getPublicProgrammesData(): Promise<PublicProgrammesResult> {
-  try {
-    const [programs, locations, cohorts, schedule] = await Promise.all([
-      prisma.program.findMany({ orderBy: { createdAt: 'desc' } }),
-      prisma.location.findMany({ orderBy: { createdAt: 'asc' } }),
-      prisma.cohort.findMany({ orderBy: { createdAt: 'asc' } }),
-      prisma.schedule.findFirst({ where: { name: 'default' } }),
-    ]);
-
-    if (!programs.length) {
-      return {
-        ok: true,
-        source: 'static',
-        data: staticProgrammesData,
-      };
-    }
-
-    return {
-      ok: true,
-      source: 'db',
-      data: {
-        programs: normalizePrograms(programs),
-        locations: locations.length ? normalizeLocations(locations) : staticLocations,
-        cohorts: cohorts.length ? normalizeCohorts(cohorts) : staticCohorts,
-        schedule: schedule ?? staticSchedule,
-      },
-    };
-  } catch (error) {
-    console.error('Public programmes error:', error);
-    return {
-      ok: true,
-      source: 'static',
-      data: staticProgrammesData,
-    };
+function normalizeSchedule(
+  schedule: Awaited<ReturnType<typeof prisma.schedule.findFirst>>,
+): ProgrammeSchedule {
+  if (!schedule) {
+    throw new PublicProgrammesDataError(
+      "Programme schedule has not been configured in the backend yet.",
+    );
   }
+
+  return {
+    days: schedule.days,
+    time: schedule.time,
+    note: schedule.note,
+  };
+}
+
+function assertConfiguredData(
+  programs: Awaited<ReturnType<typeof prisma.program.findMany>>,
+  locations: Awaited<ReturnType<typeof prisma.location.findMany>>,
+  cohorts: Awaited<ReturnType<typeof prisma.cohort.findMany>>,
+  schedule: Awaited<ReturnType<typeof prisma.schedule.findFirst>>,
+) {
+  if (!programs.length) {
+    throw new PublicProgrammesDataError(
+      "Programmes are not available from the backend yet.",
+    );
+  }
+
+  if (!locations.length) {
+    throw new PublicProgrammesDataError(
+      "Programme locations are not available from the backend yet.",
+    );
+  }
+
+  if (!cohorts.length) {
+    throw new PublicProgrammesDataError(
+      "Programme cohorts are not available from the backend yet.",
+    );
+  }
+
+  if (!schedule) {
+    throw new PublicProgrammesDataError(
+      "Programme schedule has not been configured in the backend yet.",
+    );
+  }
+}
+
+export async function getPublicProgrammesData(): Promise<PublicProgrammesResult> {
+  const [programs, locations, cohorts, schedule] = await Promise.all([
+    prisma.program.findMany({ orderBy: { createdAt: "desc" } }),
+    prisma.location.findMany({ orderBy: { createdAt: "asc" } }),
+    prisma.cohort.findMany({ orderBy: { createdAt: "asc" } }),
+    prisma.schedule.findFirst({ where: { name: "default" } }),
+  ]);
+
+  console.log("Programs: ", JSON.stringify(programs, null, 2));
+  console.log("locations: ", JSON.stringify(locations, null, 2));
+  console.log("cohorts: ", JSON.stringify(cohorts, null, 2));
+  console.log("schedule: ", JSON.stringify(schedule, null, 2));
+
+  assertConfiguredData(programs, locations, cohorts, schedule);
+
+  return {
+    ok: true,
+    source: "db",
+    data: {
+      programs: normalizePrograms(programs),
+      locations: normalizeLocations(locations),
+      cohorts: normalizeCohorts(cohorts),
+      schedule: normalizeSchedule(schedule),
+    },
+  };
 }

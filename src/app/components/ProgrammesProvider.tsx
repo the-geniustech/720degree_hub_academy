@@ -3,12 +3,6 @@
 import type { ReactNode } from 'react';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import type { CohortOption, LocationOption, ProgramDetail } from '../lib/programs';
-import {
-  cohorts as staticCohorts,
-  locations as staticLocations,
-  programs as staticPrograms,
-  schedule as staticSchedule,
-} from '../lib/programs';
 
 type ProgrammeSchedule = {
   days: string;
@@ -27,24 +21,28 @@ type ProgrammesContextValue = {
   data: ProgrammesData;
   isLoading: boolean;
   error: string | null;
-  source: 'db' | 'static';
+  source: 'db' | null;
   refresh: () => Promise<void>;
 };
 
-const fallbackData: ProgrammesData = {
-  programs: staticPrograms,
-  locations: staticLocations,
-  cohorts: staticCohorts,
-  schedule: staticSchedule,
+const emptyData: ProgrammesData = {
+  programs: [],
+  locations: [],
+  cohorts: [],
+  schedule: {
+    days: '',
+    time: '',
+    note: '',
+  },
 };
 
 const ProgrammesContext = createContext<ProgrammesContextValue | null>(null);
 
 export function ProgrammesProvider({ children }: { children: ReactNode }) {
-  const [data, setData] = useState<ProgrammesData>(fallbackData);
+  const [data, setData] = useState<ProgrammesData>(emptyData);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [source, setSource] = useState<'db' | 'static'>('static');
+  const [source, setSource] = useState<'db' | null>(null);
 
   const load = async () => {
     setIsLoading(true);
@@ -57,12 +55,12 @@ export function ProgrammesProvider({ children }: { children: ReactNode }) {
       }
       if (result?.data) {
         setData(result.data);
-        setSource(result.source === 'db' ? 'db' : 'static');
+        setSource('db');
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unable to load programmes');
-      setData(fallbackData);
-      setSource('static');
+      setData(emptyData);
+      setSource(null);
     } finally {
       setIsLoading(false);
     }

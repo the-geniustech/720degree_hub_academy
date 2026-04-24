@@ -13,13 +13,11 @@ import {
 import {
   calculateAmountDue,
   formatNaira,
-  getBaseTuition,
   type ProgramDetail,
 } from "../lib/programs";
 import { EnrollmentModal } from "../components/EnrollmentModal";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { Reveal } from "../components/Reveal";
-import { useProgrammesData } from "../components/ProgrammesProvider";
 
 interface ProgramDetailPageProps {
   program: ProgramDetail;
@@ -27,8 +25,6 @@ interface ProgramDetailPageProps {
 
 export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
   const [showEnrollModal, setShowEnrollModal] = useState(false);
-  const { data } = useProgrammesData();
-  const locations = data.locations;
 
   if (!program) {
     return (
@@ -46,8 +42,8 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
     );
   }
 
-  const baseOnsite = getBaseTuition(program, "abeokuta", locations);
-  const baseOnline = getBaseTuition(program, "online", locations);
+  const baseOnsite = program.onsiteTuition;
+  const baseOnline = program.onlineTuition;
   const deposit = calculateAmountDue(baseOnsite, "deposit");
   const full = calculateAmountDue(baseOnsite, "full");
 

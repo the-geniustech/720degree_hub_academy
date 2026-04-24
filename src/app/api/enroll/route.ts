@@ -7,9 +7,6 @@ import {
 import {
   calculateAmountDue,
   PaymentPlan,
-  programs as staticPrograms,
-  locations as staticLocations,
-  cohorts as staticCohorts,
 } from "../../lib/programs";
 
 export const runtime = "nodejs";
@@ -115,45 +112,47 @@ export async function POST(request: Request) {
       );
     }
 
-    const selectedProgram =
-      (await prisma.program
-        .findFirst({ where: { slug: program } })
-        .catch(() => null)) ||
-      staticPrograms.find((item) => item.slug === program);
+    const [selectedProgram, selectedLocationByCode, selectedLocationById, selectedCohortByCode, selectedCohortById] =
+      await Promise.all([
+        prisma.program.findFirst({ where: { slug: program } }),
+        prisma.location.findFirst({ where: { code: location } }),
+        prisma.location.findFirst({ where: { id: location } }).catch(() => null),
+        prisma.cohort.findFirst({ where: { code: cohort } }),
+        prisma.cohort.findFirst({ where: { id: cohort } }).catch(() => null),
+      ]);
+
     if (!selectedProgram) {
       return Response.json(
-        { ok: false, error: "Invalid program selection" },
-        { status: 400 },
+        {
+          ok: false,
+          error:
+            "The selected programme is not available from the backend right now.",
+        },
+        { status: 409 },
       );
     }
 
-    const selectedLocation =
-      (await prisma.location
-        .findFirst({ where: { code: location } })
-        .catch(() => null)) ||
-      (await prisma.location
-        .findFirst({ where: { id: location } })
-        .catch(() => null)) ||
-      staticLocations.find((item) => item.id === location);
+    const selectedLocation = selectedLocationByCode || selectedLocationById;
     if (!selectedLocation) {
       return Response.json(
-        { ok: false, error: "Invalid location selection" },
-        { status: 400 },
+        {
+          ok: false,
+          error:
+            "The selected location is not available from the backend right now.",
+        },
+        { status: 409 },
       );
     }
 
-    const selectedCohort =
-      (await prisma.cohort
-        .findFirst({ where: { code: cohort } })
-        .catch(() => null)) ||
-      (await prisma.cohort
-        .findFirst({ where: { id: cohort } })
-        .catch(() => null)) ||
-      staticCohorts.find((item) => item.id === cohort);
+    const selectedCohort = selectedCohortByCode || selectedCohortById;
     if (!selectedCohort) {
       return Response.json(
-        { ok: false, error: "Invalid cohort selection" },
-        { status: 400 },
+        {
+          ok: false,
+          error:
+            "The selected cohort is not available from the backend right now.",
+        },
+        { status: 409 },
       );
     }
 
