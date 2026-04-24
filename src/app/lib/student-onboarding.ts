@@ -1,5 +1,5 @@
-import { Resend } from 'resend';
-import { prisma } from './prisma';
+import { Resend } from "resend";
+import { prisma } from "./prisma";
 
 type PaymentContext = {
   reference: string;
@@ -15,15 +15,15 @@ type EmailPayload = {
   text: string;
 };
 
-const currencyFormatter = new Intl.NumberFormat('en-NG', {
-  style: 'currency',
-  currency: 'NGN',
+const currencyFormatter = new Intl.NumberFormat("en-NG", {
+  style: "currency",
+  currency: "NGN",
   maximumFractionDigits: 0,
 });
 
-const dateFormatter = new Intl.DateTimeFormat('en-NG', {
-  dateStyle: 'medium',
-  timeStyle: 'short',
+const dateFormatter = new Intl.DateTimeFormat("en-NG", {
+  dateStyle: "medium",
+  timeStyle: "short",
 });
 
 function formatNaira(amount: number) {
@@ -36,16 +36,16 @@ function formatDateTime(value: Date) {
 
 function titleCase(value: string) {
   return value
-    .replace(/_/g, ' ')
-    .replace(/\s+/g, ' ')
+    .replace(/_/g, " ")
+    .replace(/\s+/g, " ")
     .trim()
     .replace(/\b\w/g, (match) => match.toUpperCase());
 }
 
 function formatPaymentPlan(plan: string) {
-  if (plan === 'deposit') return '75% enrolment deposit';
-  if (plan === 'full') return 'Full tuition (100%)';
-  if (plan === 'scholarship') return 'Scholarship';
+  if (plan === "deposit") return "75% enrolment deposit";
+  if (plan === "full") return "Full tuition (100%)";
+  if (plan === "scholarship") return "Scholarship";
   return titleCase(plan);
 }
 
@@ -69,14 +69,21 @@ async function sendResendEmail(
     subject: string;
     html: string;
     text: string;
-  }
+  },
 ) {
   const result = await client.emails.send(payload);
-  if (result && typeof result === 'object' && 'error' in result && result.error) {
+  if (
+    result &&
+    typeof result === "object" &&
+    "error" in result &&
+    result.error
+  ) {
     const errorMessage =
-      typeof result.error === 'object' && result.error && 'message' in result.error
+      typeof result.error === "object" &&
+      result.error &&
+      "message" in result.error
         ? String(result.error.message)
-        : 'Resend delivery failed';
+        : "Resend delivery failed";
     throw new Error(errorMessage);
   }
   return result;
@@ -117,9 +124,9 @@ function buildReceiptEmail(options: {
 
   const text = [
     `Hello ${fullName},`,
-    '',
-    'Thank you for your payment to 720Degree Academy. This email is your receipt.',
-    '',
+    "",
+    "Thank you for your payment to 720Degree Academy. This email is your receipt.",
+    "",
     `Receipt reference: ${reference}`,
     `Paid on: ${paidAtLabel}`,
     `Student: ${fullName}`,
@@ -130,11 +137,11 @@ function buildReceiptEmail(options: {
     `Payment plan: ${planLabel}`,
     `Amount paid: ${amountLabel}`,
     `Balance due: ${balanceLabel}`,
-    '',
-    'If you need help, reply to this email and we will assist you promptly.',
-    '',
-    '720Degree Academy',
-  ].join('\n');
+    "",
+    "If you need help, reply to this email and we will assist you promptly.",
+    "",
+    "720Degree Academy",
+  ].join("\n");
 
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -154,7 +161,7 @@ function buildReceiptEmail(options: {
             <tr>
               <td style="padding:28px 32px 12px; background:#0f172a; color:#ffffff;">
                 <img
-                  src="https://720degreehub.com/academy/img/logo/720academylogo%20.png"
+                  src="https://720Degreehub.com/academy/img/logo/720academylogo%20.png"
                   alt="720Degree Academy"
                   width="140"
                   height="36"
@@ -244,36 +251,37 @@ function buildWelcomeEmail(options: {
     balanceDue,
     origin,
   } = options;
-  const subject = `Welcome to 720Degree Academy, ${fullName.split(' ')[0] || fullName}!`;
+  const subject = `Welcome to 720Degree Academy, ${fullName.split(" ")[0] || fullName}!`;
   const planLabel = formatPaymentPlan(paymentPlan);
   const locationLabel = titleCase(location);
   const cohortLabel = titleCase(cohort);
   const amountLabel = formatNaira(amountPaid);
   const balanceLabel = formatNaira(balanceDue);
-  const portalUrl = origin || process.env.APP_BASE_URL || 'https://720degree.academy';
+  const portalUrl =
+    origin || process.env.APP_BASE_URL || "https://720Degree.academy";
 
   const text = [
     `Hello ${fullName},`,
-    '',
+    "",
     `Welcome to 720Degree Academy! We have confirmed your payment and created your student profile for ${programTitle}.`,
-    '',
-    'Next steps:',
-    '- Admissions will send your onboarding pack and orientation schedule.',
-    '- You will receive a WhatsApp group invite within 24 hours.',
-    '- Confirm your cohort start date and preferred learning track.',
-    '',
+    "",
+    "Next steps:",
+    "- Admissions will send your onboarding pack and orientation schedule.",
+    "- You will receive a WhatsApp group invite within 24 hours.",
+    "- Confirm your cohort start date and preferred learning track.",
+    "",
     `Programme: ${programTitle}`,
     `Cohort: ${cohortLabel}`,
     `Location: ${locationLabel}`,
     `Payment plan: ${planLabel}`,
     `Amount paid: ${amountLabel}`,
     `Balance due: ${balanceLabel}`,
-    '',
+    "",
     `Learn more about your programme: ${portalUrl}`,
-    '',
-    'We are excited to have you on board.',
-    '720Degree Academy',
-  ].join('\n');
+    "",
+    "We are excited to have you on board.",
+    "720Degree Academy",
+  ].join("\n");
 
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -293,14 +301,14 @@ function buildWelcomeEmail(options: {
             <tr>
               <td style="padding:28px 32px; background:linear-gradient(135deg,#0f172a,#1f2a44); color:#ffffff;">
                 <img
-                  src="https://720degreehub.com/academy/img/logo/720academylogo%20.png"
+                  src="https://720Degreehub.com/academy/img/logo/720academylogo%20.png"
                   alt="720Degree Academy"
                   width="140"
                   height="36"
                   style="display:block; margin-bottom:16px;"
                 />
                 <div style="font-size:12px; letter-spacing:0.3em; text-transform:uppercase; opacity:0.7;">Welcome</div>
-                <div style="font-size:26px; font-weight:700; margin-top:8px;">You are in, ${fullName.split(' ')[0] || fullName}!</div>
+                <div style="font-size:26px; font-weight:700; margin-top:8px;">You are in, ${fullName.split(" ")[0] || fullName}!</div>
                 <div style="font-size:14px; opacity:0.8; margin-top:8px;">Your student profile is ready.</div>
               </td>
             </tr>
@@ -374,14 +382,18 @@ export async function handleSuccessfulPayment(context: PaymentContext) {
   });
 
   if (!application) {
-    return { ok: false, error: 'Application not found' } as const;
+    return { ok: false, error: "Application not found" } as const;
   }
 
   const paidAtValue = paidAt ?? new Date();
-  const amountPaid = Math.round(amount || application.paidAmount || application.amountDue || 0);
+  const amountPaid = Math.round(
+    amount || application.paidAmount || application.amountDue || 0,
+  );
   const balanceDue = application.balanceDue ?? 0;
-  const paidStatus = application.paymentPlan === 'full' ? 'paid_full' : 'paid_deposit';
-  const status = application.status === 'enrolled' ? application.status : paidStatus;
+  const paidStatus =
+    application.paymentPlan === "full" ? "paid_full" : "paid_deposit";
+  const status =
+    application.status === "enrolled" ? application.status : paidStatus;
 
   const updatedApplication = await prisma.application.update({
     where: { id: application.id },
@@ -418,7 +430,7 @@ export async function handleSuccessfulPayment(context: PaymentContext) {
     paystackReference: reference,
   };
 
-  const nextStatus = existingStudentByEmail?.status || 'onboarding';
+  const nextStatus = existingStudentByEmail?.status || "onboarding";
   const nextApplicationId =
     existingStudentByEmail?.applicationId || application.id;
 
@@ -435,7 +447,7 @@ export async function handleSuccessfulPayment(context: PaymentContext) {
     : await prisma.student.create({
         data: {
           ...studentBase,
-          status: 'onboarding',
+          status: "onboarding",
           applicationId: application.id,
         },
       });
@@ -469,7 +481,7 @@ export async function handleSuccessfulPayment(context: PaymentContext) {
           data: { receiptSentAt: new Date() },
         });
       } catch (error) {
-        console.error('Resend receipt error:', error);
+        console.error("Resend receipt error:", error);
       }
     }
 
@@ -497,7 +509,7 @@ export async function handleSuccessfulPayment(context: PaymentContext) {
           data: { welcomeSentAt: new Date() },
         });
       } catch (error) {
-        console.error('Resend welcome error:', error);
+        console.error("Resend welcome error:", error);
       }
     }
   }

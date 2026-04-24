@@ -1,12 +1,16 @@
-'use client';
-
+import type { ProgramDetail } from '../lib/programs';
 import { calculateAmountDue, formatNaira } from '../lib/programs';
 import { Reveal } from '../components/Reveal';
-import { useProgrammesData } from '../components/ProgrammesProvider';
 
-export function TuitionPage() {
-  const { data } = useProgrammesData();
-  const programs = data.programs;
+interface TuitionPageProps {
+  programs: ProgramDetail[];
+  source: 'db' | 'static';
+}
+
+export function TuitionPage({ programs, source }: TuitionPageProps) {
+  const pricingSourceLabel =
+    source === 'db' ? 'Live programme pricing from backend' : 'Published tuition defaults';
+
   return (
     <div className="pt-20">
       <section className="py-20 bg-[var(--brand-sand)] dark:bg-[linear-gradient(160deg,#0b0f17,#121826)] relative overflow-hidden">
@@ -23,6 +27,11 @@ export function TuitionPage() {
               Pay 75% at enrolment and the remaining 25% by the end of Month 2. Full upfront payments receive
               a 5% discount. Online students receive 15% reduction on the base tuition.
             </p>
+          </Reveal>
+          <Reveal delay={220}>
+            <div className="mt-6 inline-flex items-center rounded-full border border-black/10 bg-white/70 px-4 py-2 text-sm font-medium text-slate-700 shadow-[0_12px_30px_rgba(11,16,32,0.08)] backdrop-blur dark:border-white/10 dark:bg-white/10 dark:text-slate-200">
+              {pricingSourceLabel}
+            </div>
           </Reveal>
         </div>
       </section>

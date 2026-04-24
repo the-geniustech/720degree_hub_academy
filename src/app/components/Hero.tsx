@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { ArrowRight, Award, Users, Briefcase, Sparkles } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
-import { motion } from 'motion/react';
+import Link from "next/link";
+import { ArrowRight, Award, Users, Briefcase, Sparkles } from "lucide-react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { motion } from "motion/react";
 
-const communityUrl = process.env.NEXT_PUBLIC_COMMUNITY_URL || '/contact';
+const communityUrl = process.env.NEXT_PUBLIC_COMMUNITY_URL || "/contact";
 
 export function Hero() {
   return (
@@ -22,18 +22,28 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.9,
+                delay: 0.1,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="inline-flex items-center gap-2 bg-white/80 dark:bg-white/10 shadow-[0_10px_30px_rgba(11,16,32,0.08)] dark:shadow-[0_14px_40px_rgba(0,0,0,0.35)] backdrop-blur mb-6 px-4 py-2 border border-black/10 dark:border-white/10 rounded-full"
             >
               <Sparkles className="w-4 h-4 text-[var(--brand-teal)]" />
-              <span className="font-semibold text-[var(--brand-ink)] text-sm">Cohort Teaching Programme</span>
+              <span className="font-semibold text-[var(--brand-ink)] text-sm">
+                Cohort Teaching Programme
+              </span>
             </motion.div>
 
             {/* Main Heading */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.0, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 1.0,
+                delay: 0.2,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="mb-6 font-display font-bold text-[var(--brand-ink)] text-5xl lg:text-6xl xl:text-7xl leading-tight"
             >
               <span className="block">Learn it.</span>
@@ -47,32 +57,47 @@ export function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.0, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 1.0,
+                delay: 0.3,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="mb-8 text-slate-700 dark:text-slate-300 text-lg lg:text-xl leading-relaxed"
             >
-              720degree Innovation Hub is an AI-integrated, expert-led tech academy in Abeokuta with Lagos and
-              global online access. Build real products, master the business of your craft, and graduate with a
-              portfolio that proves it.
+              720Degree Innovation Hub is an AI-integrated, expert-led tech
+              academy in Abeokuta with Lagos and global online access. Build
+              real products, master the business of your craft, and graduate
+              with a portfolio that proves it.
             </motion.p>
 
             {/* Key Benefits - Compact */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.9,
+                delay: 0.4,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="flex flex-wrap gap-6 mb-10"
             >
               <div className="flex items-center gap-2">
                 <Award className="w-5 h-5 text-[var(--brand-amber)]" />
-                <span className="font-medium text-slate-700 dark:text-slate-300 text-sm">AI-first, real projects</span>
+                <span className="font-medium text-slate-700 dark:text-slate-300 text-sm">
+                  AI-first, real projects
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <Users className="w-5 h-5 text-[var(--brand-teal)]" />
-                <span className="font-medium text-slate-700 dark:text-slate-300 text-sm">Expert-led, community-driven</span>
+                <span className="font-medium text-slate-700 dark:text-slate-300 text-sm">
+                  Expert-led, community-driven
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <Briefcase className="w-5 h-5 text-[var(--brand-coral)]" />
-                <span className="font-medium text-slate-700 dark:text-slate-300 text-sm">Business-ready outcomes</span>
+                <span className="font-medium text-slate-700 dark:text-slate-300 text-sm">
+                  Business-ready outcomes
+                </span>
               </div>
             </motion.div>
 
@@ -80,7 +105,11 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.9,
+                delay: 0.5,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="flex sm:flex-row flex-col gap-4 mb-12"
             >
               <Link
@@ -100,8 +129,8 @@ export function Hero() {
 
               <a
                 href={communityUrl}
-                target={communityUrl.startsWith('http') ? '_blank' : undefined}
-                rel={communityUrl.startsWith('http') ? 'noreferrer' : undefined}
+                target={communityUrl.startsWith("http") ? "_blank" : undefined}
+                rel={communityUrl.startsWith("http") ? "noreferrer" : undefined}
                 className="inline-flex justify-center items-center gap-2 bg-[var(--brand-sand)] dark:bg-white/5 dark:hover:bg-white/10 shadow-[0_14px_34px_rgba(11,16,32,0.08)] hover:shadow-[0_18px_45px_rgba(11,16,32,0.14)] px-8 py-4 border border-black/10 dark:border-white/15 rounded-xl font-semibold text-[var(--brand-ink)] dark:text-white transition-all hover:-translate-y-0.5"
               >
                 Join Our Community (Free)
@@ -112,20 +141,36 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.9,
+                delay: 0.6,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="flex flex-wrap items-center gap-8 pt-6 border-black/10 dark:border-white/10 border-t"
             >
               <div>
-                <div className="font-bold text-[var(--brand-ink)] text-3xl">3</div>
-                <div className="text-slate-600 dark:text-slate-400 text-sm">Schools</div>
+                <div className="font-bold text-[var(--brand-ink)] text-3xl">
+                  3
+                </div>
+                <div className="text-slate-600 dark:text-slate-400 text-sm">
+                  Schools
+                </div>
               </div>
               <div>
-                <div className="font-bold text-[var(--brand-ink)] text-3xl">6</div>
-                <div className="text-slate-600 dark:text-slate-400 text-sm">Courses</div>
+                <div className="font-bold text-[var(--brand-ink)] text-3xl">
+                  6
+                </div>
+                <div className="text-slate-600 dark:text-slate-400 text-sm">
+                  Courses
+                </div>
               </div>
               <div>
-                <div className="font-bold text-[var(--brand-ink)] text-3xl">6</div>
-                <div className="text-slate-600 dark:text-slate-400 text-sm">Months + 3 Support</div>
+                <div className="font-bold text-[var(--brand-ink)] text-3xl">
+                  6
+                </div>
+                <div className="text-slate-600 dark:text-slate-400 text-sm">
+                  Months + 3 Support
+                </div>
               </div>
             </motion.div>
           </div>
@@ -137,7 +182,11 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0, scale: 1.06 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 1.1,
+                delay: 0.2,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="w-full h-full"
             >
               <ImageWithFallback
@@ -164,7 +213,9 @@ export function Hero() {
               </div>
               <div>
                 <div className="font-bold text-foreground">Month Programme</div>
-                <div className="text-muted-foreground text-sm">+ 3 months support</div>
+                <div className="text-muted-foreground text-sm">
+                  + 3 months support
+                </div>
               </div>
             </div>
           </motion.div>
@@ -177,7 +228,9 @@ export function Hero() {
             className="top-6 right-8 z-10 absolute bg-[var(--brand-amber)] dark:bg-[rgba(243,191,98,0.95)] shadow-[0_18px_40px_rgba(246,176,66,0.35)] px-5 py-3 rounded-xl dark:text-[#1b1300]"
           >
             <div className="font-bold">Next Cohort: May 2026</div>
-            <div className="font-semibold text-sm">Abeokuta + Lagos + Online</div>
+            <div className="font-semibold text-sm">
+              Abeokuta + Lagos + Online
+            </div>
           </motion.div>
         </div>
       </div>

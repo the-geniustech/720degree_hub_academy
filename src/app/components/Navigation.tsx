@@ -1,19 +1,23 @@
-'use client';
+"use client";
 
-import { useRef, useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown } from 'lucide-react';
-import { Reveal } from './Reveal';
-import { useProgrammesData } from './ProgrammesProvider';
-import { ThemeToggle } from './ThemeToggle';
+import { useRef, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { Reveal } from "./Reveal";
+import { useProgrammesData } from "./ProgrammesProvider";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isProgramsOpen, setIsProgramsOpen] = useState(false);
   const [isAcademyOpen, setIsAcademyOpen] = useState(false);
-  const programsCloseTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const academyCloseTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const programsCloseTimeout = useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
+  const academyCloseTimeout = useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
   const pathname = usePathname();
   const { data } = useProgrammesData();
   const programs = data.programs;
@@ -55,15 +59,15 @@ export function Navigation() {
   const isActivePath = (path: string) => pathname === path;
 
   return (
-    <nav className="fixed top-0 w-full z-40 bg-background/90 backdrop-blur border-b border-border">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
+    <nav className="top-0 z-40 fixed bg-background/90 backdrop-blur border-border border-b w-full">
+      <div className="mx-auto px-6 max-w-7xl">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="group flex items-center gap-3">
             <img
-              src="https://720degreehub.com/academy/img/logo/720academylogo%20.png"
+              src="https://720Degreehub.com/academy/img/logo/720academylogo%20.png"
               alt="720Degree Innovation Hub"
-              className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+              className="w-auto h-12 group-hover:scale-105 transition-transform duration-300"
             />
           </Link>
 
@@ -72,9 +76,9 @@ export function Navigation() {
             <Link
               href="/"
               className={`text-sm font-semibold transition-colors ${
-                isActivePath('/')
-                  ? 'text-[var(--brand-ink)]'
-                  : 'text-slate-700 hover:text-[var(--brand-ink)]'
+                isActivePath("/")
+                  ? "text-[var(--brand-ink)]"
+                  : "text-slate-700 hover:text-[var(--brand-ink)]"
               }`}
             >
               Home
@@ -86,17 +90,22 @@ export function Navigation() {
               onMouseEnter={handleProgramsEnter}
               onMouseLeave={handleProgramsLeave}
             >
-              <button className="text-sm font-semibold text-slate-700 hover:text-[var(--brand-ink)] transition-colors flex items-center gap-1">
+              <button className="flex items-center gap-1 font-semibold text-slate-700 hover:text-[var(--brand-ink)] text-sm transition-colors">
                 Programs
-                <ChevronDown className={`w-4 h-4 transition-transform ${isProgramsOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform ${isProgramsOpen ? "rotate-180" : ""}`}
+                />
               </button>
 
               {isProgramsOpen && (
-                <div onMouseEnter={handleProgramsEnter} onMouseLeave={handleProgramsLeave}>
+                <div
+                  onMouseEnter={handleProgramsEnter}
+                  onMouseLeave={handleProgramsLeave}
+                >
                   <Reveal
                     delay={0}
                     speed="fast"
-                    className="absolute top-full left-0 mt-3 w-80 bg-card rounded-2xl shadow-xl border border-border py-2 z-50"
+                    className="top-full left-0 z-50 absolute bg-card shadow-xl mt-3 py-2 border border-border rounded-2xl w-80"
                   >
                     {programs.map((program, index) => (
                       <Reveal
@@ -107,13 +116,15 @@ export function Navigation() {
                       >
                         <Link
                           href={`/programs/${program.slug}`}
-                          className="block px-6 py-3 hover:bg-[var(--brand-sand)] transition-colors group"
+                          className="group block hover:bg-[var(--brand-sand)] px-6 py-3 transition-colors"
                         >
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm font-semibold text-foreground group-hover:text-[var(--brand-ink)]">
+                          <div className="flex justify-between items-center">
+                            <span className="font-semibold text-foreground group-hover:text-[var(--brand-ink)] text-sm">
                               {program.title}
                             </span>
-                            <span className="text-xs text-slate-500">6 months</span>
+                            <span className="text-slate-500 text-xs">
+                              6 months
+                            </span>
                           </div>
                         </Link>
                       </Reveal>
@@ -126,9 +137,9 @@ export function Navigation() {
             <Link
               href="/admissions"
               className={`text-sm font-semibold transition-colors ${
-                isActivePath('/admissions')
-                  ? 'text-[var(--brand-ink)]'
-                  : 'text-slate-700 hover:text-[var(--brand-ink)]'
+                isActivePath("/admissions")
+                  ? "text-[var(--brand-ink)]"
+                  : "text-slate-700 hover:text-[var(--brand-ink)]"
               }`}
             >
               Admissions
@@ -137,9 +148,9 @@ export function Navigation() {
             <Link
               href="/resume-application"
               className={`text-sm font-semibold transition-colors ${
-                isActivePath('/resume-application')
-                  ? 'text-[var(--brand-ink)]'
-                  : 'text-slate-700 hover:text-[var(--brand-ink)]'
+                isActivePath("/resume-application")
+                  ? "text-[var(--brand-ink)]"
+                  : "text-slate-700 hover:text-[var(--brand-ink)]"
               }`}
             >
               Resume Application
@@ -150,27 +161,37 @@ export function Navigation() {
               onMouseEnter={handleAcademyEnter}
               onMouseLeave={handleAcademyLeave}
             >
-              <button className="text-sm font-semibold text-slate-700 hover:text-[var(--brand-ink)] transition-colors flex items-center gap-1">
+              <button className="flex items-center gap-1 font-semibold text-slate-700 hover:text-[var(--brand-ink)] text-sm transition-colors">
                 Academy
-                <ChevronDown className={`w-4 h-4 transition-transform ${isAcademyOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform ${isAcademyOpen ? "rotate-180" : ""}`}
+                />
               </button>
 
               {isAcademyOpen && (
-                <div onMouseEnter={handleAcademyEnter} onMouseLeave={handleAcademyLeave}>
+                <div
+                  onMouseEnter={handleAcademyEnter}
+                  onMouseLeave={handleAcademyLeave}
+                >
                   <Reveal
                     delay={0}
                     speed="fast"
-                    className="absolute top-full left-0 mt-3 w-56 bg-card rounded-2xl shadow-xl border border-border py-2 z-50"
+                    className="top-full left-0 z-50 absolute bg-card shadow-xl mt-3 py-2 border border-border rounded-2xl w-56"
                   >
                     {[
-                      { href: '/about', label: 'About' },
-                      { href: '/tuition', label: 'Tuition' },
-                      { href: '/locations', label: 'Locations' },
+                      { href: "/about", label: "About" },
+                      { href: "/tuition", label: "Tuition" },
+                      { href: "/locations", label: "Locations" },
                     ].map((item, index) => (
-                      <Reveal key={item.href} delay={index * 60} speed="fast" className="block">
+                      <Reveal
+                        key={item.href}
+                        delay={index * 60}
+                        speed="fast"
+                        className="block"
+                      >
                         <Link
                           href={item.href}
-                          className="block px-6 py-3 hover:bg-[var(--brand-sand)] transition-colors text-sm font-semibold text-foreground"
+                          className="block hover:bg-[var(--brand-sand)] px-6 py-3 font-semibold text-foreground text-sm transition-colors"
                         >
                           {item.label}
                         </Link>
@@ -184,9 +205,9 @@ export function Navigation() {
             <Link
               href="/contact"
               className={`text-sm font-semibold transition-colors ${
-                isActivePath('/contact')
-                  ? 'text-[var(--brand-ink)]'
-                  : 'text-slate-700 hover:text-[var(--brand-ink)]'
+                isActivePath("/contact")
+                  ? "text-[var(--brand-ink)]"
+                  : "text-slate-700 hover:text-[var(--brand-ink)]"
               }`}
             >
               Contact
@@ -196,7 +217,7 @@ export function Navigation() {
               <ThemeToggle />
               <Link
                 href="/admissions#apply"
-                className="px-6 py-2.5 rounded-xl bg-[var(--brand-ink)] text-white text-sm font-semibold hover:bg-black transition-all transform hover:scale-105 hover:-translate-y-0.5 shadow-md hover:shadow-lg"
+                className="bg-[var(--brand-ink)] hover:bg-black shadow-md hover:shadow-lg px-6 py-2.5 rounded-xl font-semibold text-white text-sm hover:scale-105 transition-all hover:-translate-y-0.5 transform"
               >
                 Apply Now
               </Link>
@@ -204,43 +225,49 @@ export function Navigation() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center gap-3 lg:hidden">
+          <div className="lg:hidden flex items-center gap-3">
             <ThemeToggle size="sm" />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg hover:bg-black/5 text-slate-700 transition-colors"
+              className="hover:bg-black/5 p-2 rounded-lg text-slate-700 transition-colors"
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden py-4 border-t border-border bg-background">
+          <div className="lg:hidden bg-background py-4 border-border border-t">
             <div className="space-y-4">
-              <ThemeToggle showLabel className="w-full justify-center" />
+              <ThemeToggle showLabel className="justify-center w-full" />
               <Link
                 href="/"
                 onClick={() => setIsOpen(false)}
                 className={`block text-sm font-semibold ${
-                  isActivePath('/')
-                    ? 'text-[var(--brand-ink)]'
-                    : 'text-slate-700'
+                  isActivePath("/")
+                    ? "text-[var(--brand-ink)]"
+                    : "text-slate-700"
                 }`}
               >
                 Home
               </Link>
 
               <div>
-                <div className="text-sm font-semibold text-slate-700 mb-2">Programs</div>
-                <div className="pl-4 space-y-2">
+                <div className="mb-2 font-semibold text-slate-700 text-sm">
+                  Programs
+                </div>
+                <div className="space-y-2 pl-4">
                   {programs.map((program) => (
                     <Link
                       key={program.slug}
                       href={`/programs/${program.slug}`}
                       onClick={() => setIsOpen(false)}
-                      className="block py-1 text-sm text-slate-600 hover:text-[var(--brand-ink)]"
+                      className="block py-1 text-slate-600 hover:text-[var(--brand-ink)] text-sm"
                     >
                       {program.title}
                     </Link>
@@ -252,9 +279,9 @@ export function Navigation() {
                 href="/admissions"
                 onClick={() => setIsOpen(false)}
                 className={`block text-sm font-semibold ${
-                  isActivePath('/admissions')
-                    ? 'text-[var(--brand-ink)]'
-                    : 'text-slate-700'
+                  isActivePath("/admissions")
+                    ? "text-[var(--brand-ink)]"
+                    : "text-slate-700"
                 }`}
               >
                 Admissions
@@ -264,27 +291,29 @@ export function Navigation() {
                 href="/resume-application"
                 onClick={() => setIsOpen(false)}
                 className={`block text-sm font-semibold ${
-                  isActivePath('/resume-application')
-                    ? 'text-[var(--brand-ink)]'
-                    : 'text-slate-700'
+                  isActivePath("/resume-application")
+                    ? "text-[var(--brand-ink)]"
+                    : "text-slate-700"
                 }`}
               >
                 Resume Application
               </Link>
 
               <div>
-                <div className="text-sm font-semibold text-slate-700 mb-2">Academy</div>
-                <div className="pl-4 space-y-2">
+                <div className="mb-2 font-semibold text-slate-700 text-sm">
+                  Academy
+                </div>
+                <div className="space-y-2 pl-4">
                   {[
-                    { href: '/about', label: 'About' },
-                    { href: '/tuition', label: 'Tuition' },
-                    { href: '/locations', label: 'Locations' },
+                    { href: "/about", label: "About" },
+                    { href: "/tuition", label: "Tuition" },
+                    { href: "/locations", label: "Locations" },
                   ].map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="block py-1 text-sm text-slate-600 hover:text-[var(--brand-ink)]"
+                      className="block py-1 text-slate-600 hover:text-[var(--brand-ink)] text-sm"
                     >
                       {item.label}
                     </Link>
@@ -296,9 +325,9 @@ export function Navigation() {
                 href="/contact"
                 onClick={() => setIsOpen(false)}
                 className={`block text-sm font-semibold ${
-                  isActivePath('/contact')
-                    ? 'text-[var(--brand-ink)]'
-                    : 'text-slate-700'
+                  isActivePath("/contact")
+                    ? "text-[var(--brand-ink)]"
+                    : "text-slate-700"
                 }`}
               >
                 Contact
@@ -307,7 +336,7 @@ export function Navigation() {
               <Link
                 href="/admissions#apply"
                 onClick={() => setIsOpen(false)}
-                className="block px-6 py-3 rounded-xl bg-[var(--brand-ink)] text-white text-sm font-semibold text-center hover:bg-black transition-all shadow-md"
+                className="block bg-[var(--brand-ink)] hover:bg-black shadow-md px-6 py-3 rounded-xl font-semibold text-white text-sm text-center transition-all"
               >
                 Apply Now
               </Link>
