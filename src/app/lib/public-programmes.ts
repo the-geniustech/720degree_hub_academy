@@ -191,11 +191,6 @@ export async function getPublicProgrammesData(): Promise<PublicProgrammesResult>
     prisma.schedule.findFirst({ where: { name: "default" } }),
   ]);
 
-  console.log("Programs: ", JSON.stringify(programs, null, 2));
-  console.log("locations: ", JSON.stringify(locations, null, 2));
-  console.log("cohorts: ", JSON.stringify(cohorts, null, 2));
-  console.log("schedule: ", JSON.stringify(schedule, null, 2));
-
   assertConfiguredData(programs, locations, cohorts, schedule);
 
   return {
