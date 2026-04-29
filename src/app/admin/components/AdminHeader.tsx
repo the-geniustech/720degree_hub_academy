@@ -90,7 +90,7 @@ export function AdminHeader() {
                 key={item.href}
                 href={item.href}
                 className={`whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold ${
-                  isActive ? 'bg-slate-900 text-white' : 'bg-muted text-muted-foreground'
+                  isActive ? 'bg-[var(--brand-ink)] text-white' : 'bg-muted text-muted-foreground'
                 }`}
               >
                 {item.label}

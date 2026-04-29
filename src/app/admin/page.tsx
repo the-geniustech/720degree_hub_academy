@@ -101,7 +101,7 @@ export default function AdminOverviewPage() {
             return (
               <div
                 key={stat.label}
-                className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:bg-[#141b29] dark:border-white/10 dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
+                className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:bg-[#071a33] dark:border-white/10 dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
                 style={{ '--delay': `${index * 50}ms` } as CSSProperties}
               >
                 <div className="flex items-center justify-between">
@@ -111,7 +111,7 @@ export default function AdminOverviewPage() {
                     </p>
                     <p className="text-2xl font-semibold text-slate-900 dark:text-white">{stat.value}</p>
                   </div>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)]">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--brand-ink)] text-white dark:bg-[linear-gradient(135deg,#002040,#f08010)]">
                     <Icon className="h-5 w-5" />
                   </div>
                 </div>
@@ -121,7 +121,7 @@ export default function AdminOverviewPage() {
         </section>
 
         <section
-          className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:bg-[#141b29] dark:border-white/10 dark:shadow-[0_20px_45px_rgba(0,0,0,0.45)]"
+          className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:bg-[#071a33] dark:border-white/10 dark:shadow-[0_20px_45px_rgba(0,0,0,0.45)]"
           style={{ '--delay': '120ms' } as CSSProperties}
         >
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
@@ -158,7 +158,7 @@ export default function AdminOverviewPage() {
 
         <section className="grid gap-6 lg:grid-cols-2">
           <div
-            className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:bg-[#141b29] dark:border-white/10 dark:shadow-[0_20px_45px_rgba(0,0,0,0.45)]"
+            className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:bg-[#071a33] dark:border-white/10 dark:shadow-[0_20px_45px_rgba(0,0,0,0.45)]"
             style={{ '--delay': '160ms' } as CSSProperties}
           >
             <div className="flex items-center justify-between">
@@ -213,7 +213,7 @@ export default function AdminOverviewPage() {
           </div>
 
           <div
-            className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:bg-[#141b29] dark:border-white/10 dark:shadow-[0_20px_45px_rgba(0,0,0,0.45)]"
+            className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:bg-[#071a33] dark:border-white/10 dark:shadow-[0_20px_45px_rgba(0,0,0,0.45)]"
             style={{ '--delay': '220ms' } as CSSProperties}
           >
             <div className="flex items-center justify-between">

@@ -12,7 +12,7 @@ export function NotFoundPage() {
       <div className="text-center">
         <div className="mb-8">
           <div className="text-8xl font-bold text-[var(--brand-ink)] font-display">404</div>
-          <Search className="w-20 h-20 text-[var(--brand-ink)]/40 mx-auto mt-4" />
+          <Search className="w-20 h-20 text-[color:var(--brand-ink)]/40 mx-auto mt-4" />
         </div>
 
         <h1 className="text-4xl font-bold mb-4 text-[var(--brand-ink)]">Page Not Found</h1>
@@ -23,7 +23,7 @@ export function NotFoundPage() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 bg-[var(--brand-ink)] text-white px-8 py-4 rounded-lg font-semibold hover:bg-black transition-all"
+            className="inline-flex items-center gap-2 bg-[var(--brand-orange)] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[var(--brand-orange-strong)] transition-all"
           >
             <Home className="w-5 h-5" />
             Go to Homepage

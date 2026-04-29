@@ -26,7 +26,7 @@ export function AdminSidebar() {
               href={item.href}
               className={`flex items-start gap-3 rounded-xl px-3 py-2.5 transition ${
                 isActive
-                  ? 'bg-slate-900 text-white shadow-[0_12px_30px_rgba(15,23,42,0.2)]'
+                  ? 'bg-[var(--brand-ink)] text-white shadow-[0_12px_30px_rgba(0,16,32,0.2)]'
                   : 'text-muted-foreground hover:bg-muted'
               }`}
             >

@@ -48,14 +48,14 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
   const full = calculateAmountDue(baseOnsite, "full");
 
   return (
-    <div className="bg-[var(--brand-sand)] dark:bg-[#0b0f17] pt-20">
+    <div className="bg-[var(--brand-sand)] dark:bg-[#000b18] pt-20">
       {/* Hero Section */}
-      <section className="relative flex items-center bg-[var(--brand-sand)] dark:bg-[linear-gradient(160deg,#0b0f17,#121826)] py-16 min-h-[calc(100vh-5rem)] overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(154,210,255,0.45),_transparent_65%)] dark:bg-[radial-gradient(circle_at_top,_rgba(35,182,168,0.3),_transparent_60%)]" />
+      <section className="relative flex items-center bg-[var(--brand-sand)] dark:bg-[linear-gradient(160deg,#000b18,#001020)] py-16 min-h-[calc(100vh-5rem)] overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(219,231,243,0.45),_transparent_65%)] dark:bg-[radial-gradient(circle_at_top,_rgba(240,128,16,0.3),_transparent_60%)]" />
         <div className="absolute inset-0 texture-grid opacity-35" />
         <div className="absolute inset-0 opacity-20 texture-noise mix-blend-multiply" />
-        <div className="-top-24 right-10 absolute bg-[rgba(35,182,168,0.25)] dark:bg-[rgba(35,182,168,0.3)] blur-3xl rounded-full w-56 h-56 parallax-slow" />
-        <div className="bottom-10 left-8 absolute bg-[rgba(246,176,66,0.22)] dark:bg-[rgba(154,210,255,0.22)] blur-3xl rounded-full w-40 h-40 parallax-medium" />
+        <div className="-top-24 right-10 absolute bg-[rgba(240,128,16,0.25)] dark:bg-[rgba(240,128,16,0.3)] blur-3xl rounded-full w-56 h-56 parallax-slow" />
+        <div className="bottom-10 left-8 absolute bg-[rgba(240,128,16,0.22)] dark:bg-[rgba(219,231,243,0.22)] blur-3xl rounded-full w-40 h-40 parallax-medium" />
 
         <div className="z-10 relative mx-auto px-6 max-w-7xl">
           <Reveal delay={0} className="inline-flex mb-8">
@@ -74,7 +74,7 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
                 delay={80}
                 className="inline-flex items-center gap-2 bg-white/80 dark:bg-white/10 mb-4 px-4 py-2 border border-black/10 dark:border-white/10 rounded-full font-medium text-slate-700 dark:text-slate-200 text-sm"
               >
-                <Sparkles className="w-4 h-4 text-[var(--brand-teal)]" />
+                <Sparkles className="w-4 h-4 text-[var(--brand-orange)]" />
                 {program.school} School | 6-month programme
               </Reveal>
               <Reveal delay={140}>
@@ -96,7 +96,7 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
               <div className="gap-6 grid grid-cols-2 mb-8">
                 <Reveal
                   delay={300}
-                  className="flex items-center gap-3 bg-white/90 dark:bg-white/10 shadow-[0_18px_40px_rgba(11,16,32,0.12)] hover:shadow-[0_26px_55px_rgba(11,16,32,0.18)] dark:hover:shadow-[0_28px_60px_rgba(35,182,168,0.25)] dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] backdrop-blur-sm p-4 border border-black/10 dark:border-white/10 rounded-lg transform-gpu transition hover:-translate-y-1"
+                  className="flex items-center gap-3 bg-white/90 dark:bg-white/10 shadow-[0_18px_40px_rgba(0,16,32,0.12)] hover:shadow-[0_26px_55px_rgba(0,16,32,0.18)] dark:hover:shadow-[0_28px_60px_rgba(240,128,16,0.25)] dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] backdrop-blur-sm p-4 border border-black/10 dark:border-white/10 rounded-lg transform-gpu transition hover:-translate-y-1"
                 >
                   <Clock className="w-6 h-6 text-[var(--brand-ink)]" />
                   <div>
@@ -110,7 +110,7 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
                 </Reveal>
                 <Reveal
                   delay={360}
-                  className="flex items-center gap-3 bg-white/90 dark:bg-white/10 shadow-[0_18px_40px_rgba(11,16,32,0.12)] hover:shadow-[0_26px_55px_rgba(11,16,32,0.18)] dark:hover:shadow-[0_28px_60px_rgba(35,182,168,0.25)] dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] backdrop-blur-sm p-4 border border-black/10 dark:border-white/10 rounded-lg transform-gpu transition hover:-translate-y-1"
+                  className="flex items-center gap-3 bg-white/90 dark:bg-white/10 shadow-[0_18px_40px_rgba(0,16,32,0.12)] hover:shadow-[0_26px_55px_rgba(0,16,32,0.18)] dark:hover:shadow-[0_28px_60px_rgba(240,128,16,0.25)] dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] backdrop-blur-sm p-4 border border-black/10 dark:border-white/10 rounded-lg transform-gpu transition hover:-translate-y-1"
                 >
                   <Calendar className="w-6 h-6 text-[var(--brand-ink)]" />
                   <div>
@@ -124,7 +124,7 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
                 </Reveal>
                 <Reveal
                   delay={420}
-                  className="flex items-center gap-3 bg-white/90 dark:bg-white/10 shadow-[0_18px_40px_rgba(11,16,32,0.12)] hover:shadow-[0_26px_55px_rgba(11,16,32,0.18)] dark:hover:shadow-[0_28px_60px_rgba(35,182,168,0.25)] dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] backdrop-blur-sm p-4 border border-black/10 dark:border-white/10 rounded-lg transform-gpu transition hover:-translate-y-1"
+                  className="flex items-center gap-3 bg-white/90 dark:bg-white/10 shadow-[0_18px_40px_rgba(0,16,32,0.12)] hover:shadow-[0_26px_55px_rgba(0,16,32,0.18)] dark:hover:shadow-[0_28px_60px_rgba(240,128,16,0.25)] dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] backdrop-blur-sm p-4 border border-black/10 dark:border-white/10 rounded-lg transform-gpu transition hover:-translate-y-1"
                 >
                   <MapPin className="w-6 h-6 text-[var(--brand-ink)]" />
                   <div>
@@ -138,7 +138,7 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
                 </Reveal>
                 <Reveal
                   delay={480}
-                  className="flex items-center gap-3 bg-white/90 dark:bg-white/10 shadow-[0_18px_40px_rgba(11,16,32,0.12)] hover:shadow-[0_26px_55px_rgba(11,16,32,0.18)] dark:hover:shadow-[0_28px_60px_rgba(35,182,168,0.25)] dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] backdrop-blur-sm p-4 border border-black/10 dark:border-white/10 rounded-lg transform-gpu transition hover:-translate-y-1"
+                  className="flex items-center gap-3 bg-white/90 dark:bg-white/10 shadow-[0_18px_40px_rgba(0,16,32,0.12)] hover:shadow-[0_26px_55px_rgba(0,16,32,0.18)] dark:hover:shadow-[0_28px_60px_rgba(240,128,16,0.25)] dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] backdrop-blur-sm p-4 border border-black/10 dark:border-white/10 rounded-lg transform-gpu transition hover:-translate-y-1"
                 >
                   <Briefcase className="w-6 h-6 text-[var(--brand-ink)]" />
                   <div>
@@ -157,7 +157,7 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
                 <Reveal delay={520}>
                   <button
                     onClick={() => setShowEnrollModal(true)}
-                    className="bg-[var(--brand-ink)] hover:bg-black dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)] dark:hover:bg-[linear-gradient(135deg,#243152,#35e2cf)] shadow-[0_18px_50px_rgba(11,16,32,0.28)] dark:shadow-[0_22px_60px_rgba(35,182,168,0.35)] px-8 py-4 rounded-lg font-semibold text-white transition-all"
+                    className="bg-[var(--brand-orange)] hover:bg-[var(--brand-orange-strong)] dark:bg-[linear-gradient(135deg,#002040,#f08010)] dark:hover:bg-[linear-gradient(135deg,#00305c,#ff9a2c)] shadow-[0_18px_50px_rgba(0,16,32,0.28)] dark:shadow-[0_22px_60px_rgba(240,128,16,0.35)] px-8 py-4 rounded-lg font-semibold text-white transition-all"
                   >
                     Apply to this Track
                   </button>
@@ -165,7 +165,7 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
                 <Reveal delay={580}>
                   <Link
                     href="/tuition"
-                    className="bg-white hover:bg-black/5 dark:bg-white/10 dark:hover:bg-white/20 shadow-[0_12px_30px_rgba(11,16,32,0.12)] dark:shadow-[0_18px_45px_rgba(0,0,0,0.4)] px-8 py-4 border border-black/10 dark:border-white/10 rounded-lg font-semibold text-[var(--brand-ink)] dark:text-white transition-all"
+                    className="bg-white hover:bg-black/5 dark:bg-white/10 dark:hover:bg-white/20 shadow-[0_12px_30px_rgba(0,16,32,0.12)] dark:shadow-[0_18px_45px_rgba(0,0,0,0.4)] px-8 py-4 border border-black/10 dark:border-white/10 rounded-lg font-semibold text-[var(--brand-ink)] dark:text-white transition-all"
                   >
                     View Tuition
                   </Link>
@@ -182,15 +182,15 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
             </div>
 
             <Reveal delay={180} className="group relative">
-              <div className="absolute -inset-6 bg-[radial-gradient(circle_at_top,_rgba(35,182,168,0.35),_transparent_65%)] dark:bg-[radial-gradient(circle_at_top,_rgba(35,182,168,0.45),_transparent_65%)] opacity-70 blur-2xl rounded-[32px]" />
+              <div className="absolute -inset-6 bg-[radial-gradient(circle_at_top,_rgba(240,128,16,0.35),_transparent_65%)] dark:bg-[radial-gradient(circle_at_top,_rgba(240,128,16,0.45),_transparent_65%)] opacity-70 blur-2xl rounded-[32px]" />
               <div className="parallax-slow">
                 <ImageWithFallback
                   src={program.heroImage}
                   alt={program.title}
-                  className="relative shadow-[0_35px_90px_rgba(11,16,32,0.28)] dark:shadow-[0_35px_90px_rgba(0,0,0,0.55)] border border-white/60 dark:border-white/10 rounded-3xl transform-gpu group-hover:scale-[1.02] transition duration-500 group-hover:[transform:perspective(900px)_rotateY(-2deg)_rotateX(1deg)]"
+                  className="relative shadow-[0_35px_90px_rgba(0,16,32,0.28)] dark:shadow-[0_35px_90px_rgba(0,0,0,0.55)] border border-white/60 dark:border-white/10 rounded-3xl transform-gpu group-hover:scale-[1.02] transition duration-500 group-hover:[transform:perspective(900px)_rotateY(-2deg)_rotateX(1deg)]"
                 />
               </div>
-              <div className="hidden -right-6 -bottom-8 absolute md:flex items-center gap-2 bg-white/80 dark:bg-white/10 shadow-[0_16px_40px_rgba(11,16,32,0.15)] dark:shadow-[0_18px_45px_rgba(0,0,0,0.45)] backdrop-blur px-4 py-2 border border-black/10 dark:border-white/10 rounded-full text-slate-700 dark:text-slate-200 text-sm">
+              <div className="hidden -right-6 -bottom-8 absolute md:flex items-center gap-2 bg-white/80 dark:bg-white/10 shadow-[0_16px_40px_rgba(0,16,32,0.15)] dark:shadow-[0_18px_45px_rgba(0,0,0,0.45)] backdrop-blur px-4 py-2 border border-black/10 dark:border-white/10 rounded-full text-slate-700 dark:text-slate-200 text-sm">
                 Cohort-ready portfolio
               </div>
             </Reveal>
@@ -199,13 +199,13 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
       </section>
 
       {/* Programme Format */}
-      <section className="relative bg-white dark:bg-[linear-gradient(160deg,#0f1522,#141b29)] py-20 overflow-hidden">
-        <div className="-top-12 right-12 absolute bg-[rgba(154,210,255,0.25)] dark:bg-[rgba(35,182,168,0.22)] blur-3xl rounded-full w-32 h-32 parallax-fast" />
+      <section className="relative bg-white dark:bg-[linear-gradient(160deg,#00152a,#071a33)] py-20 overflow-hidden">
+        <div className="-top-12 right-12 absolute bg-[rgba(219,231,243,0.25)] dark:bg-[rgba(240,128,16,0.22)] blur-3xl rounded-full w-32 h-32 parallax-fast" />
         <div className="absolute inset-0 opacity-20 texture-dots" />
         <div className="z-10 relative gap-10 grid md:grid-cols-2 mx-auto px-6 max-w-7xl">
           <Reveal
             delay={0}
-            className="bg-[var(--brand-sand)] dark:bg-[rgba(20,27,41,0.85)] shadow-[0_20px_45px_rgba(11,16,32,0.12)] hover:shadow-[0_30px_70px_rgba(11,16,32,0.18)] dark:hover:shadow-[0_32px_70px_rgba(35,182,168,0.25)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.45)] p-8 border border-black/10 dark:border-white/10 rounded-2xl transform-gpu transition hover:-translate-y-1"
+            className="bg-[var(--brand-sand)] dark:bg-[rgba(20,27,41,0.85)] shadow-[0_20px_45px_rgba(0,16,32,0.12)] hover:shadow-[0_30px_70px_rgba(0,16,32,0.18)] dark:hover:shadow-[0_32px_70px_rgba(240,128,16,0.25)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.45)] p-8 border border-black/10 dark:border-white/10 rounded-2xl transform-gpu transition hover:-translate-y-1"
           >
             <h2 className="mb-4 font-display font-bold text-[var(--brand-ink)] text-3xl">
               Programme Format
@@ -221,7 +221,7 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
           </Reveal>
           <Reveal
             delay={160}
-            className="bg-[var(--brand-sand)] dark:bg-[rgba(20,27,41,0.85)] shadow-[0_20px_45px_rgba(11,16,32,0.12)] hover:shadow-[0_30px_70px_rgba(11,16,32,0.18)] dark:hover:shadow-[0_32px_70px_rgba(35,182,168,0.25)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.45)] p-8 border border-black/10 dark:border-white/10 rounded-2xl transform-gpu transition hover:-translate-y-1"
+            className="bg-[var(--brand-sand)] dark:bg-[rgba(20,27,41,0.85)] shadow-[0_20px_45px_rgba(0,16,32,0.12)] hover:shadow-[0_30px_70px_rgba(0,16,32,0.18)] dark:hover:shadow-[0_32px_70px_rgba(240,128,16,0.25)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.45)] p-8 border border-black/10 dark:border-white/10 rounded-2xl transform-gpu transition hover:-translate-y-1"
           >
             <h2 className="mb-4 font-display font-bold text-[var(--brand-ink)] text-3xl">
               Learning Outcomes
@@ -229,7 +229,7 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
             <ul className="space-y-3 text-slate-700 dark:text-slate-300">
               {program.outcomes.map((outcome) => (
                 <li key={outcome} className="flex items-start gap-3">
-                  <span className="bg-[var(--brand-teal)] mt-2 rounded-full w-2 h-2" />
+                  <span className="bg-[var(--brand-orange)] mt-2 rounded-full w-2 h-2" />
                   <span>{outcome}</span>
                 </li>
               ))}
@@ -239,8 +239,8 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
       </section>
 
       {/* Highlights */}
-      <section className="relative bg-white dark:bg-[linear-gradient(160deg,#0f1522,#141b29)] py-20 overflow-hidden">
-        <div className="-bottom-12 left-8 absolute bg-[rgba(246,176,66,0.2)] dark:bg-[rgba(154,210,255,0.2)] blur-3xl rounded-full w-36 h-36 parallax-medium" />
+      <section className="relative bg-white dark:bg-[linear-gradient(160deg,#00152a,#071a33)] py-20 overflow-hidden">
+        <div className="-bottom-12 left-8 absolute bg-[rgba(240,128,16,0.2)] dark:bg-[rgba(219,231,243,0.2)] blur-3xl rounded-full w-36 h-36 parallax-medium" />
         <div className="absolute inset-0 texture-grid opacity-20" />
         <div className="z-10 relative mx-auto px-6 max-w-7xl">
           <Reveal delay={0}>
@@ -260,7 +260,7 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
               <Reveal
                 key={index}
                 delay={index * 120}
-                className="bg-[var(--brand-sand)] dark:bg-[rgba(20,27,41,0.85)] shadow-[0_18px_40px_rgba(11,16,32,0.12)] hover:shadow-[0_28px_60px_rgba(11,16,32,0.2)] dark:hover:shadow-[0_30px_65px_rgba(35,182,168,0.25)] dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] p-6 border border-black/10 dark:border-white/10 rounded-xl transform-gpu transition hover:-translate-y-1"
+                className="bg-[var(--brand-sand)] dark:bg-[rgba(20,27,41,0.85)] shadow-[0_18px_40px_rgba(0,16,32,0.12)] hover:shadow-[0_28px_60px_rgba(0,16,32,0.2)] dark:hover:shadow-[0_30px_65px_rgba(240,128,16,0.25)] dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] p-6 border border-black/10 dark:border-white/10 rounded-xl transform-gpu transition hover:-translate-y-1"
               >
                 <p className="text-slate-700 dark:text-slate-300 text-lg">
                   {outcome}
@@ -272,8 +272,8 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
       </section>
 
       {/* Sample Projects */}
-      <section className="relative bg-[var(--brand-sand)] dark:bg-[linear-gradient(160deg,#0f1522,#131b2b)] py-20 overflow-hidden">
-        <div className="-top-20 right-8 absolute bg-[rgba(35,182,168,0.2)] dark:bg-[rgba(35,182,168,0.25)] blur-3xl rounded-full w-48 h-48 parallax-slow" />
+      <section className="relative bg-[var(--brand-sand)] dark:bg-[linear-gradient(160deg,#00152a,#001b36)] py-20 overflow-hidden">
+        <div className="-top-20 right-8 absolute bg-[rgba(240,128,16,0.2)] dark:bg-[rgba(240,128,16,0.25)] blur-3xl rounded-full w-48 h-48 parallax-slow" />
         <div className="absolute inset-0 opacity-20 texture-dots" />
         <div className="z-10 relative mx-auto px-6 max-w-7xl">
           <Reveal delay={0}>
@@ -292,7 +292,7 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
               <Reveal
                 key={project.title}
                 delay={index * 120}
-                className="bg-white dark:bg-[#141b29] shadow-[0_20px_50px_rgba(11,16,32,0.12)] hover:shadow-[0_30px_70px_rgba(11,16,32,0.2)] dark:hover:shadow-[0_32px_70px_rgba(35,182,168,0.25)] dark:shadow-[0_26px_60px_rgba(0,0,0,0.45)] p-6 border border-black/10 dark:border-white/10 rounded-xl transform-gpu transition hover:-translate-y-1 hover:[transform:perspective(900px)_rotateX(1deg)_rotateY(-1deg)]"
+                className="bg-white dark:bg-[#071a33] shadow-[0_20px_50px_rgba(0,16,32,0.12)] hover:shadow-[0_30px_70px_rgba(0,16,32,0.2)] dark:hover:shadow-[0_32px_70px_rgba(240,128,16,0.25)] dark:shadow-[0_26px_60px_rgba(0,0,0,0.45)] p-6 border border-black/10 dark:border-white/10 rounded-xl transform-gpu transition hover:-translate-y-1 hover:[transform:perspective(900px)_rotateX(1deg)_rotateY(-1deg)]"
               >
                 <h3 className="mb-2 font-bold text-[var(--brand-ink)] text-xl">
                   {project.title}
@@ -307,8 +307,8 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
       </section>
 
       {/* Curriculum */}
-      <section className="relative bg-[var(--brand-sand)] dark:bg-[linear-gradient(160deg,#0f1522,#131b2b)] py-20 overflow-hidden">
-        <div className="bottom-10 left-12 absolute bg-[rgba(154,210,255,0.22)] dark:bg-[rgba(35,182,168,0.22)] blur-3xl rounded-full w-40 h-40 parallax-medium" />
+      <section className="relative bg-[var(--brand-sand)] dark:bg-[linear-gradient(160deg,#00152a,#001b36)] py-20 overflow-hidden">
+        <div className="bottom-10 left-12 absolute bg-[rgba(219,231,243,0.22)] dark:bg-[rgba(240,128,16,0.22)] blur-3xl rounded-full w-40 h-40 parallax-medium" />
         <div className="absolute inset-0 texture-grid opacity-20" />
         <div className="z-10 relative mx-auto px-6 max-w-7xl">
           <Reveal delay={0}>
@@ -327,7 +327,7 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
               <Reveal
                 key={index}
                 delay={index * 120}
-                className="bg-white dark:bg-[#141b29] shadow-[0_18px_40px_rgba(11,16,32,0.12)] hover:shadow-[0_28px_60px_rgba(11,16,32,0.2)] dark:hover:shadow-[0_30px_65px_rgba(35,182,168,0.25)] dark:shadow-[0_24px_55px_rgba(0,0,0,0.45)] p-6 border border-black/10 dark:border-white/10 rounded-xl transform-gpu transition hover:-translate-y-1"
+                className="bg-white dark:bg-[#071a33] shadow-[0_18px_40px_rgba(0,16,32,0.12)] hover:shadow-[0_28px_60px_rgba(0,16,32,0.2)] dark:hover:shadow-[0_30px_65px_rgba(240,128,16,0.25)] dark:shadow-[0_24px_55px_rgba(0,0,0,0.45)] p-6 border border-black/10 dark:border-white/10 rounded-xl transform-gpu transition hover:-translate-y-1"
               >
                 <h3 className="mb-4 font-bold text-[var(--brand-ink)] text-xl">
                   {module.label}
@@ -335,7 +335,7 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
                 <div className="gap-4 grid md:grid-cols-2 text-slate-700 dark:text-slate-300">
                   {module.topics.map((topic, topicIndex) => (
                     <div key={topicIndex} className="flex items-start gap-3">
-                      <span className="bg-[var(--brand-teal)] mt-1 rounded-full w-2 h-2" />
+                      <span className="bg-[var(--brand-orange)] mt-1 rounded-full w-2 h-2" />
                       <span>{topic}</span>
                     </div>
                   ))}
@@ -347,8 +347,8 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
       </section>
 
       {/* Tools & Technologies */}
-      <section className="relative bg-white dark:bg-[linear-gradient(160deg,#0f1522,#141b29)] py-20 overflow-hidden">
-        <div className="-top-16 right-8 absolute bg-[rgba(239,107,93,0.2)] dark:bg-[rgba(154,210,255,0.2)] blur-3xl rounded-full w-36 h-36 parallax-fast" />
+      <section className="relative bg-white dark:bg-[linear-gradient(160deg,#00152a,#071a33)] py-20 overflow-hidden">
+        <div className="-top-16 right-8 absolute bg-[rgba(217,103,4,0.2)] dark:bg-[rgba(219,231,243,0.2)] blur-3xl rounded-full w-36 h-36 parallax-fast" />
         <div className="absolute inset-0 opacity-25 texture-dots" />
         <div className="z-10 relative mx-auto px-6 max-w-7xl">
           <Reveal delay={0}>
@@ -367,7 +367,7 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
               <Reveal
                 key={tool}
                 delay={index * 80}
-                className="bg-[var(--brand-sand)] dark:bg-white/10 shadow-[0_12px_30px_rgba(11,16,32,0.1)] hover:shadow-[0_20px_45px_rgba(11,16,32,0.18)] dark:hover:shadow-[0_22px_45px_rgba(35,182,168,0.25)] dark:shadow-[0_16px_35px_rgba(0,0,0,0.4)] px-5 py-2 border border-black/10 dark:border-white/10 rounded-full text-slate-700 dark:text-slate-200 transform-gpu transition hover:-translate-y-1"
+                className="bg-[var(--brand-sand)] dark:bg-white/10 shadow-[0_12px_30px_rgba(0,16,32,0.1)] hover:shadow-[0_20px_45px_rgba(0,16,32,0.18)] dark:hover:shadow-[0_22px_45px_rgba(240,128,16,0.25)] dark:shadow-[0_16px_35px_rgba(0,0,0,0.4)] px-5 py-2 border border-black/10 dark:border-white/10 rounded-full text-slate-700 dark:text-slate-200 transform-gpu transition hover:-translate-y-1"
               >
                 {tool}
               </Reveal>
@@ -377,8 +377,8 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
       </section>
 
       {/* Assessment */}
-      <section className="relative bg-[var(--brand-sand)] dark:bg-[linear-gradient(160deg,#0f1522,#131b2b)] py-20 overflow-hidden">
-        <div className="-top-12 left-8 absolute bg-[rgba(35,182,168,0.2)] dark:bg-[rgba(35,182,168,0.25)] blur-3xl rounded-full w-36 h-36 parallax-slow" />
+      <section className="relative bg-[var(--brand-sand)] dark:bg-[linear-gradient(160deg,#00152a,#001b36)] py-20 overflow-hidden">
+        <div className="-top-12 left-8 absolute bg-[rgba(240,128,16,0.2)] dark:bg-[rgba(240,128,16,0.25)] blur-3xl rounded-full w-36 h-36 parallax-slow" />
         <div className="absolute inset-0 texture-grid opacity-20" />
         <div className="z-10 relative mx-auto px-6 max-w-6xl">
           <Reveal delay={0}>
@@ -397,7 +397,7 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
               <Reveal
                 key={item}
                 delay={index * 120}
-                className="bg-white dark:bg-[#141b29] shadow-[0_18px_40px_rgba(11,16,32,0.12)] hover:shadow-[0_28px_60px_rgba(11,16,32,0.2)] dark:hover:shadow-[0_30px_65px_rgba(35,182,168,0.25)] dark:shadow-[0_24px_55px_rgba(0,0,0,0.45)] p-6 border border-black/10 dark:border-white/10 rounded-xl text-slate-700 dark:text-slate-300 transform-gpu transition hover:-translate-y-1"
+                className="bg-white dark:bg-[#071a33] shadow-[0_18px_40px_rgba(0,16,32,0.12)] hover:shadow-[0_28px_60px_rgba(0,16,32,0.2)] dark:hover:shadow-[0_30px_65px_rgba(240,128,16,0.25)] dark:shadow-[0_24px_55px_rgba(0,0,0,0.45)] p-6 border border-black/10 dark:border-white/10 rounded-xl text-slate-700 dark:text-slate-300 transform-gpu transition hover:-translate-y-1"
               >
                 {item}
               </Reveal>
@@ -407,8 +407,8 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
       </section>
 
       {/* Career Paths */}
-      <section className="relative bg-white dark:bg-[linear-gradient(160deg,#0f1522,#141b29)] py-20 overflow-hidden">
-        <div className="right-12 bottom-10 absolute bg-[rgba(154,210,255,0.2)] dark:bg-[rgba(35,182,168,0.22)] blur-3xl rounded-full w-36 h-36 parallax-medium" />
+      <section className="relative bg-white dark:bg-[linear-gradient(160deg,#00152a,#071a33)] py-20 overflow-hidden">
+        <div className="right-12 bottom-10 absolute bg-[rgba(219,231,243,0.2)] dark:bg-[rgba(240,128,16,0.22)] blur-3xl rounded-full w-36 h-36 parallax-medium" />
         <div className="absolute inset-0 opacity-25 texture-dots" />
         <div className="z-10 relative mx-auto px-6 max-w-7xl">
           <Reveal delay={0}>
@@ -427,7 +427,7 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
               <Reveal
                 key={career}
                 delay={index * 100}
-                className="bg-[var(--brand-sand)] dark:bg-[rgba(20,27,41,0.85)] shadow-[0_18px_40px_rgba(11,16,32,0.12)] hover:shadow-[0_28px_60px_rgba(11,16,32,0.2)] dark:hover:shadow-[0_30px_65px_rgba(35,182,168,0.25)] dark:shadow-[0_24px_55px_rgba(0,0,0,0.45)] p-6 border border-black/10 dark:border-white/10 rounded-xl font-semibold text-[var(--brand-ink)] dark:text-slate-100 transform-gpu transition hover:-translate-y-1"
+                className="bg-[var(--brand-sand)] dark:bg-[rgba(20,27,41,0.85)] shadow-[0_18px_40px_rgba(0,16,32,0.12)] hover:shadow-[0_28px_60px_rgba(0,16,32,0.2)] dark:hover:shadow-[0_30px_65px_rgba(240,128,16,0.25)] dark:shadow-[0_24px_55px_rgba(0,0,0,0.45)] p-6 border border-black/10 dark:border-white/10 rounded-xl font-semibold text-[var(--brand-ink)] dark:text-slate-100 transform-gpu transition hover:-translate-y-1"
               >
                 {career}
               </Reveal>
@@ -437,12 +437,12 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
       </section>
 
       {/* Post-Grad Support */}
-      <section className="relative bg-white dark:bg-[linear-gradient(160deg,#0f1522,#141b29)] py-20 overflow-hidden">
-        <div className="-top-12 left-6 absolute bg-[rgba(246,176,66,0.2)] dark:bg-[rgba(154,210,255,0.2)] blur-3xl rounded-full w-36 h-36 parallax-fast" />
+      <section className="relative bg-white dark:bg-[linear-gradient(160deg,#00152a,#071a33)] py-20 overflow-hidden">
+        <div className="-top-12 left-6 absolute bg-[rgba(240,128,16,0.2)] dark:bg-[rgba(219,231,243,0.2)] blur-3xl rounded-full w-36 h-36 parallax-fast" />
         <div className="z-10 relative mx-auto px-6 max-w-6xl">
           <Reveal
             delay={0}
-            className="bg-[var(--brand-ink)] dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)] shadow-[0_28px_70px_rgba(11,16,32,0.35)] dark:shadow-[0_32px_70px_rgba(35,182,168,0.35)] p-10 border border-white/10 rounded-2xl text-white"
+            className="bg-[var(--brand-ink)] dark:bg-[linear-gradient(135deg,#002040,#f08010)] shadow-[0_28px_70px_rgba(0,16,32,0.35)] dark:shadow-[0_32px_70px_rgba(240,128,16,0.35)] p-10 border border-white/10 rounded-2xl text-white"
           >
             <h3 className="mb-4 font-display font-bold text-2xl">
               Post-Grad Support (Months 7-9)
@@ -470,13 +470,13 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
       </section>
 
       {/* Graduation Standard */}
-      <section className="relative bg-[var(--brand-sand)] dark:bg-[linear-gradient(160deg,#0f1522,#131b2b)] py-20 overflow-hidden">
-        <div className="bottom-10 left-8 absolute bg-[rgba(35,182,168,0.2)] dark:bg-[rgba(35,182,168,0.25)] blur-3xl rounded-full w-36 h-36 parallax-medium" />
+      <section className="relative bg-[var(--brand-sand)] dark:bg-[linear-gradient(160deg,#00152a,#001b36)] py-20 overflow-hidden">
+        <div className="bottom-10 left-8 absolute bg-[rgba(240,128,16,0.2)] dark:bg-[rgba(240,128,16,0.25)] blur-3xl rounded-full w-36 h-36 parallax-medium" />
         <div className="absolute inset-0 opacity-20 texture-noise" />
         <div className="z-10 relative mx-auto px-6 max-w-5xl">
           <Reveal
             delay={0}
-            className="bg-[var(--brand-ink)] dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)] shadow-[0_28px_70px_rgba(11,16,32,0.35)] dark:shadow-[0_32px_70px_rgba(35,182,168,0.35)] p-10 border border-white/10 rounded-2xl text-white"
+            className="bg-[var(--brand-ink)] dark:bg-[linear-gradient(135deg,#002040,#f08010)] shadow-[0_28px_70px_rgba(0,16,32,0.35)] dark:shadow-[0_32px_70px_rgba(240,128,16,0.35)] p-10 border border-white/10 rounded-2xl text-white"
           >
             <h3 className="mb-4 font-display font-bold text-2xl">
               Graduation Standard
@@ -487,10 +487,10 @@ export function ProgramDetailPage({ program }: ProgramDetailPageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="relative bg-[var(--brand-ink)] dark:bg-[linear-gradient(160deg,#0b0f17,#121826)] py-20 overflow-hidden text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(154,210,255,0.35),_transparent_60%)] dark:bg-[radial-gradient(circle_at_top,_rgba(35,182,168,0.35),_transparent_60%)]" />
+      <section className="relative bg-[var(--brand-ink)] dark:bg-[linear-gradient(160deg,#000b18,#001020)] py-20 overflow-hidden text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(219,231,243,0.35),_transparent_60%)] dark:bg-[radial-gradient(circle_at_top,_rgba(240,128,16,0.35),_transparent_60%)]" />
         <div className="absolute inset-0 texture-grid opacity-25" />
-        <div className="right-10 -bottom-20 absolute bg-[rgba(246,176,66,0.25)] dark:bg-[rgba(154,210,255,0.25)] blur-3xl rounded-full w-44 h-44 parallax-slow" />
+        <div className="right-10 -bottom-20 absolute bg-[rgba(240,128,16,0.25)] dark:bg-[rgba(219,231,243,0.25)] blur-3xl rounded-full w-44 h-44 parallax-slow" />
         <div className="z-10 relative mx-auto px-6 max-w-4xl text-center">
           <Reveal delay={0}>
             <h2 className="mb-6 font-display font-bold text-4xl">

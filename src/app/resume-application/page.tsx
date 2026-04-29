@@ -59,7 +59,7 @@ export default function ResumeApplicationPage() {
     <div className="bg-[var(--brand-sand)] pt-24 min-h-screen">
       <section className="mx-auto px-6 pb-16 w-full max-w-5xl">
         <div className="gap-8 grid lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="bg-white shadow-[0_20px_50px_rgba(11,16,32,0.12)] p-8 border border-black/10 rounded-3xl">
+          <div className="bg-white shadow-[0_20px_50px_rgba(0,16,32,0.12)] p-8 border border-black/10 rounded-3xl">
             <div className="mb-6">
               <div className="inline-flex items-center gap-2 bg-[var(--brand-sand)] px-4 py-2 border border-black/10 rounded-full font-semibold text-[var(--brand-ink)] text-xs">
                 <Search className="w-4 h-4" />
@@ -164,7 +164,7 @@ export default function ResumeApplicationPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="inline-flex flex-1 justify-center items-center gap-2 bg-[var(--brand-ink)] hover:bg-black disabled:opacity-60 px-6 py-3 rounded-xl font-semibold text-white text-sm transition"
+                  className="inline-flex flex-1 justify-center items-center gap-2 bg-[var(--brand-orange)] hover:bg-[var(--brand-orange-strong)] disabled:opacity-60 px-6 py-3 rounded-xl font-semibold text-white text-sm transition"
                 >
                   {loading ? (
                     <Loader2 className="w-4 h-4 animate-spin" />
@@ -189,7 +189,7 @@ export default function ResumeApplicationPage() {
                 </div>
                 <a
                   href={result.paymentUrl}
-                  className="inline-flex items-center gap-2 bg-[var(--brand-ink)] hover:bg-black mt-3 px-6 py-3 rounded-xl font-semibold text-white text-sm transition"
+                  className="inline-flex items-center gap-2 bg-[var(--brand-orange)] hover:bg-[var(--brand-orange-strong)] mt-3 px-6 py-3 rounded-xl font-semibold text-white text-sm transition"
                 >
                   Continue to Payment
                   <ArrowRight className="w-4 h-4" />
@@ -198,7 +198,7 @@ export default function ResumeApplicationPage() {
             ) : null}
           </div>
 
-          <aside className="bg-white/80 shadow-[0_18px_40px_rgba(11,16,32,0.12)] p-8 border border-black/10 rounded-3xl">
+          <aside className="bg-white/80 shadow-[0_18px_40px_rgba(0,16,32,0.12)] p-8 border border-black/10 rounded-3xl">
             <h2 className="font-bold text-[var(--brand-ink)] text-xl">
               Need a hand?
             </h2>
@@ -225,7 +225,7 @@ export default function ResumeApplicationPage() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex justify-center items-center bg-[var(--brand-ink)] hover:bg-black px-5 py-3 rounded-xl font-semibold text-white text-sm transition"
+                className="inline-flex justify-center items-center bg-[var(--brand-orange)] hover:bg-[var(--brand-orange-strong)] px-5 py-3 rounded-xl font-semibold text-white text-sm transition"
               >
                 Contact Admissions
               </Link>

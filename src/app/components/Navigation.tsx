@@ -59,7 +59,7 @@ export function Navigation() {
   const isActivePath = (path: string) => pathname === path;
 
   return (
-    <nav className="top-0 z-40 fixed bg-background/90 backdrop-blur border-border border-b w-full">
+    <nav className="top-0 z-40 fixed bg-[color:var(--brand-ink)]/95 shadow-[0_18px_40px_rgba(0,16,32,0.22)] backdrop-blur border-white/10 border-b w-full text-white">
       <div className="mx-auto px-6 max-w-7xl">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -77,8 +77,8 @@ export function Navigation() {
               href="/"
               className={`text-sm font-semibold transition-colors ${
                 isActivePath("/")
-                  ? "text-[var(--brand-ink)]"
-                  : "text-slate-700 hover:text-[var(--brand-ink)]"
+                  ? "border-[var(--brand-orange)] border-b-2 pb-1 text-white"
+                  : "border-b-2 border-transparent pb-1 text-white/80 hover:text-white"
               }`}
             >
               Home
@@ -90,7 +90,7 @@ export function Navigation() {
               onMouseEnter={handleProgramsEnter}
               onMouseLeave={handleProgramsLeave}
             >
-              <button className="flex items-center gap-1 font-semibold text-slate-700 hover:text-[var(--brand-ink)] text-sm transition-colors">
+              <button className="flex items-center gap-1 border-b-2 border-transparent pb-1 font-semibold text-white/80 hover:text-white text-sm transition-colors">
                 Programs
                 <ChevronDown
                   className={`w-4 h-4 transition-transform ${isProgramsOpen ? "rotate-180" : ""}`}
@@ -138,8 +138,8 @@ export function Navigation() {
               href="/admissions"
               className={`text-sm font-semibold transition-colors ${
                 isActivePath("/admissions")
-                  ? "text-[var(--brand-ink)]"
-                  : "text-slate-700 hover:text-[var(--brand-ink)]"
+                  ? "border-[var(--brand-orange)] border-b-2 pb-1 text-white"
+                  : "border-b-2 border-transparent pb-1 text-white/80 hover:text-white"
               }`}
             >
               Admissions
@@ -149,8 +149,8 @@ export function Navigation() {
               href="/resume-application"
               className={`text-sm font-semibold transition-colors ${
                 isActivePath("/resume-application")
-                  ? "text-[var(--brand-ink)]"
-                  : "text-slate-700 hover:text-[var(--brand-ink)]"
+                  ? "border-[var(--brand-orange)] border-b-2 pb-1 text-white"
+                  : "border-b-2 border-transparent pb-1 text-white/80 hover:text-white"
               }`}
             >
               Resume Application
@@ -161,7 +161,7 @@ export function Navigation() {
               onMouseEnter={handleAcademyEnter}
               onMouseLeave={handleAcademyLeave}
             >
-              <button className="flex items-center gap-1 font-semibold text-slate-700 hover:text-[var(--brand-ink)] text-sm transition-colors">
+              <button className="flex items-center gap-1 border-b-2 border-transparent pb-1 font-semibold text-white/80 hover:text-white text-sm transition-colors">
                 Academy
                 <ChevronDown
                   className={`w-4 h-4 transition-transform ${isAcademyOpen ? "rotate-180" : ""}`}
@@ -206,8 +206,8 @@ export function Navigation() {
               href="/contact"
               className={`text-sm font-semibold transition-colors ${
                 isActivePath("/contact")
-                  ? "text-[var(--brand-ink)]"
-                  : "text-slate-700 hover:text-[var(--brand-ink)]"
+                  ? "border-[var(--brand-orange)] border-b-2 pb-1 text-white"
+                  : "border-b-2 border-transparent pb-1 text-white/80 hover:text-white"
               }`}
             >
               Contact
@@ -217,7 +217,7 @@ export function Navigation() {
               <ThemeToggle />
               <Link
                 href="/admissions#apply"
-                className="bg-[var(--brand-ink)] hover:bg-black shadow-md hover:shadow-lg px-6 py-2.5 rounded-xl font-semibold text-white text-sm hover:scale-105 transition-all hover:-translate-y-0.5 transform"
+                className="bg-[var(--brand-orange)] hover:bg-[var(--brand-orange-strong)] shadow-[0_12px_30px_rgba(240,128,16,0.28)] hover:shadow-[0_16px_38px_rgba(240,128,16,0.35)] px-6 py-2.5 rounded-xl font-semibold text-white text-sm hover:scale-105 transition-all hover:-translate-y-0.5 transform"
               >
                 Apply Now
               </Link>
@@ -229,7 +229,7 @@ export function Navigation() {
             <ThemeToggle size="sm" />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="hover:bg-black/5 p-2 rounded-lg text-slate-700 transition-colors"
+              className="hover:bg-white/10 p-2 rounded-lg text-white/90 transition-colors"
             >
               {isOpen ? (
                 <X className="w-6 h-6" />
@@ -242,7 +242,7 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden bg-background py-4 border-border border-t">
+          <div className="lg:hidden bg-[var(--brand-ink)] py-4 border-white/10 border-t">
             <div className="space-y-4">
               <ThemeToggle showLabel className="justify-center w-full" />
               <Link
@@ -250,15 +250,15 @@ export function Navigation() {
                 onClick={() => setIsOpen(false)}
                 className={`block text-sm font-semibold ${
                   isActivePath("/")
-                    ? "text-[var(--brand-ink)]"
-                    : "text-slate-700"
+                    ? "text-[var(--brand-orange)]"
+                    : "text-white/85"
                 }`}
               >
                 Home
               </Link>
 
               <div>
-                <div className="mb-2 font-semibold text-slate-700 text-sm">
+                <div className="mb-2 font-semibold text-white text-sm">
                   Programs
                 </div>
                 <div className="space-y-2 pl-4">
@@ -267,7 +267,7 @@ export function Navigation() {
                       key={program.slug}
                       href={`/programs/${program.slug}`}
                       onClick={() => setIsOpen(false)}
-                      className="block py-1 text-slate-600 hover:text-[var(--brand-ink)] text-sm"
+                      className="block py-1 text-white/65 hover:text-white text-sm"
                     >
                       {program.title}
                     </Link>
@@ -280,8 +280,8 @@ export function Navigation() {
                 onClick={() => setIsOpen(false)}
                 className={`block text-sm font-semibold ${
                   isActivePath("/admissions")
-                    ? "text-[var(--brand-ink)]"
-                    : "text-slate-700"
+                    ? "text-[var(--brand-orange)]"
+                    : "text-white/85"
                 }`}
               >
                 Admissions
@@ -292,15 +292,15 @@ export function Navigation() {
                 onClick={() => setIsOpen(false)}
                 className={`block text-sm font-semibold ${
                   isActivePath("/resume-application")
-                    ? "text-[var(--brand-ink)]"
-                    : "text-slate-700"
+                    ? "text-[var(--brand-orange)]"
+                    : "text-white/85"
                 }`}
               >
                 Resume Application
               </Link>
 
               <div>
-                <div className="mb-2 font-semibold text-slate-700 text-sm">
+                <div className="mb-2 font-semibold text-white text-sm">
                   Academy
                 </div>
                 <div className="space-y-2 pl-4">
@@ -313,7 +313,7 @@ export function Navigation() {
                       key={item.href}
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="block py-1 text-slate-600 hover:text-[var(--brand-ink)] text-sm"
+                      className="block py-1 text-white/65 hover:text-white text-sm"
                     >
                       {item.label}
                     </Link>
@@ -326,8 +326,8 @@ export function Navigation() {
                 onClick={() => setIsOpen(false)}
                 className={`block text-sm font-semibold ${
                   isActivePath("/contact")
-                    ? "text-[var(--brand-ink)]"
-                    : "text-slate-700"
+                    ? "text-[var(--brand-orange)]"
+                    : "text-white/85"
                 }`}
               >
                 Contact
@@ -336,7 +336,7 @@ export function Navigation() {
               <Link
                 href="/admissions#apply"
                 onClick={() => setIsOpen(false)}
-                className="block bg-[var(--brand-ink)] hover:bg-black shadow-md px-6 py-3 rounded-xl font-semibold text-white text-sm text-center transition-all"
+                className="block bg-[var(--brand-orange)] hover:bg-[var(--brand-orange-strong)] shadow-[0_12px_30px_rgba(240,128,16,0.28)] px-6 py-3 rounded-xl font-semibold text-white text-sm text-center transition-all"
               >
                 Apply Now
               </Link>

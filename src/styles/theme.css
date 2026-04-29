@@ -2,118 +2,126 @@
 
 :root {
   --font-size: 16px;
-  --background: #f7f2ea;
-  --foreground: #0b1020;
+  --background: #f5f7fa;
+  --foreground: #001020;
   --card: #ffffff;
-  --card-foreground: #0b1020;
+  --card-foreground: #001020;
   --popover: #ffffff;
-  --popover-foreground: #0b1020;
-  --primary: #0b1020;
+  --popover-foreground: #001020;
+  --primary: #f08010;
   --primary-foreground: #ffffff;
-  --secondary: #f0e8dd;
-  --secondary-foreground: #0b1020;
-  --muted: #efe7dd;
-  --muted-foreground: #5e6470;
-  --accent: #e7efe9;
-  --accent-foreground: #0b1020;
+  --secondary: #eaf0f6;
+  --secondary-foreground: #001020;
+  --muted: #edf2f7;
+  --muted-foreground: #5c6878;
+  --accent: #fff2e3;
+  --accent-foreground: #001020;
   --destructive: #d44533;
   --destructive-foreground: #ffffff;
-  --border: rgba(11, 16, 32, 0.1);
+  --border: rgba(0, 16, 32, 0.1);
   --input: transparent;
-  --input-background: #f1e8dc;
-  --switch-background: #cfd6d2;
+  --input-background: #eef3f8;
+  --switch-background: #c8d3df;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: rgba(35, 182, 168, 0.35);
-  --chart-1: #23b6a8;
-  --chart-2: #f6b042;
-  --chart-3: #9ad2ff;
-  --chart-4: #ef6b5d;
-  --chart-5: #26324b;
+  --ring: rgba(240, 128, 16, 0.38);
+  --chart-1: #f08010;
+  --chart-2: #002040;
+  --chart-3: #f2b166;
+  --chart-4: #6f8198;
+  --chart-5: #001020;
   --radius: 0.75rem;
-  --sidebar: #f7f2ea;
-  --sidebar-foreground: #0b1020;
-  --sidebar-primary: #0b1020;
-  --sidebar-primary-foreground: #f7f2ea;
-  --sidebar-accent: #efe7dd;
-  --sidebar-accent-foreground: #0b1020;
-  --sidebar-border: rgba(11, 16, 32, 0.08);
-  --sidebar-ring: rgba(35, 182, 168, 0.35);
+  --sidebar: #001020;
+  --sidebar-foreground: #f8fbff;
+  --sidebar-primary: #f08010;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #002040;
+  --sidebar-accent-foreground: #f8fbff;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: rgba(240, 128, 16, 0.38);
   --surface-1: #ffffff;
   --surface-1-95: rgba(255, 255, 255, 0.95);
   --surface-1-90: rgba(255, 255, 255, 0.9);
   --surface-1-80: rgba(255, 255, 255, 0.8);
-  --surface-2: #f7f2ea;
-  --surface-3: #efe7dd;
-  --surface-border: rgba(11, 16, 32, 0.1);
+  --surface-2: #f5f7fa;
+  --surface-3: #eaf0f6;
+  --surface-border: rgba(0, 16, 32, 0.1);
   --page-glow:
-    radial-gradient(85% 65% at 0% 0%, rgba(35, 182, 168, 0.12), transparent 60%),
-    radial-gradient(70% 55% at 100% 0%, rgba(246, 176, 66, 0.12), transparent 55%);
+    radial-gradient(85% 65% at 0% 0%, rgba(240, 128, 16, 0.12), transparent 60%),
+    radial-gradient(70% 55% at 100% 0%, rgba(0, 32, 64, 0.1), transparent 55%);
 
-  --brand-ink: #0b1020;
-  --brand-sand: #f7f2ea;
-  --brand-teal: #23b6a8;
-  --brand-amber: #f6b042;
-  --brand-coral: #ef6b5d;
-  --brand-sky: #9ad2ff;
-  --brand-night: #1a2236;
+  --brand-ink: #001020;
+  --brand-navy: #001020;
+  --brand-navy-soft: #002040;
+  --brand-orange: #f08010;
+  --brand-orange-strong: #c45600;
+  --brand-sand: #f5f7fa;
+  --brand-teal: #f08010;
+  --brand-amber: #f08010;
+  --brand-coral: #d96704;
+  --brand-sky: #dbe7f3;
+  --brand-night: #001020;
 }
 
 .dark {
-  --background: #0b0f17;
-  --foreground: #f7f2ea;
-  --card: #141b29;
-  --card-foreground: #f7f2ea;
-  --popover: #141b29;
-  --popover-foreground: #f7f2ea;
-  --primary: #f7f2ea;
-  --primary-foreground: #0b0f17;
-  --secondary: #1c2535;
-  --secondary-foreground: #f7f2ea;
-  --muted: #182130;
-  --muted-foreground: #a6b0c2;
-  --accent: #1d2638;
-  --accent-foreground: #f7f2ea;
+  --background: #000b18;
+  --foreground: #f5f7fa;
+  --card: #071a33;
+  --card-foreground: #f5f7fa;
+  --popover: #071a33;
+  --popover-foreground: #f5f7fa;
+  --primary: #f08010;
+  --primary-foreground: #ffffff;
+  --secondary: #002040;
+  --secondary-foreground: #f5f7fa;
+  --muted: #071a33;
+  --muted-foreground: #a9b5c4;
+  --accent: #102a47;
+  --accent-foreground: #f5f7fa;
   --destructive: #f06a5c;
   --destructive-foreground: #ffe9e5;
   --border: rgba(255, 255, 255, 0.08);
   --input: rgba(255, 255, 255, 0.1);
   --input-background: rgba(255, 255, 255, 0.04);
   --switch-background: rgba(255, 255, 255, 0.18);
-  --ring: rgba(35, 182, 168, 0.45);
+  --ring: rgba(240, 128, 16, 0.45);
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --chart-1: #23b6a8;
-  --chart-2: #f6b042;
-  --chart-3: #9ad2ff;
-  --chart-4: #ef6b5d;
-  --chart-5: #26324b;
-  --sidebar: #0f1522;
+  --chart-1: #f08010;
+  --chart-2: #dbe7f3;
+  --chart-3: #f2b166;
+  --chart-4: #6f8198;
+  --chart-5: #002040;
+  --sidebar: #000b18;
   --sidebar-foreground: #e6edf7;
-  --sidebar-primary: #23b6a8;
-  --sidebar-primary-foreground: #0b0f17;
-  --sidebar-accent: #1a2233;
+  --sidebar-primary: #f08010;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #002040;
   --sidebar-accent-foreground: #e6edf7;
   --sidebar-border: rgba(255, 255, 255, 0.08);
-  --sidebar-ring: rgba(35, 182, 168, 0.45);
-  --surface-1: #141b29;
-  --surface-1-95: rgba(20, 27, 41, 0.95);
-  --surface-1-90: rgba(20, 27, 41, 0.9);
-  --surface-1-80: rgba(20, 27, 41, 0.8);
-  --surface-2: #0f1522;
-  --surface-3: #1b2435;
+  --sidebar-ring: rgba(240, 128, 16, 0.45);
+  --surface-1: #071a33;
+  --surface-1-95: rgba(7, 26, 51, 0.95);
+  --surface-1-90: rgba(7, 26, 51, 0.9);
+  --surface-1-80: rgba(7, 26, 51, 0.8);
+  --surface-2: #00152a;
+  --surface-3: #102a47;
   --surface-border: rgba(255, 255, 255, 0.08);
   --page-glow:
-    radial-gradient(85% 65% at 0% 0%, rgba(35, 182, 168, 0.18), transparent 60%),
-    radial-gradient(70% 55% at 100% 0%, rgba(154, 210, 255, 0.16), transparent 55%);
+    radial-gradient(85% 65% at 0% 0%, rgba(240, 128, 16, 0.18), transparent 60%),
+    radial-gradient(70% 55% at 100% 0%, rgba(0, 32, 64, 0.42), transparent 55%);
 
-  --brand-ink: #121826;
-  --brand-sand: #0f1522;
-  --brand-teal: #2ad7c7;
-  --brand-amber: #f3bf62;
-  --brand-coral: #f08a78;
-  --brand-sky: #9ad2ff;
-  --brand-night: #0b0f17;
+  --brand-ink: #001020;
+  --brand-navy: #001020;
+  --brand-navy-soft: #002040;
+  --brand-orange: #f08010;
+  --brand-orange-strong: #ff9a2c;
+  --brand-sand: #00152a;
+  --brand-teal: #f08010;
+  --brand-amber: #ff9a2c;
+  --brand-coral: #f08010;
+  --brand-sky: #dbe7f3;
+  --brand-night: #000b18;
 }
 
 @theme inline {
@@ -379,7 +387,11 @@
   }
 
   .dark .text-\[var\(--brand-ink\)\]\/40 {
-    color: rgba(247, 242, 234, 0.4);
+    color: rgba(245, 247, 250, 0.4);
+  }
+
+  .dark .text-\[color\:var\(--brand-ink\)\]\/40 {
+    color: rgba(245, 247, 250, 0.4);
   }
 
   .dark .hover\:text-\[var\(--brand-ink\)\]:hover {
@@ -396,18 +408,18 @@
 
   .texture-grid {
     background-image:
-      linear-gradient(to right, rgba(11, 16, 32, 0.06) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(11, 16, 32, 0.06) 1px, transparent 1px);
+      linear-gradient(to right, rgba(0, 16, 32, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 16, 32, 0.06) 1px, transparent 1px);
     background-size: 48px 48px;
   }
 
   .texture-dots {
-    background-image: radial-gradient(rgba(11, 16, 32, 0.12) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(0, 16, 32, 0.12) 1px, transparent 1px);
     background-size: 18px 18px;
   }
 
   .texture-noise {
-    background-image: radial-gradient(rgba(11, 16, 32, 0.14) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(0, 16, 32, 0.14) 1px, transparent 1px);
     background-size: 6px 6px;
   }
 
@@ -442,7 +454,7 @@
   @media (hover: hover) {
     .admin-lift:hover {
       transform: translateY(-4px);
-      box-shadow: 0 24px 44px rgba(15, 23, 42, 0.14);
+      box-shadow: 0 24px 44px rgba(0, 16, 32, 0.14);
     }
 
     .dark .admin-lift:hover {
@@ -452,14 +464,14 @@
     .admin-glow:hover {
       transform: translateY(-2px);
       box-shadow:
-        0 0 0 3px rgba(35, 182, 168, 0.18),
-        0 16px 30px rgba(15, 23, 42, 0.16);
+        0 0 0 3px rgba(240, 128, 16, 0.18),
+        0 16px 30px rgba(0, 16, 32, 0.16);
       filter: brightness(1.02);
     }
 
     .dark .admin-glow:hover {
       box-shadow:
-        0 0 0 3px rgba(42, 215, 199, 0.25),
+        0 0 0 3px rgba(240, 128, 16, 0.25),
         0 18px 34px rgba(0, 0, 0, 0.6);
       filter: brightness(1.04);
     }

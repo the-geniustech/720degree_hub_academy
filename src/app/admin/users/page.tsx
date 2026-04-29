@@ -159,7 +159,7 @@ export default function AdminUsersPage() {
     <AdminGate requiredRole="super_admin">
       <div className="space-y-6 pt-8">
         <section
-          className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#141b29] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
+          className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#071a33] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
           style={{ '--delay': '0ms' } as CSSProperties}
         >
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
@@ -220,7 +220,7 @@ export default function AdminUsersPage() {
             {users.map((user, index) => (
               <div
                 key={user.id}
-                className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-[#141b29] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
+                className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-[#071a33] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
                 style={{ '--delay': `${120 + index * 40}ms` } as CSSProperties}
               >
                 <div className="flex items-center justify-between gap-4">
@@ -277,7 +277,7 @@ export default function AdminUsersPage() {
           </div>
 
           <div
-            className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#141b29] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
+            className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#071a33] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
             style={{ '--delay': '160ms' } as CSSProperties}
           >
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
@@ -320,7 +320,7 @@ export default function AdminUsersPage() {
                   type="button"
                   onClick={saveUser}
                   disabled={saving}
-                  className="admin-glow rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white disabled:opacity-60 dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)] dark:text-white"
+                  className="admin-glow rounded-full bg-[var(--brand-ink)] px-4 py-2 text-xs font-semibold text-white disabled:opacity-60 dark:bg-[linear-gradient(135deg,#002040,#f08010)] dark:text-white"
                 >
                   {saving ? 'Saving...' : 'Save User'}
                 </button>

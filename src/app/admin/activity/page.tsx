@@ -68,7 +68,7 @@ export default function ActivityPage() {
     <AdminGate>
       <div className="space-y-6 pt-8">
         <section
-          className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:bg-[#141b29] dark:border-white/10 dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
+          className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:bg-[#071a33] dark:border-white/10 dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
           style={{ '--delay': '0ms' } as CSSProperties}
         >
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
@@ -127,7 +127,7 @@ export default function ActivityPage() {
         ) : null}
 
         <section
-          className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:bg-[#141b29] dark:border-white/10 dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
+          className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:bg-[#071a33] dark:border-white/10 dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
           style={{ '--delay': '80ms' } as CSSProperties}
         >
           {data?.logs?.length ? (

@@ -10,16 +10,16 @@ export function AboutPage() {
   const { schedule } = data;
   return (
     <div className="pt-20">
-      <section className="relative bg-[var(--brand-sand)] dark:bg-[linear-gradient(160deg,#0b0f17,#121826)] py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(154,210,255,0.4),_transparent_60%)] dark:bg-[radial-gradient(circle_at_top,_rgba(35,182,168,0.3),_transparent_60%)]" />
+      <section className="relative bg-[var(--brand-sand)] dark:bg-[linear-gradient(160deg,#000b18,#001020)] py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(219,231,243,0.4),_transparent_60%)] dark:bg-[radial-gradient(circle_at_top,_rgba(240,128,16,0.3),_transparent_60%)]" />
         <div className="absolute inset-0 texture-grid opacity-30" />
         <div className="absolute inset-0 opacity-20 texture-noise mix-blend-multiply" />
-        <div className="-top-16 right-16 absolute bg-[rgba(35,182,168,0.22)] dark:bg-[rgba(35,182,168,0.28)] blur-3xl rounded-full w-44 h-44 parallax-slow" />
-        <div className="bottom-4 left-8 absolute bg-[rgba(246,176,66,0.25)] dark:bg-[rgba(154,210,255,0.22)] blur-3xl rounded-full w-28 h-28 parallax-medium" />
+        <div className="-top-16 right-16 absolute bg-[rgba(240,128,16,0.22)] dark:bg-[rgba(240,128,16,0.28)] blur-3xl rounded-full w-44 h-44 parallax-slow" />
+        <div className="bottom-4 left-8 absolute bg-[rgba(240,128,16,0.25)] dark:bg-[rgba(219,231,243,0.22)] blur-3xl rounded-full w-28 h-28 parallax-medium" />
         <div className="z-10 relative mx-auto px-6 max-w-6xl text-center">
           <Reveal delay={0}>
-            <div className="inline-flex items-center gap-2 bg-white/80 dark:bg-white/10 shadow-[0_16px_40px_rgba(11,16,32,0.12)] dark:shadow-[0_18px_45px_rgba(0,0,0,0.4)] mb-6 px-4 py-2 border border-black/10 dark:border-white/10 rounded-full">
-              <Sparkles className="w-4 h-4 text-[var(--brand-teal)]" />
+            <div className="inline-flex items-center gap-2 bg-white/80 dark:bg-white/10 shadow-[0_16px_40px_rgba(0,16,32,0.12)] dark:shadow-[0_18px_45px_rgba(0,0,0,0.4)] mb-6 px-4 py-2 border border-black/10 dark:border-white/10 rounded-full">
+              <Sparkles className="w-4 h-4 text-[var(--brand-orange)]" />
               <span className="font-semibold text-[var(--brand-ink)] text-sm">
                 Our Philosophy
               </span>
@@ -40,8 +40,8 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="relative bg-white dark:bg-[linear-gradient(160deg,#0f1522,#141b29)] py-20 overflow-hidden">
-        <div className="-top-12 right-10 absolute bg-[rgba(154,210,255,0.2)] dark:bg-[rgba(35,182,168,0.22)] blur-3xl rounded-full w-32 h-32 parallax-fast" />
+      <section className="relative bg-white dark:bg-[linear-gradient(160deg,#00152a,#071a33)] py-20 overflow-hidden">
+        <div className="-top-12 right-10 absolute bg-[rgba(219,231,243,0.2)] dark:bg-[rgba(240,128,16,0.22)] blur-3xl rounded-full w-32 h-32 parallax-fast" />
         <div className="absolute inset-0 opacity-20 texture-dots" />
         <div className="z-10 relative items-start gap-12 grid md:grid-cols-2 mx-auto px-6 max-w-6xl">
           <Reveal delay={0}>
@@ -65,7 +65,7 @@ export function AboutPage() {
           </Reveal>
           <Reveal
             delay={160}
-            className="bg-[var(--brand-sand)] dark:bg-[rgba(20,27,41,0.85)] shadow-[0_22px_50px_rgba(11,16,32,0.12)] hover:shadow-[0_32px_70px_rgba(11,16,32,0.18)] dark:hover:shadow-[0_32px_70px_rgba(35,182,168,0.25)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.45)] p-8 border border-black/10 dark:border-white/10 rounded-2xl transform-gpu transition hover:-translate-y-1"
+            className="bg-[var(--brand-sand)] dark:bg-[rgba(20,27,41,0.85)] shadow-[0_22px_50px_rgba(0,16,32,0.12)] hover:shadow-[0_32px_70px_rgba(0,16,32,0.18)] dark:hover:shadow-[0_32px_70px_rgba(240,128,16,0.25)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.45)] p-8 border border-black/10 dark:border-white/10 rounded-2xl transform-gpu transition hover:-translate-y-1"
           >
             <h3 className="mb-4 font-display font-bold text-[var(--brand-ink)] text-xl">
               Programme at a Glance
@@ -87,13 +87,13 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="relative bg-[var(--brand-sand)] dark:bg-[linear-gradient(160deg,#0f1522,#131b2b)] py-20 overflow-hidden">
-        <div className="-bottom-12 left-8 absolute bg-[rgba(35,182,168,0.2)] dark:bg-[rgba(35,182,168,0.25)] blur-3xl rounded-full w-36 h-36 parallax-medium" />
+      <section className="relative bg-[var(--brand-sand)] dark:bg-[linear-gradient(160deg,#00152a,#001b36)] py-20 overflow-hidden">
+        <div className="-bottom-12 left-8 absolute bg-[rgba(240,128,16,0.2)] dark:bg-[rgba(240,128,16,0.25)] blur-3xl rounded-full w-36 h-36 parallax-medium" />
         <div className="absolute inset-0 texture-grid opacity-20" />
         <div className="z-10 relative gap-8 grid md:grid-cols-2 mx-auto px-6 max-w-6xl">
           <Reveal
             delay={0}
-            className="bg-white dark:bg-[#141b29] shadow-[0_22px_55px_rgba(11,16,32,0.12)] hover:shadow-[0_35px_70px_rgba(11,16,32,0.2)] dark:hover:shadow-[0_32px_70px_rgba(35,182,168,0.25)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.45)] p-8 border border-black/10 dark:border-white/10 rounded-2xl transform-gpu transition hover:-translate-y-1"
+            className="bg-white dark:bg-[#071a33] shadow-[0_22px_55px_rgba(0,16,32,0.12)] hover:shadow-[0_35px_70px_rgba(0,16,32,0.2)] dark:hover:shadow-[0_32px_70px_rgba(240,128,16,0.25)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.45)] p-8 border border-black/10 dark:border-white/10 rounded-2xl transform-gpu transition hover:-translate-y-1"
           >
             <h3 className="mb-4 font-display font-bold text-[var(--brand-ink)] text-2xl">
               The 720Degree Difference
@@ -107,7 +107,7 @@ export function AboutPage() {
           </Reveal>
           <Reveal
             delay={160}
-            className="bg-white dark:bg-[#141b29] shadow-[0_22px_55px_rgba(11,16,32,0.12)] hover:shadow-[0_35px_70px_rgba(11,16,32,0.2)] dark:hover:shadow-[0_32px_70px_rgba(35,182,168,0.25)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.45)] p-8 border border-black/10 dark:border-white/10 rounded-2xl transform-gpu transition hover:-translate-y-1"
+            className="bg-white dark:bg-[#071a33] shadow-[0_22px_55px_rgba(0,16,32,0.12)] hover:shadow-[0_35px_70px_rgba(0,16,32,0.2)] dark:hover:shadow-[0_32px_70px_rgba(240,128,16,0.25)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.45)] p-8 border border-black/10 dark:border-white/10 rounded-2xl transform-gpu transition hover:-translate-y-1"
           >
             <h3 className="mb-4 font-display font-bold text-[var(--brand-ink)] text-2xl">
               Community Compounds
@@ -121,9 +121,9 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="relative bg-white dark:bg-[linear-gradient(160deg,#0f1522,#141b29)] py-20 overflow-hidden">
+      <section className="relative bg-white dark:bg-[linear-gradient(160deg,#00152a,#071a33)] py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-25 texture-dots" />
-        <div className="-top-10 right-12 absolute bg-[rgba(246,176,66,0.2)] dark:bg-[rgba(154,210,255,0.2)] blur-3xl rounded-full w-32 h-32 parallax-fast" />
+        <div className="-top-10 right-12 absolute bg-[rgba(240,128,16,0.2)] dark:bg-[rgba(219,231,243,0.2)] blur-3xl rounded-full w-32 h-32 parallax-fast" />
         <div className="z-10 relative mx-auto px-6 max-w-4xl text-center">
           <Reveal delay={0}>
             <h2 className="mb-6 font-display font-bold text-[var(--brand-ink)] text-4xl">
@@ -139,7 +139,7 @@ export function AboutPage() {
           <Reveal delay={220}>
             <Link
               href="/admissions#apply"
-              className="inline-flex items-center gap-2 bg-[var(--brand-ink)] hover:bg-black dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)] dark:hover:bg-[linear-gradient(135deg,#243152,#35e2cf)] shadow-[0_18px_50px_rgba(11,16,32,0.28)] dark:shadow-[0_22px_60px_rgba(35,182,168,0.35)] px-8 py-4 rounded-lg font-semibold text-white transition"
+              className="inline-flex items-center gap-2 bg-[var(--brand-orange)] hover:bg-[var(--brand-orange-strong)] dark:bg-[linear-gradient(135deg,#002040,#f08010)] dark:hover:bg-[linear-gradient(135deg,#00305c,#ff9a2c)] shadow-[0_18px_50px_rgba(0,16,32,0.28)] dark:shadow-[0_22px_60px_rgba(240,128,16,0.35)] px-8 py-4 rounded-lg font-semibold text-white transition"
             >
               Apply Now
               <ArrowRight className="w-5 h-5" />

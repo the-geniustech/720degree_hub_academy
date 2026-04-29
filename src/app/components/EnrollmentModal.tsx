@@ -179,7 +179,7 @@ export function EnrollmentModal({
                   <div className="mt-4 flex flex-col sm:flex-row gap-3">
                     <a
                       href={paymentUrl}
-                      className="inline-flex justify-center items-center bg-[var(--brand-ink)] px-6 py-3 rounded-lg font-semibold text-white transition hover:bg-black"
+                      className="inline-flex justify-center items-center bg-[var(--brand-orange)] px-6 py-3 rounded-lg font-semibold text-white transition hover:bg-[var(--brand-orange-strong)]"
                     >
                       Continue to Payment
                     </a>
@@ -214,7 +214,7 @@ export function EnrollmentModal({
               )}
               <button
                 onClick={resetAndClose}
-                className="bg-[var(--brand-ink)] hover:bg-black px-8 py-3 rounded-lg font-semibold text-white transition-all"
+                className="bg-[var(--brand-orange)] hover:bg-[var(--brand-orange-strong)] px-8 py-3 rounded-lg font-semibold text-white transition-all"
               >
                 Close
               </button>
@@ -479,7 +479,7 @@ export function EnrollmentModal({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 bg-[var(--brand-ink)] hover:bg-black disabled:opacity-50 px-6 py-3 rounded-lg font-semibold text-white transition-all disabled:cursor-not-allowed"
+                  className="flex-1 bg-[var(--brand-orange)] hover:bg-[var(--brand-orange-strong)] disabled:opacity-50 px-6 py-3 rounded-lg font-semibold text-white transition-all disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <span className="flex justify-center items-center gap-2">

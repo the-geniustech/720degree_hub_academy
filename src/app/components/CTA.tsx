@@ -62,11 +62,11 @@ export function CTA() {
   return (
     <section
       id="enroll"
-      className="relative bg-[var(--brand-ink)] dark:bg-[linear-gradient(160deg,#0b0f17,#121826)] py-20 overflow-hidden text-white"
+      className="relative bg-[var(--brand-ink)] dark:bg-[linear-gradient(160deg,#000b18,#001020)] py-20 overflow-hidden text-white"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(154,210,255,0.2),_transparent_55%)] dark:bg-[radial-gradient(circle_at_top,_rgba(35,182,168,0.35),_transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(219,231,243,0.2),_transparent_55%)] dark:bg-[radial-gradient(circle_at_top,_rgba(240,128,16,0.35),_transparent_55%)]" />
       <div className="absolute inset-0 texture-grid opacity-20" />
-      <div className="right-10 -bottom-24 absolute bg-[rgba(246,176,66,0.25)] dark:bg-[rgba(154,210,255,0.25)] blur-3xl rounded-full w-40 h-40 parallax-slow" />
+      <div className="right-10 -bottom-24 absolute bg-[rgba(240,128,16,0.25)] dark:bg-[rgba(219,231,243,0.25)] blur-3xl rounded-full w-40 h-40 parallax-slow" />
       <div className="z-10 relative mx-auto px-6 max-w-7xl">
         <div className="items-start gap-12 grid md:grid-cols-2">
           {/* Left side - CTA content */}
@@ -151,7 +151,7 @@ export function CTA() {
             <Reveal
               delay={200}
               speed="fast"
-              className="bg-white dark:bg-[#141b29] shadow-[0_30px_70px_rgba(0,0,0,0.4)] dark:shadow-[0_30px_70px_rgba(0,0,0,0.55)] p-8 border border-white/20 dark:border-white/10 rounded-2xl text-[var(--brand-ink)] dark:text-white transform-gpu transition hover:[transform:perspective(900px)_rotateX(1deg)_rotateY(-1deg)]"
+              className="bg-white dark:bg-[#071a33] shadow-[0_30px_70px_rgba(0,0,0,0.4)] dark:shadow-[0_30px_70px_rgba(0,0,0,0.55)] p-8 border border-white/20 dark:border-white/10 rounded-2xl text-[var(--brand-ink)] dark:text-white transform-gpu transition hover:[transform:perspective(900px)_rotateX(1deg)_rotateY(-1deg)]"
             >
               <h3 className="mb-6 font-bold text-2xl">
                 Request the Programme Pack
@@ -178,7 +178,7 @@ export function CTA() {
                       onChange={(e) =>
                         setFormData({ ...formData, name: e.target.value })
                       }
-                      className="bg-white/80 dark:bg-white/10 px-4 py-3 border border-black/10 focus:border-black dark:border-white/10 dark:focus:border-[var(--brand-teal)] rounded-lg focus:outline-none w-full dark:text-white transition"
+                      className="bg-white/80 dark:bg-white/10 px-4 py-3 border border-black/10 focus:border-black dark:border-white/10 dark:focus:border-[var(--brand-orange)] rounded-lg focus:outline-none w-full dark:text-white transition"
                       placeholder="John Doe"
                     />
                   </div>
@@ -198,7 +198,7 @@ export function CTA() {
                       onChange={(e) =>
                         setFormData({ ...formData, email: e.target.value })
                       }
-                      className="bg-white/80 dark:bg-white/10 px-4 py-3 border border-black/10 focus:border-black dark:border-white/10 dark:focus:border-[var(--brand-teal)] rounded-lg focus:outline-none w-full dark:text-white transition"
+                      className="bg-white/80 dark:bg-white/10 px-4 py-3 border border-black/10 focus:border-black dark:border-white/10 dark:focus:border-[var(--brand-orange)] rounded-lg focus:outline-none w-full dark:text-white transition"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -218,7 +218,7 @@ export function CTA() {
                       onChange={(e) =>
                         setFormData({ ...formData, phone: e.target.value })
                       }
-                      className="bg-white/80 dark:bg-white/10 px-4 py-3 border border-black/10 focus:border-black dark:border-white/10 dark:focus:border-[var(--brand-teal)] rounded-lg focus:outline-none w-full dark:text-white transition"
+                      className="bg-white/80 dark:bg-white/10 px-4 py-3 border border-black/10 focus:border-black dark:border-white/10 dark:focus:border-[var(--brand-orange)] rounded-lg focus:outline-none w-full dark:text-white transition"
                       placeholder="+234 800 000 0000"
                     />
                   </div>
@@ -237,7 +237,7 @@ export function CTA() {
                       onChange={(e) =>
                         setFormData({ ...formData, program: e.target.value })
                       }
-                      className="bg-white/80 dark:bg-white/10 px-4 py-3 border border-black/10 focus:border-black dark:border-white/10 dark:focus:border-[var(--brand-teal)] rounded-lg focus:outline-none w-full dark:text-white transition"
+                      className="bg-white/80 dark:bg-white/10 px-4 py-3 border border-black/10 focus:border-black dark:border-white/10 dark:focus:border-[var(--brand-orange)] rounded-lg focus:outline-none w-full dark:text-white transition"
                     >
                       <option value="">Select a program</option>
                       {programs.map((program) => (
@@ -251,7 +251,7 @@ export function CTA() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="flex justify-center items-center gap-2 bg-[var(--brand-ink)] hover:bg-black dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)] dark:hover:bg-[linear-gradient(135deg,#243152,#35e2cf)] disabled:opacity-60 px-8 py-4 rounded-lg w-full font-semibold text-white transition disabled:cursor-not-allowed"
+                    className="flex justify-center items-center gap-2 bg-[var(--brand-orange)] hover:bg-[var(--brand-orange-strong)] dark:bg-[linear-gradient(135deg,#002040,#f08010)] dark:hover:bg-[linear-gradient(135deg,#00305c,#ff9a2c)] disabled:opacity-60 px-8 py-4 rounded-lg w-full font-semibold text-white transition disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? "Submitting..." : "Send Programme Pack"}
                     <ArrowRight size={20} />

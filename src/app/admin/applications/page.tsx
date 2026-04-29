@@ -197,7 +197,7 @@ export default function ApplicationsPage() {
     <AdminGate>
       <div className="space-y-6 pt-8">
         <section
-          className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:bg-[#141b29] dark:border-white/10 dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
+          className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:bg-[#071a33] dark:border-white/10 dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
           style={{ '--delay': '0ms' } as CSSProperties}
         >
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
@@ -288,7 +288,7 @@ export default function ApplicationsPage() {
 
         <section className="grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
           <div
-            className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:bg-[#141b29] dark:border-white/10 dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
+            className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:bg-[#071a33] dark:border-white/10 dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
             style={{ '--delay': '80ms' } as CSSProperties}
           >
             {loading ? (
@@ -385,7 +385,7 @@ export default function ApplicationsPage() {
           </div>
 
           <div
-            className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:bg-[#141b29] dark:border-white/10 dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
+            className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:bg-[#071a33] dark:border-white/10 dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
             style={{ '--delay': '140ms' } as CSSProperties}
           >
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Selected Snapshot</h3>

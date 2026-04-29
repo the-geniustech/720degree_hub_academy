@@ -9,11 +9,9 @@ const communityUrl = process.env.NEXT_PUBLIC_COMMUNITY_URL || "/contact";
 
 export function Hero() {
   return (
-    <section className="relative bg-[var(--brand-sand)] dark:bg-[#0b0f17] mt-20 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(154,210,255,0.4),_transparent_60%),radial-gradient(circle_at_80%_20%,_rgba(246,176,66,0.28),_transparent_50%)] dark:bg-[radial-gradient(circle_at_top,_rgba(35,182,168,0.3),_transparent_60%),radial-gradient(circle_at_70%_20%,_rgba(154,210,255,0.2),_transparent_55%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(11,16,32,0.04),transparent,rgba(11,16,32,0.08))] dark:bg-[linear-gradient(120deg,rgba(255,255,255,0.06),transparent,rgba(35,182,168,0.12))]" />
-      <div className="-top-24 left-10 absolute bg-[rgba(35,182,168,0.25)] dark:bg-[rgba(35,182,168,0.28)] blur-3xl rounded-full w-44 h-44 parallax-slow" />
-      <div className="top-24 right-16 absolute bg-[rgba(239,107,93,0.28)] dark:bg-[rgba(154,210,255,0.22)] blur-3xl rounded-full w-32 h-32 parallax-medium" />
+    <section className="relative bg-[var(--brand-ink)] mt-20 overflow-hidden text-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_15%,rgba(240,128,16,0.18),transparent_34%),linear-gradient(120deg,rgba(0,16,32,0.94),rgba(0,32,64,0.72),rgba(0,16,32,0.96))]" />
+      <div className="left-0 absolute inset-y-0 bg-[linear-gradient(90deg,rgba(0,16,32,0.92),rgba(0,16,32,0.2))] border-white/5 border-r w-1/2" />
       <div className="relative grid lg:grid-cols-2 min-h-[640px] lg:min-h-[720px]">
         {/* Left Side - Content */}
         <div className="relative flex items-center px-6 py-16 lg:py-20 lg:pl-16 xl:pl-24">
@@ -27,10 +25,10 @@ export function Hero() {
                 delay: 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="inline-flex items-center gap-2 bg-white/80 dark:bg-white/10 shadow-[0_10px_30px_rgba(11,16,32,0.08)] dark:shadow-[0_14px_40px_rgba(0,0,0,0.35)] backdrop-blur mb-6 px-4 py-2 border border-black/10 dark:border-white/10 rounded-full"
+              className="inline-flex items-center gap-2 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur mb-6 px-4 py-2 border border-white/10 rounded-full"
             >
-              <Sparkles className="w-4 h-4 text-[var(--brand-teal)]" />
-              <span className="font-semibold text-[var(--brand-ink)] text-sm">
+              <Sparkles className="w-4 h-4 text-[var(--brand-orange)]" />
+              <span className="font-semibold text-white text-sm">
                 Cohort Teaching Programme
               </span>
             </motion.div>
@@ -44,10 +42,10 @@ export function Hero() {
                 delay: 0.2,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="mb-6 font-display font-bold text-[var(--brand-ink)] text-5xl lg:text-6xl xl:text-7xl leading-tight"
+              className="mb-6 font-display font-bold text-white text-5xl lg:text-6xl xl:text-7xl leading-tight"
             >
               <span className="block">Learn it.</span>
-              <span className="block bg-[length:200%_200%] bg-[linear-gradient(120deg,#0b1020,#23b6a8,#f6b042)] dark:bg-[linear-gradient(120deg,#f7f2ea,#2ad7c7,#9ad2ff)] bg-clip-text text-transparent animate-[shimmer_6s_ease-in-out_infinite]">
+              <span className="block bg-[length:200%_200%] bg-[linear-gradient(120deg,#ffffff,#f08010,#ffb061)] bg-clip-text text-transparent animate-[shimmer_6s_ease-in-out_infinite]">
                 Build it.
               </span>
               <span className="block">Work it.</span>
@@ -62,7 +60,7 @@ export function Hero() {
                 delay: 0.3,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="mb-8 text-slate-700 dark:text-slate-300 text-lg lg:text-xl leading-relaxed"
+              className="mb-8 text-white/78 text-lg lg:text-xl leading-relaxed"
             >
               720Degree Innovation Hub is an AI-integrated, expert-led tech
               academy in Abeokuta with Lagos and global online access. Build
@@ -82,20 +80,20 @@ export function Hero() {
               className="flex flex-wrap gap-6 mb-10"
             >
               <div className="flex items-center gap-2">
-                <Award className="w-5 h-5 text-[var(--brand-amber)]" />
-                <span className="font-medium text-slate-700 dark:text-slate-300 text-sm">
+                <Award className="w-5 h-5 text-[var(--brand-orange)]" />
+                <span className="font-medium text-white/78 text-sm">
                   AI-first, real projects
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-[var(--brand-teal)]" />
-                <span className="font-medium text-slate-700 dark:text-slate-300 text-sm">
+                <Users className="w-5 h-5 text-[var(--brand-orange)]" />
+                <span className="font-medium text-white/78 text-sm">
                   Expert-led, community-driven
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <Briefcase className="w-5 h-5 text-[var(--brand-coral)]" />
-                <span className="font-medium text-slate-700 dark:text-slate-300 text-sm">
+                <Briefcase className="w-5 h-5 text-[var(--brand-orange)]" />
+                <span className="font-medium text-white/78 text-sm">
                   Business-ready outcomes
                 </span>
               </div>
@@ -114,7 +112,7 @@ export function Hero() {
             >
               <Link
                 href="/admissions#apply"
-                className="inline-flex justify-center items-center gap-2 bg-[var(--brand-ink)] hover:bg-black dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)] dark:hover:bg-[linear-gradient(135deg,#243152,#35e2cf)] shadow-[0_18px_45px_rgba(11,16,32,0.25)] dark:shadow-[0_22px_55px_rgba(35,182,168,0.35)] px-8 py-4 rounded-xl font-semibold text-white hover:scale-105 transition-all hover:-translate-y-0.5 transform"
+                className="inline-flex justify-center items-center gap-2 bg-[var(--brand-orange)] hover:bg-[var(--brand-orange-strong)] shadow-[0_18px_45px_rgba(240,128,16,0.28)] px-8 py-4 rounded-xl font-semibold text-white hover:scale-105 transition-all hover:-translate-y-0.5 transform"
               >
                 Apply for May 2026
                 <ArrowRight className="w-5 h-5" />
@@ -122,7 +120,7 @@ export function Hero() {
 
               <a
                 href="#programs"
-                className="inline-flex justify-center items-center gap-2 bg-white hover:bg-black/5 dark:bg-white/10 dark:hover:bg-white/20 shadow-[0_12px_30px_rgba(11,16,32,0.08)] dark:shadow-[0_16px_40px_rgba(0,0,0,0.35)] px-8 py-4 border-2 border-black/10 hover:border-black/20 dark:border-white/15 dark:hover:border-white/30 rounded-xl font-semibold text-[var(--brand-ink)] dark:text-white transition-all"
+                className="inline-flex justify-center items-center gap-2 bg-white/10 hover:bg-white/20 shadow-[0_12px_30px_rgba(0,0,0,0.18)] px-8 py-4 border-2 border-white/15 hover:border-white/30 rounded-xl font-semibold text-white transition-all"
               >
                 Explore Programs
               </a>
@@ -131,7 +129,7 @@ export function Hero() {
                 href={communityUrl}
                 target={communityUrl.startsWith("http") ? "_blank" : undefined}
                 rel={communityUrl.startsWith("http") ? "noreferrer" : undefined}
-                className="inline-flex justify-center items-center gap-2 bg-[var(--brand-sand)] dark:bg-white/5 dark:hover:bg-white/10 shadow-[0_14px_34px_rgba(11,16,32,0.08)] hover:shadow-[0_18px_45px_rgba(11,16,32,0.14)] px-8 py-4 border border-black/10 dark:border-white/15 rounded-xl font-semibold text-[var(--brand-ink)] dark:text-white transition-all hover:-translate-y-0.5"
+                className="inline-flex justify-center items-center gap-2 bg-transparent hover:bg-white/10 shadow-[0_14px_34px_rgba(0,0,0,0.14)] hover:shadow-[0_18px_45px_rgba(0,0,0,0.2)] px-8 py-4 border border-white/15 rounded-xl font-semibold text-white transition-all hover:-translate-y-0.5"
               >
                 Join Our Community (Free)
               </a>
@@ -146,31 +144,19 @@ export function Hero() {
                 delay: 0.6,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="flex flex-wrap items-center gap-8 pt-6 border-black/10 dark:border-white/10 border-t"
+              className="flex flex-wrap items-center gap-8 pt-6 border-white/10 border-t"
             >
               <div>
-                <div className="font-bold text-[var(--brand-ink)] text-3xl">
-                  3
-                </div>
-                <div className="text-slate-600 dark:text-slate-400 text-sm">
-                  Schools
-                </div>
+                <div className="font-bold text-white text-3xl">3</div>
+                <div className="text-white/62 text-sm">Schools</div>
               </div>
               <div>
-                <div className="font-bold text-[var(--brand-ink)] text-3xl">
-                  6
-                </div>
-                <div className="text-slate-600 dark:text-slate-400 text-sm">
-                  Courses
-                </div>
+                <div className="font-bold text-white text-3xl">6</div>
+                <div className="text-white/62 text-sm">Courses</div>
               </div>
               <div>
-                <div className="font-bold text-[var(--brand-ink)] text-3xl">
-                  6
-                </div>
-                <div className="text-slate-600 dark:text-slate-400 text-sm">
-                  Months + 3 Support
-                </div>
+                <div className="font-bold text-white text-3xl">6</div>
+                <div className="text-white/62 text-sm">Months + 3 Support</div>
               </div>
             </motion.div>
           </div>
@@ -197,15 +183,15 @@ export function Hero() {
             </motion.div>
           </div>
           {/* Subtle gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/10 dark:via-black/40 to-[var(--brand-sand)]/50 dark:to-[#0b0f17]/90 pointer-events-none" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_10%,rgba(255,255,255,0.45),transparent_55%)] dark:bg-[radial-gradient(circle_at_80%_10%,rgba(35,182,168,0.18),transparent_55%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/20 to-[color:var(--brand-ink)]/85 pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_10%,rgba(240,128,16,0.14),transparent_55%)] pointer-events-none" />
 
           {/* Floating Badge on Image */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="right-8 bottom-8 z-10 absolute bg-white/95 dark:bg-[#141b29]/90 shadow-[0_20px_60px_rgba(11,16,32,0.25)] dark:shadow-[0_22px_60px_rgba(0,0,0,0.45)] backdrop-blur-sm p-4 rounded-2xl"
+            className="right-8 bottom-8 z-10 absolute bg-white/95 shadow-[0_20px_60px_rgba(0,16,32,0.28)] backdrop-blur-sm p-4 rounded-2xl"
           >
             <div className="flex items-center gap-3">
               <div className="flex justify-center items-center bg-[var(--brand-ink)] rounded-xl w-12 h-12 font-bold text-white text-lg">
@@ -225,7 +211,7 @@ export function Hero() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="top-6 right-8 z-10 absolute bg-[var(--brand-amber)] dark:bg-[rgba(243,191,98,0.95)] shadow-[0_18px_40px_rgba(246,176,66,0.35)] px-5 py-3 rounded-xl dark:text-[#1b1300]"
+            className="top-6 right-8 z-10 absolute bg-[var(--brand-orange)] shadow-[0_18px_40px_rgba(240,128,16,0.35)] px-5 py-3 rounded-xl text-white"
           >
             <div className="font-bold">Next Cohort: May 2026</div>
             <div className="font-semibold text-sm">

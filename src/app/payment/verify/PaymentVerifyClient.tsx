@@ -55,7 +55,7 @@ export default function PaymentVerifyClient() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             href="/admissions"
-            className="px-6 py-3 rounded-lg bg-[var(--brand-ink)] text-white font-semibold hover:bg-black transition"
+            className="px-6 py-3 rounded-lg bg-[var(--brand-orange)] text-white font-semibold hover:bg-[var(--brand-orange-strong)] transition"
           >
             Admissions Home
           </Link>

@@ -26,9 +26,9 @@ const stats = [
 
 export function Stats() {
   return (
-    <section className="py-20 bg-[var(--brand-ink)] dark:bg-[linear-gradient(160deg,#0b0f17,#121826)] text-white relative overflow-hidden">
-      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top,_rgba(154,210,255,0.6),_transparent_60%)] dark:bg-[radial-gradient(circle_at_top,_rgba(35,182,168,0.45),_transparent_60%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.06),transparent,rgba(255,255,255,0.12))] dark:bg-[linear-gradient(120deg,rgba(255,255,255,0.08),transparent,rgba(35,182,168,0.18))]" />
+    <section className="py-20 bg-[var(--brand-ink)] dark:bg-[linear-gradient(160deg,#000b18,#001020)] text-white relative overflow-hidden">
+      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top,_rgba(219,231,243,0.6),_transparent_60%)] dark:bg-[radial-gradient(circle_at_top,_rgba(240,128,16,0.45),_transparent_60%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.06),transparent,rgba(255,255,255,0.12))] dark:bg-[linear-gradient(120deg,rgba(255,255,255,0.08),transparent,rgba(240,128,16,0.18))]" />
       <div className="absolute inset-0 texture-grid opacity-10" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -55,7 +55,7 @@ export function Stats() {
                 speed="fast"
                 className="text-center p-8 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15 hover:bg-white/15 transition shadow-[0_25px_55px_rgba(0,0,0,0.35)] dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/10 dark:shadow-[0_25px_55px_rgba(0,0,0,0.45)]"
               >
-                <div className="w-16 h-16 mx-auto rounded-xl bg-white text-[var(--brand-ink)] flex items-center justify-center mb-6 shadow-[0_15px_40px_rgba(154,210,255,0.35)] dark:bg-white/95 dark:text-[#101525] dark:shadow-[0_18px_40px_rgba(35,182,168,0.45)]">
+                <div className="w-16 h-16 mx-auto rounded-xl bg-white text-[var(--brand-ink)] flex items-center justify-center mb-6 shadow-[0_15px_40px_rgba(219,231,243,0.35)] dark:bg-white/95 dark:text-[#001020] dark:shadow-[0_18px_40px_rgba(240,128,16,0.45)]">
                   <Icon size={30} />
                 </div>
                 <div className="text-4xl md:text-5xl font-bold mb-2">{stat.number}</div>

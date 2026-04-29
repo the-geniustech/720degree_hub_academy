@@ -150,16 +150,16 @@ function buildReceiptEmail(options: {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Payment Receipt</title>
   </head>
-  <body style="margin:0; padding:0; background:#f6f3ed; font-family: 'Segoe UI', Arial, sans-serif; color:#111827;">
+  <body style="margin:0; padding:0; background:#f5f7fa; font-family: 'Segoe UI', Arial, sans-serif; color:#001020;">
     <span style="display:none; visibility:hidden; opacity:0; height:0; width:0;">
       Your payment receipt for ${programTitle}.
     </span>
-    <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#f6f3ed; padding:32px 12px;">
+    <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#f5f7fa; padding:32px 12px;">
       <tr>
         <td align="center">
-          <table width="600" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px; width:100%; background:#ffffff; border-radius:20px; box-shadow:0 16px 40px rgba(15,23,42,0.12); overflow:hidden;">
+          <table width="600" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px; width:100%; background:#ffffff; border-radius:20px; box-shadow:0 16px 40px rgba(0,16,32,0.12); overflow:hidden;">
             <tr>
-              <td style="padding:28px 32px 12px; background:#0f172a; color:#ffffff;">
+              <td style="padding:28px 32px 12px; background:#001020; color:#ffffff;">
                 <img
                   src="https://720Degreehub.com/academy/img/logo/720academylogo%20.png"
                   alt="720Degree Academy"
@@ -203,8 +203,8 @@ function buildReceiptEmail(options: {
                 <div style="height:1px; background:#e2e8f0; margin:20px 0;"></div>
                 <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
                   <tr>
-                    <td style="padding:10px 0; font-size:14px; color:#0f172a; font-weight:600;">Amount paid</td>
-                    <td style="padding:10px 0; font-size:16px; font-weight:700; text-align:right; color:#0f172a;">${amountLabel}</td>
+                    <td style="padding:10px 0; font-size:14px; color:#001020; font-weight:600;">Amount paid</td>
+                    <td style="padding:10px 0; font-size:16px; font-weight:700; text-align:right; color:#001020;">${amountLabel}</td>
                   </tr>
                   <tr>
                     <td style="padding:10px 0; font-size:13px; color:#64748b;">Balance due</td>
@@ -290,16 +290,16 @@ function buildWelcomeEmail(options: {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome to 720Degree Academy</title>
   </head>
-  <body style="margin:0; padding:0; background:#f6f3ed; font-family:'Segoe UI', Arial, sans-serif; color:#0f172a;">
+  <body style="margin:0; padding:0; background:#f5f7fa; font-family:'Segoe UI', Arial, sans-serif; color:#001020;">
     <span style="display:none; visibility:hidden; opacity:0; height:0; width:0;">
       Welcome to 720Degree Academy. Your onboarding details are inside.
     </span>
-    <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#f6f3ed; padding:32px 12px;">
+    <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#f5f7fa; padding:32px 12px;">
       <tr>
         <td align="center">
-          <table width="600" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px; width:100%; background:#ffffff; border-radius:20px; box-shadow:0 18px 44px rgba(15,23,42,0.12); overflow:hidden;">
+          <table width="600" cellpadding="0" cellspacing="0" role="presentation" style="max-width:600px; width:100%; background:#ffffff; border-radius:20px; box-shadow:0 18px 44px rgba(0,16,32,0.12); overflow:hidden;">
             <tr>
-              <td style="padding:28px 32px; background:linear-gradient(135deg,#0f172a,#1f2a44); color:#ffffff;">
+              <td style="padding:28px 32px; background:linear-gradient(135deg,#001020,#002040); color:#ffffff;">
                 <img
                   src="https://720Degreehub.com/academy/img/logo/720academylogo%20.png"
                   alt="720Degree Academy"
@@ -347,7 +347,7 @@ function buildWelcomeEmail(options: {
                     <div style="font-size:16px; font-weight:700;">${balanceLabel}</div>
                   </div>
                 </div>
-                <div style="padding:16px; border-radius:14px; background:#0f172a; color:#ffffff;">
+                <div style="padding:16px; border-radius:14px; background:#001020; color:#ffffff;">
                   <div style="font-size:13px; letter-spacing:0.2em; text-transform:uppercase; opacity:0.7;">Next steps</div>
                   <ul style="margin:10px 0 0 18px; padding:0; font-size:14px; line-height:1.6;">
                     <li>Admissions will email your onboarding pack within 24 hours.</li>
@@ -362,7 +362,7 @@ function buildWelcomeEmail(options: {
             </tr>
             <tr>
               <td style="padding:18px 32px 26px; font-size:12px; color:#94a3b8; text-align:center;">
-                720Degree Academy · Learn more at <a href="${portalUrl}" style="color:#0f172a; text-decoration:none; font-weight:600;">${portalUrl}</a>
+                720Degree Academy · Learn more at <a href="${portalUrl}" style="color:#001020; text-decoration:none; font-weight:600;">${portalUrl}</a>
               </td>
             </tr>
           </table>

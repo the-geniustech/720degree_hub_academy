@@ -28,9 +28,9 @@ export default function AdminLoginPage() {
       <div className="flex justify-end mb-4">
         <ThemeToggle size="sm" showLabel />
       </div>
-      <div className="admin-reveal admin-lift rounded-3xl border border-border bg-card p-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
+      <div className="admin-reveal admin-lift rounded-3xl border border-border bg-card p-8 shadow-[0_20px_60px_rgba(0,16,32,0.08)]">
         <div className="flex items-center gap-3 mb-6">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white">
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--brand-ink)] text-white">
             <ShieldCheck className="h-6 w-6" />
           </div>
           <div>
@@ -45,7 +45,7 @@ export default function AdminLoginPage() {
             <div className="mt-4">
               <Link
                 href="/admin"
-                className="admin-glow inline-flex items-center rounded-full bg-slate-900 px-5 py-2 text-xs font-semibold uppercase tracking-wide text-white"
+                className="admin-glow inline-flex items-center rounded-full bg-[var(--brand-ink)] px-5 py-2 text-xs font-semibold uppercase tracking-wide text-white"
               >
                 Go to overview
               </Link>
@@ -76,7 +76,7 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={!tokenInput || isBusy}
-              className="admin-glow w-full rounded-full bg-slate-900 px-5 py-3 text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-black disabled:opacity-60"
+              className="admin-glow w-full rounded-full bg-[var(--brand-orange)] px-5 py-3 text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-[var(--brand-orange-strong)] disabled:opacity-60"
             >
               {isBusy ? 'Verifying...' : 'Sign in'}
             </button>

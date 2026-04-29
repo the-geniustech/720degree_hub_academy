@@ -48,9 +48,9 @@ const phases = [
 
 export function Timeline() {
   return (
-    <section id="timeline" className="py-20 bg-white dark:bg-[linear-gradient(160deg,#0f1522,#131b2b)] relative overflow-hidden">
-      <div className="absolute left-0 top-24 h-48 w-48 rounded-full bg-[rgba(35,182,168,0.18)] blur-3xl parallax-medium dark:bg-[rgba(35,182,168,0.25)]" />
-      <div className="absolute right-0 bottom-10 h-40 w-40 rounded-full bg-[rgba(246,176,66,0.22)] blur-3xl parallax-fast dark:bg-[rgba(154,210,255,0.2)]" />
+    <section id="timeline" className="py-20 bg-white dark:bg-[linear-gradient(160deg,#00152a,#001b36)] relative overflow-hidden">
+      <div className="absolute left-0 top-24 h-48 w-48 rounded-full bg-[rgba(240,128,16,0.18)] blur-3xl parallax-medium dark:bg-[rgba(240,128,16,0.25)]" />
+      <div className="absolute right-0 bottom-10 h-40 w-40 rounded-full bg-[rgba(240,128,16,0.22)] blur-3xl parallax-fast dark:bg-[rgba(219,231,243,0.2)]" />
       <div className="absolute inset-0 texture-dots opacity-20" />
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
@@ -74,10 +74,10 @@ export function Timeline() {
                 key={phase.title}
                 delay={index * 110}
                 speed="fast"
-                className="bg-[var(--brand-sand)] border border-black/10 rounded-2xl p-6 shadow-[0_15px_40px_rgba(11,16,32,0.1)] hover:shadow-[0_26px_55px_rgba(11,16,32,0.18)] transition transform-gpu hover:-translate-y-1 hover:[transform:perspective(900px)_rotateX(1deg)_rotateY(-1deg)] dark:bg-[rgba(20,27,41,0.85)] dark:border-white/10 dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] dark:hover:shadow-[0_30px_65px_rgba(35,182,168,0.25)]"
+                className="bg-[var(--brand-sand)] border border-black/10 rounded-2xl p-6 shadow-[0_15px_40px_rgba(0,16,32,0.1)] hover:shadow-[0_26px_55px_rgba(0,16,32,0.18)] transition transform-gpu hover:-translate-y-1 hover:[transform:perspective(900px)_rotateX(1deg)_rotateY(-1deg)] dark:bg-[rgba(20,27,41,0.85)] dark:border-white/10 dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] dark:hover:shadow-[0_30px_65px_rgba(240,128,16,0.25)]"
               >
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-[var(--brand-ink)] flex items-center justify-center shadow-[0_12px_30px_rgba(11,16,32,0.25)] dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)] dark:shadow-[0_18px_40px_rgba(35,182,168,0.35)]">
+                  <div className="w-12 h-12 rounded-xl bg-[var(--brand-ink)] flex items-center justify-center shadow-[0_12px_30px_rgba(0,16,32,0.25)] dark:bg-[linear-gradient(135deg,#002040,#f08010)] dark:shadow-[0_18px_40px_rgba(240,128,16,0.35)]">
                     <Icon className="text-white" size={22} />
                   </div>
                   <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">

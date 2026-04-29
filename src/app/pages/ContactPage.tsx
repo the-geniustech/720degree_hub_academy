@@ -66,12 +66,12 @@ export function ContactPage() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="relative bg-[var(--brand-sand)] dark:bg-[linear-gradient(160deg,#0b0f17,#121826)] py-16 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(154,210,255,0.4),_transparent_60%)] dark:bg-[radial-gradient(circle_at_top,_rgba(35,182,168,0.3),_transparent_60%)]" />
+      <section className="relative bg-[var(--brand-sand)] dark:bg-[linear-gradient(160deg,#000b18,#001020)] py-16 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(219,231,243,0.4),_transparent_60%)] dark:bg-[radial-gradient(circle_at_top,_rgba(240,128,16,0.3),_transparent_60%)]" />
         <div className="absolute inset-0 texture-grid opacity-30" />
         <div className="absolute inset-0 opacity-20 texture-noise mix-blend-multiply" />
-        <div className="-top-16 right-10 absolute bg-[rgba(35,182,168,0.22)] dark:bg-[rgba(35,182,168,0.28)] blur-3xl rounded-full w-40 h-40 parallax-slow" />
-        <div className="bottom-4 left-10 absolute bg-[rgba(246,176,66,0.2)] dark:bg-[rgba(154,210,255,0.2)] blur-3xl rounded-full w-32 h-32 parallax-medium" />
+        <div className="-top-16 right-10 absolute bg-[rgba(240,128,16,0.22)] dark:bg-[rgba(240,128,16,0.28)] blur-3xl rounded-full w-40 h-40 parallax-slow" />
+        <div className="bottom-4 left-10 absolute bg-[rgba(240,128,16,0.2)] dark:bg-[rgba(219,231,243,0.2)] blur-3xl rounded-full w-32 h-32 parallax-medium" />
 
         <div className="z-10 relative mx-auto px-6 max-w-7xl text-center">
           <Reveal delay={0}>
@@ -89,9 +89,9 @@ export function ContactPage() {
       </section>
 
       {/* Contact Info & Form Section */}
-      <section className="relative bg-white dark:bg-[linear-gradient(160deg,#0f1522,#141b29)] py-20 overflow-hidden">
+      <section className="relative bg-white dark:bg-[linear-gradient(160deg,#00152a,#071a33)] py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-20 texture-dots" />
-        <div className="right-10 -bottom-12 absolute bg-[rgba(154,210,255,0.2)] dark:bg-[rgba(35,182,168,0.22)] blur-3xl rounded-full w-36 h-36 parallax-medium" />
+        <div className="right-10 -bottom-12 absolute bg-[rgba(219,231,243,0.2)] dark:bg-[rgba(240,128,16,0.22)] blur-3xl rounded-full w-36 h-36 parallax-medium" />
         <div className="z-10 relative mx-auto px-6 max-w-7xl">
           <div className="gap-12 grid lg:grid-cols-2">
             {/* Contact Information */}
@@ -104,9 +104,9 @@ export function ContactPage() {
               <div className="space-y-6">
                 <Reveal
                   delay={0}
-                  className="flex items-start gap-4 bg-[var(--brand-sand)] dark:bg-[rgba(20,27,41,0.85)] shadow-[0_18px_40px_rgba(11,16,32,0.12)] dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] p-5 border border-black/10 dark:border-white/10 rounded-2xl"
+                  className="flex items-start gap-4 bg-[var(--brand-sand)] dark:bg-[rgba(20,27,41,0.85)] shadow-[0_18px_40px_rgba(0,16,32,0.12)] dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] p-5 border border-black/10 dark:border-white/10 rounded-2xl"
                 >
-                  <div className="bg-[var(--brand-ink)] dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)] shadow-[0_12px_30px_rgba(11,16,32,0.25)] dark:shadow-[0_16px_40px_rgba(35,182,168,0.35)] p-3 rounded-xl text-white">
+                  <div className="bg-[var(--brand-ink)] dark:bg-[linear-gradient(135deg,#002040,#f08010)] shadow-[0_12px_30px_rgba(0,16,32,0.25)] dark:shadow-[0_16px_40px_rgba(240,128,16,0.35)] p-3 rounded-xl text-white">
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
@@ -127,9 +127,9 @@ export function ContactPage() {
 
                 <Reveal
                   delay={120}
-                  className="flex items-start gap-4 bg-[var(--brand-sand)] dark:bg-[rgba(20,27,41,0.85)] shadow-[0_18px_40px_rgba(11,16,32,0.12)] dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] p-5 border border-black/10 dark:border-white/10 rounded-2xl"
+                  className="flex items-start gap-4 bg-[var(--brand-sand)] dark:bg-[rgba(20,27,41,0.85)] shadow-[0_18px_40px_rgba(0,16,32,0.12)] dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] p-5 border border-black/10 dark:border-white/10 rounded-2xl"
                 >
-                  <div className="bg-[var(--brand-ink)] dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)] shadow-[0_12px_30px_rgba(11,16,32,0.25)] dark:shadow-[0_16px_40px_rgba(35,182,168,0.35)] p-3 rounded-xl text-white">
+                  <div className="bg-[var(--brand-ink)] dark:bg-[linear-gradient(135deg,#002040,#f08010)] shadow-[0_12px_30px_rgba(0,16,32,0.25)] dark:shadow-[0_16px_40px_rgba(240,128,16,0.35)] p-3 rounded-xl text-white">
                     <Phone className="w-6 h-6" />
                   </div>
                   <div>
@@ -146,9 +146,9 @@ export function ContactPage() {
 
                 <Reveal
                   delay={240}
-                  className="flex items-start gap-4 bg-[var(--brand-sand)] dark:bg-[rgba(20,27,41,0.85)] shadow-[0_18px_40px_rgba(11,16,32,0.12)] dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] p-5 border border-black/10 dark:border-white/10 rounded-2xl"
+                  className="flex items-start gap-4 bg-[var(--brand-sand)] dark:bg-[rgba(20,27,41,0.85)] shadow-[0_18px_40px_rgba(0,16,32,0.12)] dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] p-5 border border-black/10 dark:border-white/10 rounded-2xl"
                 >
-                  <div className="bg-[var(--brand-ink)] dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)] shadow-[0_12px_30px_rgba(11,16,32,0.25)] dark:shadow-[0_16px_40px_rgba(35,182,168,0.35)] p-3 rounded-xl text-white">
+                  <div className="bg-[var(--brand-ink)] dark:bg-[linear-gradient(135deg,#002040,#f08010)] shadow-[0_12px_30px_rgba(0,16,32,0.25)] dark:shadow-[0_16px_40px_rgba(240,128,16,0.35)] p-3 rounded-xl text-white">
                     <Mail className="w-6 h-6" />
                   </div>
                   <div>
@@ -167,7 +167,7 @@ export function ContactPage() {
               {/* Google Map */}
               <Reveal
                 delay={320}
-                className="bg-white dark:bg-[#141b29] shadow-[0_24px_60px_rgba(11,16,32,0.18)] dark:shadow-[0_26px_60px_rgba(0,0,0,0.5)] mt-8 border border-black/10 dark:border-white/10 rounded-2xl overflow-hidden"
+                className="bg-white dark:bg-[#071a33] shadow-[0_24px_60px_rgba(0,16,32,0.18)] dark:shadow-[0_26px_60px_rgba(0,0,0,0.5)] mt-8 border border-black/10 dark:border-white/10 rounded-2xl overflow-hidden"
               >
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.0234567890123!2d3.3513147!3d7.1624577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103a4be3ce9e1fab%3A0xbc49e9d0343768d1!2s720Degree%20Hub!5e0!3m2!1sen!2sng!4v1234567890123!5m2!1sen!2sng"
@@ -185,7 +185,7 @@ export function ContactPage() {
               {/* Office Hours */}
               <Reveal
                 delay={420}
-                className="bg-[var(--brand-sand)] dark:bg-[rgba(20,27,41,0.85)] shadow-[0_18px_40px_rgba(11,16,32,0.12)] dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] mt-8 p-6 border border-black/10 dark:border-white/10 rounded-xl"
+                className="bg-[var(--brand-sand)] dark:bg-[rgba(20,27,41,0.85)] shadow-[0_18px_40px_rgba(0,16,32,0.12)] dark:shadow-[0_22px_55px_rgba(0,0,0,0.45)] mt-8 p-6 border border-black/10 dark:border-white/10 rounded-xl"
               >
                 <h3 className="mb-4 font-semibold text-[var(--brand-ink)] text-lg">
                   Office Hours
@@ -231,7 +231,7 @@ export function ContactPage() {
               ) : (
                 <Reveal
                   delay={120}
-                  className="space-y-6 bg-white dark:bg-[#141b29] shadow-[0_30px_70px_rgba(11,16,32,0.12)] dark:shadow-[0_32px_70px_rgba(0,0,0,0.5)] p-8 border border-black/10 dark:border-white/10 rounded-2xl"
+                  className="space-y-6 bg-white dark:bg-[#071a33] shadow-[0_30px_70px_rgba(0,16,32,0.12)] dark:shadow-[0_32px_70px_rgba(0,0,0,0.5)] p-8 border border-black/10 dark:border-white/10 rounded-2xl"
                 >
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
@@ -248,7 +248,7 @@ export function ContactPage() {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="bg-[var(--brand-sand)] dark:bg-white/10 px-4 py-3 border border-black/10 focus:border-black dark:border-white/10 dark:focus:border-[var(--brand-teal)] rounded-lg focus:outline-none focus:ring-[var(--brand-teal)]/30 focus:ring-2 w-full dark:text-white transition-colors"
+                        className="bg-[var(--brand-sand)] dark:bg-white/10 px-4 py-3 border border-black/10 focus:border-black dark:border-white/10 dark:focus:border-[var(--brand-orange)] rounded-lg focus:outline-none focus:ring-[color:var(--brand-orange)]/30 focus:ring-2 w-full dark:text-white transition-colors"
                         placeholder="John Doe"
                       />
                     </div>
@@ -267,7 +267,7 @@ export function ContactPage() {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="bg-[var(--brand-sand)] dark:bg-white/10 px-4 py-3 border border-black/10 focus:border-black dark:border-white/10 dark:focus:border-[var(--brand-teal)] rounded-lg focus:outline-none focus:ring-[var(--brand-teal)]/30 focus:ring-2 w-full dark:text-white transition-colors"
+                        className="bg-[var(--brand-sand)] dark:bg-white/10 px-4 py-3 border border-black/10 focus:border-black dark:border-white/10 dark:focus:border-[var(--brand-orange)] rounded-lg focus:outline-none focus:ring-[color:var(--brand-orange)]/30 focus:ring-2 w-full dark:text-white transition-colors"
                         placeholder="john@example.com"
                       />
                     </div>
@@ -286,7 +286,7 @@ export function ContactPage() {
                         required
                         value={formData.phone}
                         onChange={handleChange}
-                        className="bg-[var(--brand-sand)] dark:bg-white/10 px-4 py-3 border border-black/10 focus:border-black dark:border-white/10 dark:focus:border-[var(--brand-teal)] rounded-lg focus:outline-none focus:ring-[var(--brand-teal)]/30 focus:ring-2 w-full dark:text-white transition-colors"
+                        className="bg-[var(--brand-sand)] dark:bg-white/10 px-4 py-3 border border-black/10 focus:border-black dark:border-white/10 dark:focus:border-[var(--brand-orange)] rounded-lg focus:outline-none focus:ring-[color:var(--brand-orange)]/30 focus:ring-2 w-full dark:text-white transition-colors"
                         placeholder="+234 800 000 0000"
                       />
                     </div>
@@ -304,7 +304,7 @@ export function ContactPage() {
                         required
                         value={formData.program}
                         onChange={handleChange}
-                        className="bg-[var(--brand-sand)] dark:bg-white/10 px-4 py-3 border border-black/10 focus:border-black dark:border-white/10 dark:focus:border-[var(--brand-teal)] rounded-lg focus:outline-none focus:ring-[var(--brand-teal)]/30 focus:ring-2 w-full dark:text-white transition-colors"
+                        className="bg-[var(--brand-sand)] dark:bg-white/10 px-4 py-3 border border-black/10 focus:border-black dark:border-white/10 dark:focus:border-[var(--brand-orange)] rounded-lg focus:outline-none focus:ring-[color:var(--brand-orange)]/30 focus:ring-2 w-full dark:text-white transition-colors"
                       >
                         <option value="">Select a program</option>
                         {programs.map((program) => (
@@ -329,7 +329,7 @@ export function ContactPage() {
                         value={formData.message}
                         onChange={handleChange}
                         rows={6}
-                        className="bg-[var(--brand-sand)] dark:bg-white/10 px-4 py-3 border border-black/10 focus:border-black dark:border-white/10 dark:focus:border-[var(--brand-teal)] rounded-lg focus:outline-none focus:ring-[var(--brand-teal)]/30 focus:ring-2 w-full dark:text-white transition-colors resize-none"
+                        className="bg-[var(--brand-sand)] dark:bg-white/10 px-4 py-3 border border-black/10 focus:border-black dark:border-white/10 dark:focus:border-[var(--brand-orange)] rounded-lg focus:outline-none focus:ring-[color:var(--brand-orange)]/30 focus:ring-2 w-full dark:text-white transition-colors resize-none"
                         placeholder="Tell us about your goals or questions..."
                       />
                     </div>
@@ -337,7 +337,7 @@ export function ContactPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="flex justify-center items-center gap-2 bg-[var(--brand-ink)] hover:bg-black dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)] dark:hover:bg-[linear-gradient(135deg,#243152,#35e2cf)] disabled:opacity-50 shadow-[0_20px_50px_rgba(11,16,32,0.28)] dark:shadow-[0_24px_60px_rgba(35,182,168,0.35)] px-8 py-4 rounded-lg w-full font-semibold text-white transition-all disabled:cursor-not-allowed"
+                      className="flex justify-center items-center gap-2 bg-[var(--brand-orange)] hover:bg-[var(--brand-orange-strong)] dark:bg-[linear-gradient(135deg,#002040,#f08010)] dark:hover:bg-[linear-gradient(135deg,#00305c,#ff9a2c)] disabled:opacity-50 shadow-[0_20px_50px_rgba(0,16,32,0.28)] dark:shadow-[0_24px_60px_rgba(240,128,16,0.35)] px-8 py-4 rounded-lg w-full font-semibold text-white transition-all disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
                         <>
@@ -373,7 +373,7 @@ export function ContactPage() {
       {/* FAQ Section */}
       <section className="relative bg-[var(--brand-sand)] py-20 overflow-hidden">
         <div className="absolute inset-0 texture-grid opacity-20" />
-        <div className="-top-12 left-8 absolute bg-[rgba(239,107,93,0.2)] blur-3xl rounded-full w-36 h-36 parallax-slow" />
+        <div className="-top-12 left-8 absolute bg-[rgba(217,103,4,0.2)] blur-3xl rounded-full w-36 h-36 parallax-slow" />
         <div className="z-10 relative mx-auto px-6 max-w-4xl">
           <Reveal delay={0}>
             <h2 className="mb-12 font-display font-bold text-[var(--brand-ink)] text-3xl text-center">
@@ -407,7 +407,7 @@ export function ContactPage() {
               <Reveal
                 key={index}
                 delay={index * 120}
-                className="bg-white shadow-[0_20px_45px_rgba(11,16,32,0.12)] hover:shadow-[0_30px_70px_rgba(11,16,32,0.2)] p-6 border border-black/10 rounded-xl transform-gpu transition hover:-translate-y-1"
+                className="bg-white shadow-[0_20px_45px_rgba(0,16,32,0.12)] hover:shadow-[0_30px_70px_rgba(0,16,32,0.2)] p-6 border border-black/10 rounded-xl transform-gpu transition hover:-translate-y-1"
               >
                 <h3 className="mb-2 font-semibold text-[var(--brand-ink)] text-lg">
                   {faq.q}

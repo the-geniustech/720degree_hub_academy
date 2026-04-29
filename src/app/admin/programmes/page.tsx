@@ -724,7 +724,7 @@ export default function ProgrammesPage() {
     <AdminGate>
       <div className="space-y-6 pt-8">
         <section
-          className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#141b29] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
+          className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#071a33] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
           style={{ '--delay': '0ms' } as CSSProperties}
         >
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
@@ -752,7 +752,7 @@ export default function ProgrammesPage() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`rounded-full px-4 py-2 text-xs font-semibold ${
                   activeTab === tab.id
-                    ? 'bg-slate-900 text-white dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)]'
+                    ? 'bg-[var(--brand-ink)] text-white dark:bg-[linear-gradient(135deg,#002040,#f08010)]'
                     : 'border border-slate-200 bg-white text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10'
                 }`}
               >
@@ -779,7 +779,7 @@ export default function ProgrammesPage() {
               {data.locations.map((location, index) => (
                 <div
                   key={location.id}
-                  className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#141b29] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
+                  className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#071a33] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
                   style={{ '--delay': `${80 + index * 40}ms` } as CSSProperties}
                 >
                   <div className="flex items-center justify-between gap-4">
@@ -821,7 +821,7 @@ export default function ProgrammesPage() {
                   <ul className="mt-4 space-y-2 text-sm text-slate-500 dark:text-slate-300">
                     {location.perks.map((perk) => (
                       <li key={perk} className="flex items-start gap-2">
-                        <span className="mt-1 h-2 w-2 rounded-full bg-slate-900 dark:bg-teal-300" />
+                        <span className="mt-1 h-2 w-2 rounded-full bg-[var(--brand-ink)] dark:bg-[var(--brand-orange)]" />
                         {perk}
                       </li>
                     ))}
@@ -831,7 +831,7 @@ export default function ProgrammesPage() {
             </div>
 
             <div
-              className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#141b29] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
+              className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#071a33] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
               style={{ '--delay': '140ms' } as CSSProperties}
             >
               <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
@@ -895,7 +895,7 @@ export default function ProgrammesPage() {
                     type="button"
                     onClick={saveLocation}
                     disabled={!canEdit || saving}
-                    className="admin-glow rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white disabled:opacity-60 dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)]"
+                    className="admin-glow rounded-full bg-[var(--brand-ink)] px-4 py-2 text-xs font-semibold text-white disabled:opacity-60 dark:bg-[linear-gradient(135deg,#002040,#f08010)]"
                   >
                     {saving ? 'Saving...' : 'Save Location'}
                   </button>
@@ -918,7 +918,7 @@ export default function ProgrammesPage() {
               {data.cohorts.map((cohort, index) => (
                 <div
                   key={cohort.id}
-                  className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#141b29] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
+                  className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#071a33] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
                   style={{ '--delay': `${80 + index * 40}ms` } as CSSProperties}
                 >
                   <div className="flex items-center justify-between gap-4">
@@ -961,7 +961,7 @@ export default function ProgrammesPage() {
             </div>
 
             <div
-              className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#141b29] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
+              className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#071a33] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
               style={{ '--delay': '140ms' } as CSSProperties}
             >
               <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
@@ -1015,7 +1015,7 @@ export default function ProgrammesPage() {
                     type="button"
                     onClick={saveCohort}
                     disabled={!canEdit || saving}
-                    className="admin-glow rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white disabled:opacity-60 dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)]"
+                    className="admin-glow rounded-full bg-[var(--brand-ink)] px-4 py-2 text-xs font-semibold text-white disabled:opacity-60 dark:bg-[linear-gradient(135deg,#002040,#f08010)]"
                   >
                     {saving ? 'Saving...' : 'Save Cohort'}
                   </button>
@@ -1034,7 +1034,7 @@ export default function ProgrammesPage() {
 
         {data && activeTab === 'schedule' ? (
           <section
-            className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#141b29] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
+            className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#071a33] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
             style={{ '--delay': '80ms' } as CSSProperties}
           >
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Core Schedule</h3>
@@ -1078,7 +1078,7 @@ export default function ProgrammesPage() {
                 type="button"
                 onClick={saveSchedule}
                 disabled={!canEdit || saving}
-                className="admin-glow rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white disabled:opacity-60 dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)]"
+                className="admin-glow rounded-full bg-[var(--brand-ink)] px-4 py-2 text-xs font-semibold text-white disabled:opacity-60 dark:bg-[linear-gradient(135deg,#002040,#f08010)]"
               >
                 {saving ? 'Saving...' : 'Update Schedule'}
               </button>
@@ -1099,7 +1099,7 @@ export default function ProgrammesPage() {
                 type="button"
                 onClick={() => openProgramModal()}
                 disabled={!canEdit}
-                className="admin-glow inline-flex items-center gap-2 rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white disabled:opacity-60 dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)]"
+                className="admin-glow inline-flex items-center gap-2 rounded-full bg-[var(--brand-ink)] px-4 py-2 text-xs font-semibold text-white disabled:opacity-60 dark:bg-[linear-gradient(135deg,#002040,#f08010)]"
               >
                 <Plus className="h-4 w-4" />
                 New Programme
@@ -1109,7 +1109,7 @@ export default function ProgrammesPage() {
               {data.programs.map((program, index) => (
                 <div
                   key={program.id}
-                  className="admin-reveal admin-lift rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-[#141b29] dark:shadow-[0_16px_35px_rgba(0,0,0,0.45)]"
+                  className="admin-reveal admin-lift rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-[#071a33] dark:shadow-[0_16px_35px_rgba(0,0,0,0.45)]"
                   style={{ '--delay': `${80 + index * 40}ms` } as CSSProperties}
                 >
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
@@ -1186,11 +1186,11 @@ export default function ProgrammesPage() {
 
             {isProgramModalOpen ? (
               <div
-                className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 px-4 py-6 overflow-hidden dark:bg-slate-950/80"
+                className="fixed inset-0 z-50 flex items-center justify-center bg-[color:var(--brand-ink)]/60 px-4 py-6 overflow-hidden dark:bg-slate-950/80"
                 onClick={closeProgramModal}
               >
                 <div
-                  className="admin-reveal w-full max-w-5xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl max-h-[90vh] flex flex-col dark:border-white/10 dark:bg-[#0f172a] dark:shadow-[0_25px_60px_rgba(0,0,0,0.6)]"
+                  className="admin-reveal w-full max-w-5xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl max-h-[90vh] flex flex-col dark:border-white/10 dark:bg-[#001020] dark:shadow-[0_25px_60px_rgba(0,0,0,0.6)]"
                   style={{ '--delay': '0ms' } as CSSProperties}
                   onClick={(event) => event.stopPropagation()}
                   role="dialog"
@@ -1460,7 +1460,7 @@ export default function ProgrammesPage() {
                                   updateProjects((items) => reorderList(items, from, index));
                                   setDraggingProjectIndex(null);
                                 }}
-                                className={`rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-white/10 dark:bg-[#141b29] dark:shadow-[0_14px_30px_rgba(0,0,0,0.45)] ${
+                                className={`rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-white/10 dark:bg-[#071a33] dark:shadow-[0_14px_30px_rgba(0,0,0,0.45)] ${
                                   draggingProjectIndex === index ? 'opacity-70' : ''
                                 }`}
                               >
@@ -1598,7 +1598,7 @@ export default function ProgrammesPage() {
                                   );
                                   setDraggingCurriculumIndex(null);
                                 }}
-                                className={`rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-white/10 dark:bg-[#141b29] dark:shadow-[0_14px_30px_rgba(0,0,0,0.45)] ${
+                                className={`rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-white/10 dark:bg-[#071a33] dark:shadow-[0_14px_30px_rgba(0,0,0,0.45)] ${
                                   draggingCurriculumIndex === blockIndex ? 'opacity-70' : ''
                                 }`}
                               >
@@ -1899,7 +1899,7 @@ export default function ProgrammesPage() {
                       </div>
                     </div>
 
-                    <aside className="min-h-0 overflow-y-auto overscroll-contain border-l border-slate-200 bg-slate-50 px-6 py-5 dark:border-white/10 dark:bg-[#0f172a]">
+                    <aside className="min-h-0 overflow-y-auto overscroll-contain border-l border-slate-200 bg-slate-50 px-6 py-5 dark:border-white/10 dark:bg-[#001020]">
                       <div className="space-y-4">
                         <div className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-white/10 dark:bg-white/5">
                           <div className="text-xs uppercase tracking-wide text-slate-400">Preview</div>
@@ -2011,7 +2011,7 @@ export default function ProgrammesPage() {
                         type="button"
                         onClick={saveProgram}
                         disabled={!canEdit || saving}
-                        className="admin-glow rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white disabled:opacity-60 dark:bg-[linear-gradient(135deg,#1f2a44,#2ad7c7)]"
+                        className="admin-glow rounded-full bg-[var(--brand-ink)] px-4 py-2 text-xs font-semibold text-white disabled:opacity-60 dark:bg-[linear-gradient(135deg,#002040,#f08010)]"
                       >
                         {saving ? 'Saving...' : 'Save Programme'}
                       </button>
@@ -2028,7 +2028,7 @@ export default function ProgrammesPage() {
             {schools.map((school, index) => (
               <div
                 key={school.name}
-                className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#141b29] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
+                className="admin-reveal admin-lift rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#071a33] dark:shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
                 style={{ '--delay': `${80 + index * 40}ms` } as CSSProperties}
               >
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{school.name}</h3>

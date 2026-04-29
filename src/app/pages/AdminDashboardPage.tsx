@@ -67,10 +67,10 @@ export function AdminDashboardPage() {
     <div className="pt-20 min-h-screen bg-[var(--brand-sand)]">
       <section className="py-16 relative overflow-hidden">
         <div className="absolute inset-0 texture-grid opacity-20" />
-        <div className="absolute -top-20 right-10 h-40 w-40 rounded-full bg-[rgba(154,210,255,0.2)] blur-3xl parallax-medium" />
-        <div className="absolute bottom-0 left-10 h-32 w-32 rounded-full bg-[rgba(246,176,66,0.2)] blur-3xl parallax-fast" />
+        <div className="absolute -top-20 right-10 h-40 w-40 rounded-full bg-[rgba(219,231,243,0.2)] blur-3xl parallax-medium" />
+        <div className="absolute bottom-0 left-10 h-32 w-32 rounded-full bg-[rgba(240,128,16,0.2)] blur-3xl parallax-fast" />
         <div className="max-w-6xl mx-auto px-6 relative z-10">
-          <Reveal delay={0} speed="slow" className="bg-white border border-black/10 rounded-2xl p-8 mb-10 shadow-[0_22px_55px_rgba(11,16,32,0.12)]">
+          <Reveal delay={0} speed="slow" className="bg-white border border-black/10 rounded-2xl p-8 mb-10 shadow-[0_22px_55px_rgba(0,16,32,0.12)]">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 rounded-xl bg-[var(--brand-ink)] text-white flex items-center justify-center">
                 <ShieldCheck size={22} />
@@ -92,7 +92,7 @@ export function AdminDashboardPage() {
               <button
                 onClick={fetchOverview}
                 disabled={loading || !token}
-                className="px-6 py-3 bg-[var(--brand-ink)] text-white rounded-lg font-semibold hover:bg-black transition disabled:opacity-60"
+                className="px-6 py-3 bg-[var(--brand-orange)] text-white rounded-lg font-semibold hover:bg-[var(--brand-orange-strong)] transition disabled:opacity-60"
               >
                 {loading ? (
                   <span className="flex items-center gap-2">
@@ -120,7 +120,7 @@ export function AdminDashboardPage() {
                     key={stat.label}
                     delay={index * 120}
                     speed="fast"
-                    className="bg-white border border-black/10 rounded-2xl p-6 shadow-[0_18px_40px_rgba(11,16,32,0.12)]"
+                    className="bg-white border border-black/10 rounded-2xl p-6 shadow-[0_18px_40px_rgba(0,16,32,0.12)]"
                   >
                     <div className="text-sm text-slate-500">{stat.label}</div>
                     <div className="text-3xl font-bold text-[var(--brand-ink)]">{stat.value}</div>
@@ -131,7 +131,7 @@ export function AdminDashboardPage() {
               <Reveal
                 delay={0}
                 speed="fast"
-                className="bg-white border border-black/10 rounded-2xl p-6 shadow-[0_18px_40px_rgba(11,16,32,0.12)]"
+                className="bg-white border border-black/10 rounded-2xl p-6 shadow-[0_18px_40px_rgba(0,16,32,0.12)]"
               >
                 <h2 className="text-xl font-bold text-[var(--brand-ink)] mb-4">Status Breakdown</h2>
                 <div className="flex flex-wrap gap-3">
@@ -151,7 +151,7 @@ export function AdminDashboardPage() {
               <Reveal
                 delay={0}
                 speed="fast"
-                className="bg-white border border-black/10 rounded-2xl p-6 overflow-x-auto shadow-[0_18px_40px_rgba(11,16,32,0.12)]"
+                className="bg-white border border-black/10 rounded-2xl p-6 overflow-x-auto shadow-[0_18px_40px_rgba(0,16,32,0.12)]"
               >
                 <h2 className="text-xl font-bold text-[var(--brand-ink)] mb-4">Latest Applications</h2>
                 <table className="min-w-full text-sm">
@@ -190,7 +190,7 @@ export function AdminDashboardPage() {
               <Reveal
                 delay={0}
                 speed="fast"
-                className="bg-white border border-black/10 rounded-2xl p-6 overflow-x-auto shadow-[0_18px_40px_rgba(11,16,32,0.12)]"
+                className="bg-white border border-black/10 rounded-2xl p-6 overflow-x-auto shadow-[0_18px_40px_rgba(0,16,32,0.12)]"
               >
                 <h2 className="text-xl font-bold text-[var(--brand-ink)] mb-4">Recent Enquiries</h2>
                 <table className="min-w-full text-sm">
