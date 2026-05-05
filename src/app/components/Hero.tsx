@@ -9,216 +9,182 @@ const communityUrl = process.env.NEXT_PUBLIC_COMMUNITY_URL || "/contact";
 
 export function Hero() {
   return (
-    <section className="relative bg-[var(--brand-ink)] mt-20 overflow-hidden text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_15%,rgba(240,128,16,0.18),transparent_34%),linear-gradient(120deg,rgba(0,16,32,0.94),rgba(0,32,64,0.72),rgba(0,16,32,0.96))]" />
-      <div className="left-0 absolute inset-y-0 bg-[linear-gradient(90deg,rgba(0,16,32,0.92),rgba(0,16,32,0.2))] border-white/5 border-r w-1/2" />
-      <div className="relative grid lg:grid-cols-2 min-h-[640px] lg:min-h-[720px]">
-        {/* Left Side - Content */}
-        <div className="relative flex items-center px-6 py-16 lg:py-20 lg:pl-16 xl:pl-24">
-          <div className="w-full max-w-xl">
-            {/* Brand Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.9,
-                delay: 0.1,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="inline-flex items-center gap-2 bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur mb-6 px-4 py-2 border border-white/10 rounded-full"
-            >
-              <Sparkles className="w-4 h-4 text-[var(--brand-orange)]" />
-              <span className="font-semibold text-white text-sm">
-                Cohort Teaching Programme
-              </span>
-            </motion.div>
+    <section className="relative mt-20 overflow-hidden bg-[var(--brand-ink)] text-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_12%,rgba(240,128,16,0.18),transparent_34%),linear-gradient(120deg,rgba(0,16,32,1),rgba(0,32,64,0.92))]" />
+      <div className="absolute inset-x-0 bottom-0 h-28 bg-[linear-gradient(180deg,rgba(0,16,32,0),rgba(0,16,32,0.75))]" />
 
-            {/* Main Heading */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 1.0,
-                delay: 0.2,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="mb-6 font-display font-bold text-white text-5xl lg:text-6xl xl:text-7xl leading-tight"
-            >
-              <span className="block">Learn it.</span>
-              <span className="block bg-[length:200%_200%] bg-[linear-gradient(120deg,#ffffff,#f08010,#ffb061)] bg-clip-text text-transparent animate-[shimmer_6s_ease-in-out_infinite]">
-                Build it.
-              </span>
-              <span className="block">Work it.</span>
-            </motion.h1>
-
-            {/* Subheading */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 1.0,
-                delay: 0.3,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="mb-8 text-white/78 text-lg lg:text-xl leading-relaxed"
-            >
-              720Degree Innovation Hub is an AI-integrated, expert-led tech
-              academy in Abeokuta with Lagos and global online access. Build
-              real products, master the business of your craft, and graduate
-              with a portfolio that proves it.
-            </motion.p>
-
-            {/* Key Benefits - Compact */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.9,
-                delay: 0.4,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="flex flex-wrap gap-6 mb-10"
-            >
-              <div className="flex items-center gap-2">
-                <Award className="w-5 h-5 text-[var(--brand-orange)]" />
-                <span className="font-medium text-white/78 text-sm">
-                  AI-first, real projects
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-[var(--brand-orange)]" />
-                <span className="font-medium text-white/78 text-sm">
-                  Expert-led, community-driven
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Briefcase className="w-5 h-5 text-[var(--brand-orange)]" />
-                <span className="font-medium text-white/78 text-sm">
-                  Business-ready outcomes
-                </span>
-              </div>
-            </motion.div>
-
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.9,
-                delay: 0.5,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="flex sm:flex-row flex-col gap-4 mb-12"
-            >
-              <Link
-                href="/admissions#apply"
-                className="inline-flex justify-center items-center gap-2 bg-[var(--brand-orange)] hover:bg-[var(--brand-orange-strong)] shadow-[0_18px_45px_rgba(240,128,16,0.28)] px-8 py-4 rounded-xl font-semibold text-white hover:scale-105 transition-all hover:-translate-y-0.5 transform"
-              >
-                Apply for May 2026
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-
-              <a
-                href="#programs"
-                className="inline-flex justify-center items-center gap-2 bg-white/10 hover:bg-white/20 shadow-[0_12px_30px_rgba(0,0,0,0.18)] px-8 py-4 border-2 border-white/15 hover:border-white/30 rounded-xl font-semibold text-white transition-all"
-              >
-                Explore Programs
-              </a>
-
-              <a
-                href={communityUrl}
-                target={communityUrl.startsWith("http") ? "_blank" : undefined}
-                rel={communityUrl.startsWith("http") ? "noreferrer" : undefined}
-                className="inline-flex justify-center items-center gap-2 bg-transparent hover:bg-white/10 shadow-[0_14px_34px_rgba(0,0,0,0.14)] hover:shadow-[0_18px_45px_rgba(0,0,0,0.2)] px-8 py-4 border border-white/15 rounded-xl font-semibold text-white transition-all hover:-translate-y-0.5"
-              >
-                Join Our Community (Free)
-              </a>
-            </motion.div>
-
-            {/* Social Proof Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.9,
-                delay: 0.6,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="flex flex-wrap items-center gap-8 pt-6 border-white/10 border-t"
-            >
-              <div>
-                <div className="font-bold text-white text-3xl">3</div>
-                <div className="text-white/62 text-sm">Schools</div>
-              </div>
-              <div>
-                <div className="font-bold text-white text-3xl">6</div>
-                <div className="text-white/62 text-sm">Courses</div>
-              </div>
-              <div>
-                <div className="font-bold text-white text-3xl">6</div>
-                <div className="text-white/62 text-sm">Months + 3 Support</div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Right Side - Image */}
-        <div className="relative h-full min-h-[420px] overflow-hidden">
-          <div className="absolute inset-0 parallax-slow">
-            <motion.div
-              initial={{ opacity: 0, scale: 1.06 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 1.1,
-                delay: 0.2,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="w-full h-full"
-            >
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
-                alt="720Degree Innovation Hub - Tech Learning Environment"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-          </div>
-          {/* Subtle gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/20 to-[color:var(--brand-ink)]/85 pointer-events-none" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_10%,rgba(240,128,16,0.14),transparent_55%)] pointer-events-none" />
-
-          {/* Floating Badge on Image */}
+      <div className="relative mx-auto grid min-h-[calc(100vh-5rem)] max-w-7xl min-w-0 items-center gap-10 px-6 py-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14 lg:py-14">
+        <div className="min-w-0 max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="right-8 bottom-8 z-10 absolute bg-white/95 shadow-[0_20px_60px_rgba(0,16,32,0.28)] backdrop-blur-sm p-4 rounded-2xl"
+            transition={{
+              duration: 0.9,
+              delay: 0.1,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur"
           >
-            <div className="flex items-center gap-3">
-              <div className="flex justify-center items-center bg-[var(--brand-ink)] rounded-xl w-12 h-12 font-bold text-white text-lg">
-                6
-              </div>
-              <div>
-                <div className="font-bold text-foreground">Month Programme</div>
-                <div className="text-muted-foreground text-sm">
-                  + 3 months support
-                </div>
-              </div>
+            <Sparkles className="h-4 w-4 text-[var(--brand-orange)]" />
+            <span className="text-sm font-semibold text-white">
+              AI-integrated cohort academy
+            </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 1.0,
+              delay: 0.2,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="mb-5 max-w-full font-display text-4xl font-bold leading-[1.04] text-white sm:text-5xl lg:text-6xl"
+          >
+            Learn Tech Skills
+            <span className="block bg-[linear-gradient(120deg,#ffffff,#f08010,#ffb061)] bg-[length:200%_200%] bg-clip-text text-transparent animate-[shimmer_6s_ease-in-out_infinite]">
+              That Actually Work
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 1.0,
+              delay: 0.3,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="mb-7 max-w-full text-lg leading-relaxed text-white/80 lg:max-w-xl lg:text-xl"
+          >
+            Join a focused tech academy where learners collaborate on real
+            products, master AI-powered workflows, and graduate with a portfolio
+            that can stand in front of clients, employers, and founders.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.9,
+              delay: 0.4,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="mb-8 flex max-w-full flex-wrap gap-3"
+          >
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-medium text-white/80 backdrop-blur">
+              <Award className="h-4 w-4 text-[var(--brand-orange)]" />
+              AI-first real projects
+            </div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-medium text-white/80 backdrop-blur">
+              <Users className="h-4 w-4 text-[var(--brand-orange)]" />
+              Expert-led community
+            </div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-medium text-white/80 backdrop-blur">
+              <Briefcase className="h-4 w-4 text-[var(--brand-orange)]" />
+              Business-ready outcomes
             </div>
           </motion.div>
 
-          {/* Cohort Badge on Image */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="top-6 right-8 z-10 absolute bg-[var(--brand-orange)] shadow-[0_18px_40px_rgba(240,128,16,0.35)] px-5 py-3 rounded-xl text-white"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.9,
+              delay: 0.5,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="mb-7 flex flex-col gap-4 sm:flex-row"
           >
-            <div className="font-bold">Next Cohort: May 2026</div>
-            <div className="font-semibold text-sm">
-              Abeokuta + Lagos + Online
+            <Link
+              href="/admissions#apply"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--brand-orange)] px-8 py-4 font-semibold text-white shadow-[0_18px_45px_rgba(240,128,16,0.32)] transition-all hover:-translate-y-0.5 hover:scale-105 hover:bg-[var(--brand-orange-strong)] sm:w-auto"
+            >
+              Apply for May 2026
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+
+            <a
+              href="#programs"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl border-2 border-white/15 bg-white/10 px-8 py-4 font-semibold text-white shadow-[0_12px_30px_rgba(0,0,0,0.18)] transition-all hover:border-white/30 hover:bg-white/20 sm:w-auto"
+            >
+              Explore Programs
+            </a>
+          </motion.div>
+
+          <motion.a
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.9,
+              delay: 0.58,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            href={communityUrl}
+            target={communityUrl.startsWith("http") ? "_blank" : undefined}
+            rel={communityUrl.startsWith("http") ? "noreferrer" : undefined}
+            className="inline-flex items-center gap-2 text-sm font-semibold text-white/76 transition hover:text-white"
+          >
+            Join Our Community (Free)
+            <ArrowRight className="h-4 w-4" />
+          </motion.a>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.9,
+              delay: 0.68,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="mt-8 grid w-full max-w-xl overflow-hidden rounded-2xl border border-white/10 bg-white/10 shadow-[0_24px_70px_rgba(0,0,0,0.24)] backdrop-blur sm:grid-cols-3"
+          >
+            <div className="px-5 py-4">
+              <div className="text-3xl font-bold text-white">3</div>
+              <div className="text-sm text-white/65">Schools</div>
+            </div>
+            <div className="border-t border-white/10 px-5 py-4 sm:border-l sm:border-t-0">
+              <div className="text-3xl font-bold text-white">6</div>
+              <div className="text-sm text-white/65">Courses</div>
+            </div>
+            <div className="border-t border-white/10 px-5 py-4 sm:border-l sm:border-t-0">
+              <div className="text-3xl font-bold text-white">6+3</div>
+              <div className="text-sm text-white/65">Months support</div>
             </div>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 28, scale: 0.985 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 1.0, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          className="relative min-h-[340px] min-w-0 lg:min-h-[560px]"
+        >
+          <div className="absolute -left-5 -top-5 hidden h-20 w-20 border-l-2 border-t-2 border-[var(--brand-orange)] lg:block" />
+          <div className="absolute -bottom-5 -right-5 hidden h-20 w-20 border-b-2 border-r-2 border-[var(--brand-orange)] lg:block" />
+
+          <div className="relative h-[390px] overflow-hidden rounded-2xl border border-white/12 bg-white/5 shadow-[0_35px_90px_rgba(0,0,0,0.38)] lg:h-[560px]">
+            <ImageWithFallback
+              src="/images/hero-african-laptop-learners.jpg"
+              alt="African learners smiling and collaborating around a laptop"
+              loading="eager"
+              className="h-full w-full object-cover object-[54%_center]"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_68%,rgba(0,16,32,0.42))]" />
+          </div>
+
+          <div className="absolute bottom-5 left-5 right-5 flex flex-col gap-3 rounded-2xl border border-white/12 bg-[color:var(--brand-ink)]/78 p-4 shadow-[0_18px_45px_rgba(0,0,0,0.28)] backdrop-blur sm:left-auto sm:right-5 sm:w-72">
+            <div className="inline-flex w-fit rounded-full bg-[var(--brand-orange)] px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-white">
+              Next Cohort
+            </div>
+            <div>
+              <div className="text-xl font-bold text-white">May 2026</div>
+              <div className="text-sm font-semibold text-white/70">
+                Abeokuta | Lagos | Online
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
